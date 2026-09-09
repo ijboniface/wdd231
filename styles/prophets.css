@@ -72,8 +72,11 @@ main {
 
 #cards img {
     margin-top: 0.75rem;
-    max-width: 100%;
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 340 / 440;
     height: auto;
+    object-fit: cover;
     border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
