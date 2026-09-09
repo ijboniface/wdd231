@@ -1,0 +1,339 @@
+/* =========================================================
+   Ikorodu Chamber of Commerce — base styles (mobile-first)
+   Link order: normalize.css -> small.css -> larger.css
+   ========================================================= */
+
+:root {
+  /* Color */
+  --ink: #221f1a;
+  --indigo: #16324f;
+  --indigo-deep: #0e2438;
+  --camwood: #b24e23;
+  --sand: #f6f1e7;
+  --surface: #fffdf8;
+  --gold: #b8912f;
+  --silver: #8b8d8f;
+  --line: #ddd3bd;
+
+  /* Type */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Public Sans", Arial, Helvetica, sans-serif;
+
+  /* Layout */
+  --content-max: 68rem;
+  --gap: 1.25rem;
+  --radius-control: 0.4rem;
+}
+
+html {
+  background-color: var(--sand);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-color: var(--sand);
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  color: var(--indigo-deep);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--camwood);
+  outline-offset: 2px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  background-color: var(--indigo);
+  color: var(--sand);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.85rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--sand);
+}
+
+.brand img {
+  width: 34px;
+  height: 34px;
+}
+
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background-color: var(--sand);
+  border-radius: 1px;
+}
+
+.primary-nav {
+  display: none;
+  background-color: var(--indigo-deep);
+}
+
+.primary-nav.is-open {
+  display: block;
+}
+
+.primary-nav ul {
+  display: flex;
+  flex-direction: column;
+  padding-block: 0.5rem;
+}
+
+.primary-nav a {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-top: 1px solid rgba(246, 241, 231, 0.12);
+}
+
+.primary-nav a[aria-current="page"] {
+  color: var(--camwood-light, #e2a688);
+  color: #e8b394;
+}
+
+/* ---------- Directory hero / controls ---------- */
+
+.directory-heading {
+  padding-block: 2rem 1.25rem;
+}
+
+.directory-heading h1 {
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+}
+
+.directory-heading p {
+  margin-top: 0.4rem;
+  color: #4b453b;
+  max-width: 42ch;
+}
+
+.view-toggle {
+  display: inline-flex;
+  border: 1px solid var(--indigo);
+  border-radius: var(--radius-control);
+  overflow: hidden;
+  margin-block: 1rem 1.5rem;
+}
+
+.view-toggle button {
+  padding: 0.55rem 1.2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--indigo);
+  background-color: var(--surface);
+}
+
+.view-toggle button[aria-pressed="true"] {
+  background-color: var(--indigo);
+  color: var(--sand);
+}
+
+.view-toggle button:first-child {
+  border-right: 1px solid var(--indigo);
+}
+
+/* ---------- Member cards ---------- */
+
+.directory-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+  padding-block-end: 3rem;
+}
+
+.member-card {
+  position: relative;
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.member-card .tier-flag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.25rem 0.6rem;
+  color: var(--sand);
+  background-color: var(--indigo);
+}
+
+.member-card[data-tier="3"] .tier-flag { background-color: var(--gold); color: #2b2107; }
+.member-card[data-tier="2"] .tier-flag { background-color: var(--silver); color: #232323; }
+.member-card[data-tier="1"] .tier-flag { background-color: var(--indigo); }
+
+.member-card .card-media {
+  aspect-ratio: 8 / 5;
+  background-color: var(--sand);
+  border-bottom: 1px solid var(--line);
+}
+
+.member-card .card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-card .card-body {
+  padding: 1rem 1.1rem 1.2rem;
+}
+
+.member-card h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.15rem;
+}
+
+.member-card .tagline {
+  font-size: 0.88rem;
+  color: #55503f;
+  margin-bottom: 0.7rem;
+}
+
+.member-card dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.6rem;
+  font-size: 0.88rem;
+}
+
+.member-card dt {
+  font-weight: 700;
+  color: var(--camwood);
+}
+
+.member-card dd {
+  margin: 0;
+  word-break: break-word;
+}
+
+.member-card dd a {
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 2px;
+}
+
+/* List view: compact single-column rows, no image, per assignment spec */
+
+.directory-list.is-list-view {
+  grid-template-columns: 1fr;
+}
+
+.directory-list.is-list-view .member-card {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.directory-list.is-list-view .card-media {
+  display: none;
+}
+
+.directory-list.is-list-view .card-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.2rem 1rem;
+  align-items: baseline;
+  padding-block: 0.85rem;
+}
+
+.directory-list.is-list-view dl {
+  grid-template-columns: auto 1fr auto 1fr;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background-color: var(--indigo-deep);
+  color: var(--sand);
+  border-top: 4px solid var(--camwood);
+}
+
+.site-footer .wrap {
+  padding-block: 2rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.site-footer h2 {
+  font-size: 1rem;
+  color: var(--sand);
+  margin-bottom: 0.5rem;
+}
+
+.site-footer address {
+  font-style: normal;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #d9d1bf;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 0.75rem;
+}
+
+.social-links a {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: rgba(246, 241, 231, 0.12);
+}
+
+.social-links svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--sand);
+}
+
+.dev-info {
+  font-size: 0.82rem;
+  color: #b9b09a;
+  line-height: 1.7;
+}
+
+.dev-info p {
+  margin: 0;
+}

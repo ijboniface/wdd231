@@ -1,0 +1,102 @@
+{
+  "members": [
+    {
+      "id": "ikorodu-bakehouse",
+      "name": "Ikorodu Bakehouse",
+      "tagline": "Fresh bread and pastries, baked daily",
+      "category": "Food & Beverage",
+      "address": "14 Lagos Road, Ikorodu, Lagos",
+      "phone": "+234 803 214 7756",
+      "email": "hello@ikorodubakehouse.ng",
+      "website": "https://www.ikorodubakehouse.ng",
+      "image": "ikorodu-bakehouse.svg",
+      "membershipLevel": 3,
+      "yearJoined": 2019,
+      "description": "A neighbourhood bakery supplying bread, meat pies, and celebration cakes to homes and schools across Ikorodu."
+    },
+    {
+      "id": "lagoon-adire-textiles",
+      "name": "Lagoon Adire & Textiles",
+      "tagline": "Hand-dyed adire, made in Ikorodu",
+      "category": "Fashion & Textiles",
+      "address": "8 Ita-Elewa Street, Ikorodu, Lagos",
+      "phone": "+234 807 552 9013",
+      "email": "orders@lagoonadire.com",
+      "website": "https://www.lagoonadire.com",
+      "image": "lagoon-adire-textiles.svg",
+      "membershipLevel": 2,
+      "yearJoined": 2021,
+      "description": "A textile workshop producing traditional hand-dyed adire fabric and ready-to-wear pieces for local and export markets."
+    },
+    {
+      "id": "origin-grills",
+      "name": "Origin Grills",
+      "tagline": "Suya and grills, Ikorodu style",
+      "category": "Restaurant",
+      "address": "22 Odogunyan Road, Ikorodu, Lagos",
+      "phone": "+234 802 118 4420",
+      "email": "info@origingrills.ng",
+      "website": "https://www.origingrills.ng",
+      "image": "origin-grills.svg",
+      "membershipLevel": 1,
+      "yearJoined": 2023,
+      "description": "A family-run grill house known for suya, grilled fish, and weekend catering for events across the community."
+    },
+    {
+      "id": "technest-ikorodu",
+      "name": "TechNest Ikorodu",
+      "tagline": "Coworking and tech training hub",
+      "category": "Technology",
+      "address": "3 Sabo Road, Ikorodu, Lagos",
+      "phone": "+234 809 335 6602",
+      "email": "team@technestikorodu.io",
+      "website": "https://www.technestikorodu.io",
+      "image": "technest-ikorodu.svg",
+      "membershipLevel": 3,
+      "yearJoined": 2022,
+      "description": "A coworking space and training hub offering desks, internet, and short courses in web development and digital skills."
+    },
+    {
+      "id": "brightpath-learning-centre",
+      "name": "BrightPath Learning Centre",
+      "tagline": "After-school tutoring and exam prep",
+      "category": "Education",
+      "address": "17 Benson Bus-Stop, Ikorodu, Lagos",
+      "phone": "+234 806 447 1289",
+      "email": "admissions@brightpathlc.edu.ng",
+      "website": "https://www.brightpathlc.edu.ng",
+      "image": "brightpath-learning-centre.svg",
+      "membershipLevel": 2,
+      "yearJoined": 2020,
+      "description": "A tutorial centre offering after-school lessons, WAEC and JAMB exam preparation, and holiday coding classes for teens."
+    },
+    {
+      "id": "ikorodu-ferry-logistics",
+      "name": "Ikorodu Ferry Logistics",
+      "tagline": "Waterway freight and courier services",
+      "category": "Logistics",
+      "address": "1 Ferry Terminal Road, Ikorodu, Lagos",
+      "phone": "+234 815 663 0071",
+      "email": "dispatch@ikoroduferrylogistics.com",
+      "website": "https://www.ikoroduferrylogistics.com",
+      "image": "ikorodu-ferry-logistics.svg",
+      "membershipLevel": 1,
+      "yearJoined": 2024,
+      "description": "A logistics company moving goods along the Lagos waterways, connecting Ikorodu traders to markets across the state."
+    },
+    {
+      "id": "greenleaf-pharmacy",
+      "name": "GreenLeaf Pharmacy",
+      "tagline": "Community pharmacy and wellness care",
+      "category": "Healthcare",
+      "address": "45 Ijede Road, Ikorodu, Lagos",
+      "phone": "+234 812 990 3345",
+      "email": "care@greenleafpharmacy.ng",
+      "website": "https://www.greenleafpharmacy.ng",
+      "image": "greenleaf-pharmacy.svg",
+      "membershipLevel": 2,
+      "yearJoined": 2018,
+      "description": "A licensed community pharmacy providing medication, health screenings, and wellness advice to Ikorodu families."
+    }
+  ]
+}

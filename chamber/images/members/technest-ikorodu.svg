@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="TechNest Ikorodu logo mark">
+  <rect width="320" height="200" fill="#F6ECD2"/>
+  <rect x="0" y="0" width="320" height="8" fill="#B8912F"/>
+  <circle cx="160" cy="88" r="46" fill="#B8912F"/>
+  <text x="160" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="700" fill="#F6ECD2" text-anchor="middle">TI</text>
+  <text x="160" y="168" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#B8912F" text-anchor="middle">Technology</text>
+</svg>
