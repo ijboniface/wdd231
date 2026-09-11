@@ -10,28 +10,27 @@
         content="Explore businesses and organisations that are members of the Ikorodu Chamber of Commerce.">
 
     <meta name="author" content="I.J. Boniface">
-    <a href="chamber/directory.html">Chamber</a>
 
     <!-- Facebook Open Graph Metadata -->
     <meta property="og:title" content="Business Directory | Ikorodu Chamber of Commerce">
     <meta property="og:description"
         content="Explore businesses and organisations that are members of the Ikorodu Chamber of Commerce.">
-    <meta property="og:image"
-        content="https://ijboniface.github.io/wdd231/chamber/images/ikorodu-chamber.jpg">
-    <meta property="og:url"
-        content="https://ijboniface.github.io/wdd231/chamber/directory.html">
+    <meta property="og:image" content="https://ijboniface.github.io/wdd231/chamber/images/ikorodu-chamber.jpg">
+    <meta property="og:url" content="https://ijboniface.github.io/wdd231/chamber/directory.html">
     <meta property="og:type" content="website">
 
     <title>Business Directory | Ikorodu Chamber of Commerce</title>
 
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/larger.css">
 
-    <script src="scripts/navigation.js" defer></script>
-    <script src="scripts/directory.js" defer></script>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
@@ -40,18 +39,12 @@
         <div class="header-container">
 
             <a href="index.html" class="brand">
-                <img src="images/favicon.svg"
-                    alt="Ikorodu Chamber of Commerce logo"
-                    width="55"
-                    height="55">
+                <img src="images/favicon.svg" alt="Ikorodu Chamber of Commerce logo" width="55" height="55">
 
                 <span>Ikorodu Chamber<br>of Commerce</span>
             </a>
 
-            <button id="menu-button"
-                class="menu-button"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
+            <button id="menu-button" class="menu-button" aria-label="Open navigation menu" aria-expanded="false"
                 aria-controls="navigation">
                 ☰
             </button>
@@ -63,9 +56,7 @@
                 <a href="discover.html">Discover</a>
             </nav>
 
-            <button id="theme-button"
-                class="theme-button"
-                aria-label="Toggle colour theme">
+            <button id="theme-button" class="theme-button" aria-label="Toggle colour theme">
                 ◐
             </button>
 
@@ -91,9 +82,7 @@
 
         </section>
 
-        <section id="members"
-            class="member-grid"
-            aria-label="Chamber member businesses">
+        <section id="members" class="member-grid" aria-label="Chamber member businesses">
 
             <p class="loading">Loading chamber members...</p>
 
@@ -113,9 +102,8 @@
                 <p>2 NEPA Quarters,</p>
                 <p>Ikorodu, Lagos, Nigeria</p>
                 <p>
-                  <a href="mailto:${member.email}">
-                  ${member.email}
-                </a>
+                    <a href="mailto:info@ikoroduchamber.org">
+                        info@ikoroduchamber.org
                     </a>
                 </p>
                 <p>
@@ -129,28 +117,19 @@
 
             <div class="social-links">
 
-                <a href="https://www.youtube.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="YouTube">
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
 
                     <span aria-hidden="true">▶</span>
 
                 </a>
 
-                <a href="https://twitter.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Twitter">
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
 
                     <span aria-hidden="true">♥</span>
 
                 </a>
 
-                <a href="https://www.linkedin.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
 
                     <span aria-hidden="true">in</span>
 
@@ -181,6 +160,9 @@
         </div>
 
     </footer>
+
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/directory.js" defer></script>
 
 </body>
 
