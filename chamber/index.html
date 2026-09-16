@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Welcome to the Ikorodu Chamber of Commerce. Discover local business events, current weather, and chamber member businesses in Ikorodu, Lagos.">
+
+    <meta name="author" content="I.J. Boniface">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Home | Ikorodu Chamber of Commerce">
+
+    <meta property="og:description"
+        content="Connect with businesses, discover local events, and explore opportunities through the Ikorodu Chamber of Commerce.">
+
+    <meta property="og:image" content="https://ijboniface.github.io/wdd231/chamber/images/ikorodu-chamber.jpg">
+
+    <meta property="og:url" content="https://ijboniface.github.io/wdd231/chamber/index.html">
+
+    <meta property="og:type" content="website">
+
+    <title>Home | Ikorodu Chamber of Commerce</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Existing Chamber Styles -->
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <!-- Home Page Styles -->
+    <link rel="stylesheet" href="styles/home.css">
+
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="header-container">
+
+            <a href="index.html" class="brand" aria-label="Ikorodu Chamber of Commerce home">
+
+                <img src="images/favicon.svg" alt="Ikorodu Chamber of Commerce logo" width="55" height="55">
+
+                <span>
+                    Ikorodu Chamber<br>
+                    of Commerce
+                </span>
+
+            </a>
+
+            <button id="menu-button" class="menu-button" aria-label="Open navigation menu" aria-expanded="false"
+                aria-controls="navigation">
+
+                ☰
+
+            </button>
+
+            <nav id="navigation" aria-label="Main navigation">
+
+                <a href="index.html" class="active">Home</a>
+
+                <a href="directory.html">Directory</a>
+
+                <a href="join.html">Join</a>
+
+                <a href="discover.html">Discover</a>
+
+            </nav>
+
+            <button id="theme-button" class="theme-button" aria-label="Toggle colour theme">
+
+                ◐
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero" aria-labelledby="hero-heading">
+
+            <img src="images/ikorodu-chamber.jpg" alt="Businesses and community life in Ikorodu" width="1200"
+                height="600" fetchpriority="high">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    Connect • Grow • Thrive
+                </p>
+
+                <h1 id="hero-heading">
+                    Building a stronger business community in Ikorodu
+                </h1>
+
+                <p>
+                    The Ikorodu Chamber of Commerce connects local
+                    businesses, encourages collaboration, and creates
+                    opportunities for sustainable growth.
+                </p>
+
+                <a class="cta-button" href="join.html">
+                    Join the Chamber
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- EVENTS AND WEATHER -->
+        <div class="home-grid">
+
+            <!-- EVENTS -->
+            <section class="home-card events" aria-labelledby="events-heading">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        What's happening
+                    </p>
+
+                    <h2 id="events-heading">
+                        Current Events
+                    </h2>
+
+                </div>
+
+
+                <div class="event-list">
+
+                    <article class="event">
+
+                        <div class="event-date">
+
+                            <span>18</span>
+
+                            <small>SEP</small>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Business Networking Mixer
+                            </h3>
+
+                            <p>
+                                Meet local entrepreneurs and build
+                                useful business connections.
+                            </p>
+
+                            <p>
+                                <strong>Time:</strong>
+                                5:00 PM • Chamber Hall
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="event">
+
+                        <div class="event-date">
+
+                            <span>24</span>
+
+                            <small>SEP</small>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Small Business Growth Workshop
+                            </h3>
+
+                            <p>
+                                A practical session on customer service,
+                                marketing, and business growth.
+                            </p>
+
+                            <p>
+                                <strong>Time:</strong>
+                                10:00 AM • Chamber Hall
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="event">
+
+                        <div class="event-date">
+
+                            <span>03</span>
+
+                            <small>OCT</small>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Ikorodu Business Community Forum
+                            </h3>
+
+                            <p>
+                                Share ideas and discuss opportunities
+                                that can strengthen local commerce.
+                            </p>
+
+                            <p>
+                                <strong>Time:</strong>
+                                11:00 AM • Ikorodu Civic Centre
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- WEATHER -->
+            <section class="home-card weather-card" aria-labelledby="weather-heading">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        Local conditions
+                    </p>
+
+                    <h2 id="weather-heading">
+                        Weather in Ikorodu
+                    </h2>
+
+                </div>
+
+
+                <!-- Current Weather -->
+                <div id="current-weather" class="current-weather">
+
+                    <p class="loading">
+                        Loading current weather...
+                    </p>
+
+                </div>
+
+
+                <!-- Forecast -->
+                <div class="forecast-heading">
+
+                    <h3>
+                        Three-Day Forecast
+                    </h3>
+
+                </div>
+
+
+                <div id="forecast" class="forecast" aria-live="polite">
+
+                    <p class="loading">
+                        Loading forecast...
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- BUSINESS SPOTLIGHTS -->
+        <section class="spotlights-section" aria-labelledby="spotlights-heading">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    Member businesses
+                </p>
+
+                <h2 id="spotlights-heading">
+                    Business Spotlights
+                </h2>
+
+                <p>
+                    Discover businesses helping Ikorodu's commercial
+                    community grow.
+                </p>
+
+            </div>
+
+
+            <div id="spotlights" class="spotlights" aria-live="polite">
+
+                <p class="loading">
+                    Loading member spotlights...
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="contact-information">
+
+                <h2>
+                    Ikorodu Chamber of Commerce
+                </h2>
+
+                <p>
+                    2 NEPA Quarters,
+                </p>
+
+                <p>
+                    Ikorodu, Lagos, Nigeria
+                </p>
+
+                <p>
+                    <a href="mailto:info@ikoroduchamber.org">
+                        info@ikoroduchamber.org
+                    </a>
+                </p>
+
+                <p>
+                    <a href="tel:+2348109051390">
+                        (234) 810-9051390
+                    </a>
+                </p>
+
+            </div>
+
+
+            <div class="social-links">
+
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+
+                    <span aria-hidden="true">
+                        ▶
+                    </span>
+
+                </a>
+
+
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+
+                    <span aria-hidden="true">
+                        ♥
+                    </span>
+
+                </a>
+
+
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+
+                    <span aria-hidden="true">
+                        in
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <div class="development-information">
+
+                <p>
+                    WDD 231 Class Project
+                </p>
+
+                <p>
+                    I.J. Boniface
+                </p>
+
+                <p>
+                    &copy;
+                    <span id="current-year"></span>
+                    Ikorodu Chamber of Commerce
+                </p>
+
+                <p>
+                    Last Modification:
+                    <span id="last-modified"></span>
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="scripts/navigation.js" defer></script>
+
+    <script src="scripts/home.js" defer></script>
+
+</body>
+
+</html>
