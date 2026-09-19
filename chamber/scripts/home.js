@@ -89,9 +89,8 @@ async function loadWeather() {
     */
 
     if (
-        !WEATHER_API_KEY ||
-        WEATHER_API_KEY ===
-        "8fc0bc2f48ed74e0eba330adb183708f"
+    !WEATHER_API_KEY ||
+    WEATHER_API_KEY === "YOUR_OPENWEATHERMAP_API_KEY"
     ) {
 
         currentWeather.innerHTML = `
@@ -114,12 +113,11 @@ async function loadWeather() {
 
     }
 
+const currentUrl =
+    `https://api.openweathermap.org/data/2.5/weather?lat=${WEATHER_LAT}&lon=${WEATHER_LON}&units=metric&appid=${WEATHER_API_KEY}`;
 
-    const currentUrl =
-        `https://api.openweathermap.org/data/2.5/weather?lat=${WEATHER_LAT}&lon=${WEATHER_LON}&units=metric&appid='8fc0bc2f48ed74e0eba330adb183708f';
-
-    const forecastUrl =
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${WEATHER_LAT}&lon=${WEATHER_LON}&units=metric&appid='8fc0bc2f48ed74e0eba330adb183708f';
+const forecastUrl =
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${WEATHER_LAT}&lon=${WEATHER_LON}&units=metric&appid=${WEATHER_API_KEY}`;
 
 
     try {
@@ -533,119 +531,53 @@ async function loadSpotlights() {
 /* =========================================
    CREATE SPOTLIGHT CARD
    ========================================= */
-
 function createSpotlightCard(member) {
 
-    const name =
-        member.name ??
-        member.companyName ??
-        "Chamber Member";
+    const name = member.name ?? member.companyName ?? "Chamber Member";
+    const phone = member.phone ?? "Phone information unavailable";
+    const address = member.address ?? "Address information unavailable";
+    const website = member.website ?? member.url ?? "#";
 
+    /* Build the logo path: add "images/" if only a filename was given */
+    const logoFile = member.image ?? member.logo ?? "favicon.svg";
+    const logoSrc = logoFile.includes("/") ? logoFile : `images/${logoFile}`;
 
-    const logo =
-        member.image ??
-        member.logo ??
-        "images/favicon.svg";
-
-
-    const phone =
-        member.phone ??
-        "Phone information unavailable";
-
-
-    const address =
-        member.address ??
-        "Address information unavailable";
-
-
-    const website =
-        member.website ??
-        member.url ??
-        "#";
-
-
-    const rawLevel =
-        String(
-            member.membershipLevel ??
-            member.membership ??
-            member.level ??
-            ""
-        ).toLowerCase();
-
-
-    /*
-        Support both text and numeric
-        membership levels.
-
-        2 = Silver
-        3 = Gold
-    */
+    const rawLevel = String(
+        member.membershipLevel ?? member.membership ?? member.level ?? ""
+    ).toLowerCase();
 
     const membership =
-
-        rawLevel === "3"
-            ? "Gold"
-
-            : rawLevel === "2"
-                ? "Silver"
-
-                : rawLevel.charAt(0)
-                    .toUpperCase() +
-                  rawLevel.slice(1);
-
+        rawLevel === "3" ? "Gold"
+        : rawLevel === "2" ? "Silver"
+        : rawLevel.charAt(0).toUpperCase() + rawLevel.slice(1);
 
     return `
-
         <article class="spotlight">
 
             <img
                 class="spotlight-logo"
-                src="${logo}"
+                src="${logoSrc}"
                 alt="${name} logo"
                 width="100"
                 height="80"
                 loading="lazy"
+                onerror="this.onerror=null; this.src='images/favicon.svg';"
             >
 
+            <h3>${name}</h3>
 
-            <h3>
-                ${name}
-            </h3>
-
-
-            <span class="membership-level">
-
-                ${membership} Member
-
-            </span>
-
+            <span class="membership-level">${membership} Member</span>
 
             <div class="spotlight-details">
-
-                <span>
-                    ${phone}
-                </span>
-
-
-                <span>
-                    ${address}
-                </span>
-
-
-                <a
-                    href="${website}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <span>${phone}</span>
+                <span>${address}</span>
+                <a href="${website}" target="_blank" rel="noopener noreferrer">
                     Visit website
                 </a>
-
             </div>
 
         </article>
-
     `;
-
 }
 
 
