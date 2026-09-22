@@ -86,6 +86,8 @@ const allButton = document.querySelector("#all-courses");
 const wddButton = document.querySelector("#wdd-courses");
 const cseButton = document.querySelector("#cse-courses");
 
+const courseDetails = document.querySelector("#course-details");
+
 
 function displayCourses(courseArray) {
 
@@ -112,6 +114,10 @@ function displayCourses(courseArray) {
             }
         `;
 
+        card.addEventListener("click", () => {
+            displayCourseDetails(course);
+        });
+
         courseList.appendChild(card);
     });
 
@@ -123,6 +129,39 @@ function displayCourses(courseArray) {
 
     totalCredits.textContent = credits;
 }
+
+
+function displayCourseDetails(course) {
+
+    courseDetails.innerHTML = "";
+
+    courseDetails.innerHTML = `
+        <button id="closeModal" aria-label="Close course details">❌</button>
+        <h2>${course.subject} ${course.number}</h2>
+        <h3>${course.title}</h3>
+        <p><strong>Credits</strong>: ${course.credits}</p>
+        <p><strong>Certificate</strong>: ${course.certificate}</p>
+        <p>${course.description}</p>
+        <p><strong>Technologies</strong>: ${course.technology.join(", ")}</p>
+    `;
+
+    courseDetails.showModal();
+
+    const closeModal = document.querySelector("#closeModal");
+
+    closeModal.addEventListener("click", () => {
+        courseDetails.close();
+    });
+}
+
+
+// A click lands on the dialog itself (not a child) only when it hits the
+// backdrop area, since the visible content doesn't cover the whole box.
+courseDetails.addEventListener("click", (event) => {
+    if (event.target === courseDetails) {
+        courseDetails.close();
+    }
+});
 
 
 function setActiveButton(activeButton) {
