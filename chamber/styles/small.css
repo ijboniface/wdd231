@@ -364,3 +364,25 @@ footer {
 .dark-mode .theme-button {
   color: white;
 }
+
+/* =========================
+   JOIN PAGE - LARGE SCREEN
+========================= */
+
+.join-layout {
+  grid-template-columns: 2fr 1fr;
+  align-items: start;
+  gap: 1.5rem;
+}
+
+.join-form-section {
+  grid-column: 1;
+}
+
+.membership-levels {
+  grid-column: 2;
+}
+
+.membership-card {
+  margin: 1rem;
+}
