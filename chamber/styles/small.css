@@ -366,23 +366,15 @@ footer {
 }
 
 /* =========================
-   JOIN PAGE - LARGE SCREEN
+   JOIN PAGE - SMALL SCREEN (BASE)
 ========================= */
 
 .join-layout {
-  grid-template-columns: 2fr 1fr;
-  align-items: start;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
-.join-form-section {
-  grid-column: 1;
-}
-
-.membership-levels {
-  grid-column: 2;
-}
-
 .membership-card {
-  margin: 1rem;
+  margin: 1rem 0;
 }

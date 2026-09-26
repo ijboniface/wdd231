@@ -134,26 +134,20 @@
   .development-information {
     text-align: left;
   }
-}
 
-/* =========================
-   JOIN PAGE - LARGE SCREEN
-========================= */
 
-.join-layout {
-  grid-template-columns: 2fr 1fr;
-  align-items: start;
-  gap: 1.5rem;
-}
+  /* JOIN PAGE - LARGE SCREEN */
 
-.join-form-section {
-  grid-column: 1;
-}
+  .join-layout {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
 
-.membership-levels {
-  grid-column: 2;
-}
+  .join-form-section {
+    grid-column: 1;
+  }
 
-.membership-card {
-  margin: 1rem;
+  .membership-levels {
+    grid-column: 2;
+  }
 }
