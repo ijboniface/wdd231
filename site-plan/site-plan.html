@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site plan for the African Film Directory website project.">
+  <meta name="author" content="I.J. Boniface">
+  <title>African Film Directory | Site Plan</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
+
+    :root {
+      --charcoal: #1F2933;
+      --amber: #D99A2B;
+      --ivory: #FFF8E7;
+      --white: #FFFFFF;
+      --border: #D8D0BF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Open Sans", sans-serif;
+      line-height: 1.6;
+      color: var(--charcoal);
+      background: var(--ivory);
+    }
+
+    .container {
+      width: min(92%, 1000px);
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--charcoal);
+      color: var(--ivory);
+      border-bottom: 6px solid var(--amber);
+      padding: 2.5rem 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .tagline {
+      margin: 0.5rem 0 0;
+      color: var(--amber);
+      font-weight: 600;
+    }
+
+    main {
+      padding: 2rem 0 3rem;
+    }
+
+    section {
+      background: var(--white);
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-left: 6px solid var(--amber);
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: var(--charcoal);
+      margin-top: 0;
+      border-bottom: 2px solid var(--amber);
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      color: var(--charcoal);
+    }
+
+    li {
+      margin-bottom: 0.6rem;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .color-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--ivory);
+    }
+
+    .color-card h3,
+    .color-card p {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    .swatch {
+      height: 90px;
+    }
+
+    .color-1 {
+      background: #1F2933;
+    }
+
+    .color-2 {
+      background: #D99A2B;
+    }
+
+    .color-3 {
+      background: #FFF8E7;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .type-sample {
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 4px solid var(--amber);
+      background: var(--ivory);
+    }
+
+    .font-heading {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .font-body {
+      font-family: "Open Sans", sans-serif;
+    }
+
+    .wireframe-note {
+      background: var(--ivory);
+      border: 2px dashed var(--amber);
+      padding: 1rem;
+    }
+
+    .important {
+      font-weight: 600;
+    }
+
+    .wireframe-placeholders {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .placeholder {
+      background: var(--white);
+      text-align: center;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .placeholder h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .wireframe-image {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border: 2px solid var(--charcoal);
+      background: #ffffff;
+    }
+
+    footer {
+      background: var(--charcoal);
+      color: var(--ivory);
+      text-align: center;
+      padding: 1.5rem 0;
+      border-top: 6px solid var(--amber);
+    }
+
+    @media (max-width: 700px) {
+
+      .color-grid,
+      .wireframe-placeholders {
+        grid-template-columns: 1fr;
+      }
+
+      .wireframe-image {
+        max-width: 100%;
+      }
+
+      section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>African Film Directory</h1>
+      <p class="tagline">Individual Project Site Plan</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>1. Site Name</h2>
+      <h3>African Film Directory</h3>
+      <p>
+        The name clearly describes the purpose of the website: a directory where
+        visitors can discover and learn about films from different African
+        countries and film industries.
+      </p>
+      <p><strong>Optional domain:</strong> africanfilmdirectory.com</p>
+    </section>
+
+    <section>
+      <h2>2. Site Purpose</h2>
+      <p>
+        The African Film Directory will provide a central place for users to
+        discover and learn about selected African films and film industries.
+        Film information will include titles, countries of origin, release
+        years, genres, languages, directors, and brief descriptions.
+      </p>
+      <p>
+        The website will contain three main pages: a home page introducing
+        African cinema and highlighting selected films and film industries, a
+        films page containing a searchable and filterable collection of films,
+        and a page providing information about African film industries and
+        regions.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Scenarios</h2>
+      <ul>
+        <li>What African films can I discover from different countries and film industries?</li>
+        <li>How can I find an African film by genre, country, language, or release year?</li>
+        <li>Who directed a particular African film, and what is the film about?</li>
+        <li>What are some of the different film industries and regions represented in African cinema?</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Color Scheme</h2>
+      <p>
+        The color scheme is designed to give the site a warm, cinematic, and
+        readable appearance while maintaining sufficient contrast.
+      </p>
+      <div class="color-grid">
+        <div class="color-card">
+          <div class="swatch color-1"></div>
+          <h3>Deep Charcoal</h3>
+          <p><strong>#1F2933</strong></p>
+          <p>Used for the header, footer, major headings, and dark text areas.</p>
+        </div>
+        <div class="color-card">
+          <div class="swatch color-2"></div>
+          <h3>Golden Amber</h3>
+          <p><strong>#D99A2B</strong></p>
+          <p>Used for accents, buttons, links, borders, and highlighted elements.</p>
+        </div>
+        <div class="color-card">
+          <div class="swatch color-3"></div>
+          <h3>Warm Ivory</h3>
+          <p><strong>#FFF8E7</strong></p>
+          <p>Used as the main page background and light content areas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Typography</h2>
+      <div class="type-sample">
+        <h3 class="font-heading">Montserrat — Headings</h3>
+        <p>
+          Montserrat will be used for the main title, section headings, and
+          other prominent headings to create a clear visual hierarchy.
+        </p>
+      </div>
+      <div class="type-sample">
+        <h3 class="font-body">Open Sans — Body Text</h3>
+        <p>
+          Open Sans will be used for paragraphs, film descriptions, navigation
+          text, labels, and other general content because it is easy to read
+          across screen sizes.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. Wireframe</h2>
+      <p>
+        The wireframe must be a black-and-white sketch showing the responsive
+        home page in both a small/mobile viewport and a large desktop/tablet
+        viewport.
+      </p>
+
+      <div class="wireframe-note">
+        <h3>Required student-created wireframes</h3>
+        <ol>
+          <li><strong>Small viewport:</strong> header/navigation, introduction, featured films,
+            film-industry/region content, and footer.</li>
+          <li><strong>Large viewport:</strong> responsive navigation, introduction/hero area, featured films
+            arranged across the page, film-industry/region content, and footer.</li>
+        </ol>
+
+      </div>
+
+      <div class="wireframe-placeholders">
+        <div class="placeholder">
+          <h3>Small Viewport Sketch</h3>
+          <img class="wireframe-image" src="images/wireframe-small.png"
+            alt="Black-and-white wireframe sketch of the African Film Directory home page on a small mobile viewport">
+        </div>
+
+        <div class="placeholder">
+          <h3>Large Viewport Sketch</h3>
+          <img class="wireframe-image" src="images/wireframe-large.png"
+            alt="Black-and-white wireframe sketch of the African Film Directory home page on a large desktop viewport">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Project Page Structure</h2>
+      <ul>
+        <li><strong>Home:</strong> Introduction to African cinema, selected films, and highlighted film
+          industries.</li>
+        <li><strong>Films:</strong> Searchable and filterable collection of African films.</li>
+        <li><strong>Film Industries &amp; Regions:</strong> Information about different African film industries
+          and regions.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 African Film Directory | Individual Project Site Plan | I.J. Boniface</p>
+    </div>
+  </footer>
+</body>
+
+</html>
