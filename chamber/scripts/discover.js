@@ -58,12 +58,14 @@ function displayDiscoverItems() {
 
                 <figure>
 
-                    <img
-                        src="${item.image}"
-                        alt="${item.name}"
-                        width="300"
-                        height="200"
-                        loading="lazy">
+                    <div class="image-frame">
+                        <img
+                            src="${item.image}"
+                            alt="${item.name}"
+                            width="270"
+                            height="180"
+                            loading="lazy">
+                    </div>
 
                     <figcaption>
                         ${item.name}
