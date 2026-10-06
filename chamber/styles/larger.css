@@ -1,202 +1,64 @@
 @media screen and (min-width: 768px) {
 
-  /* HEADER */
-
-  .header-container {
-    min-height: 70px;
-  }
-
-
-  .brand img {
-    width: 50px;
-    height: 50px;
-  }
-
-
-  .menu-button {
-    display: none;
-  }
-
-
-  nav {
-    position: static;
-    display: flex;
-    background-color: transparent;
-    border: none;
-    margin-left: auto;
-  }
-
-
-  nav a {
-    padding: 0.5rem 0.8rem;
-    border: none;
-    background-color: transparent;
-  }
-
-
-  nav a:hover,
-  nav a.active {
-    background-color: transparent;
-    color: #222;
-    text-decoration: underline;
-  }
-
-
-  /* keeps active/hover links readable in dark mode */
-  .dark-mode nav a:hover,
-  .dark-mode nav a.active {
-    color: #fff;
-  }
-
-
-  .theme-button {
-    margin-left: 0.25rem;
-  }
-
-
-  /* MAIN */
-
   main {
     padding-top: 0.6rem;
   }
 
 
-  .page-heading h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+  .page-heading h1,
+  main>h1,
+  .thank-you h1 {
+    font-size: 2.25rem;
   }
 
-
-  .directory-controls {
-    margin-bottom: 1rem;
-  }
-
-
-  /* THREE-COLUMN DIRECTORY */
-
-  .member-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-
-
-  .member-card {
-    min-height: 135px;
-  }
-
-
-  .member-content {
-    min-height: 95px;
-  }
-
-
-  .member-content img {
-    width: 95px;
-    height: 75px;
-  }
-
-
-  /* LIST */
-
-  .member-list {
-    display: flex;
-    flex-direction: column;
-  }
-
-
-  .member-list .member-card {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-  }
-
-
-  .member-list .member-heading {
-    grid-column: 1 / -1;
-  }
-
-
-  .member-list .member-content {
-    grid-column: 1 / -1;
-  }
-
-
-  .member-list .member-description {
+  .menu-button {
     display: none;
   }
 
-
-  /* FOOTER */
-
-  .footer-container {
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
+  nav {
+    position: static;
+    display: flex;
+    background: none;
+    border: none;
+    margin-left: auto;
   }
 
-
-  .social-links {
-    justify-content: center;
+  nav a {
+    padding: 0.5rem 0.8rem;
+    border: none;
   }
 
-
-  .development-information {
-    text-align: left;
+  nav a:hover,
+  nav a.active {
+    background: none;
+    color: var(--text-color);
+    text-decoration: underline;
   }
 
-
-  /* JOIN PAGE - LARGE SCREEN */
-
-  main>h1 {
-    font-size: 2.25rem;
-    margin-bottom: 1.5rem;
+  .member-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
 
   .join-layout {
     grid-template-columns: 2fr 1fr;
     align-items: start;
-    gap: 2rem;
   }
 
-
-  .join-form-section {
-    grid-column: 1;
-    padding: 1.75rem;
-  }
-
-
-  .membership-levels {
-    grid-column: 2;
-  }
-
-
-  /* single-column form keeps eye tracking and tab order simple */
-  #membership-form {
-    max-width: 640px;
-  }
-
-
-  #membership-form input[type="submit"] {
+  input[type="submit"] {
     justify-self: start;
     width: auto;
     min-width: 260px;
   }
 
 
-  /* THANK YOU PAGE - LARGE SCREEN */
-
-  .thank-you {
-    padding: 2rem;
-    margin-top: 1.5rem;
-  }
-
-
-  .thank-you h1 {
-    font-size: 2.25rem;
-  }
-
-
   .application-details div {
     grid-template-columns: 220px 1fr;
     align-items: baseline;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
   }
 }
