@@ -1,3 +1,8 @@
+/* =========================
+   COLOUR VARIABLES
+   (every colour in the site lives here)
+========================= */
+
 :root {
   --primary-color: #1f3a5f;
   --secondary-color: #d9a441;
@@ -19,6 +24,7 @@
   --shadow: 0 1px 3px #0000001f;
   --shadow-lift: 0 8px 18px #0000002e;
   --backdrop: #0000008c;
+  --shade: #000000a6;
 }
 
 .dark-mode {
@@ -34,6 +40,11 @@
   --action: var(--secondary-color);
   --action-text: var(--on-accent);
 }
+
+
+/* =========================
+   BASE
+========================= */
 
 body {
   font-family: "Roboto", Arial, sans-serif;
@@ -55,6 +66,10 @@ main {
   margin: 0 auto;
   padding: 1rem 0 2rem;
   flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  align-content: start;
 }
 
 
@@ -64,9 +79,7 @@ main {
 main>h1,
 .thank-you h1 {
   font-size: 1.75rem;
-  line-height: 1.2;
   color: var(--heading);
-  margin-bottom: 1.25rem;
   padding-bottom: 0.5rem;
   border-bottom: 3px solid var(--secondary-color);
 }
@@ -76,24 +89,39 @@ main>h1,
 .join-form-section h2,
 .membership-levels h2,
 #application-information h2,
-dialog h2 {
+dialog h2,
+.section-heading h2 {
   font-size: 1.3rem;
   font-weight: 500;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
+
+/* =========================
+   SHARED PATTERNS
+========================= */
 
 /* shared card style */
 
 .member-card,
 .membership-card,
 .join-form-section,
-.thank-you {
+.thank-you,
+.home-card,
+.spotlights-section,
+.forecast-day {
   background: var(--card-color);
   border: 1px solid var(--band-border);
   border-radius: 9px;
   box-shadow: var(--shadow);
   overflow: hidden;
+}
+
+.join-form-section,
+.thank-you,
+.home-card,
+.spotlights-section {
+  padding: 1.5rem;
 }
 
 /* shared heading band */
@@ -126,6 +154,7 @@ dialog h2 {
 
 .modal-link,
 .return-home,
+.cta-button,
 input[type="submit"] {
   display: inline-block;
   padding: 0.7rem 1.4rem;
@@ -142,10 +171,20 @@ input[type="submit"] {
   color: var(--action-text);
 }
 
-:is(.modal-link, .return-home, input[type="submit"]):is(:hover, :focus-visible) {
+.cta-button {
+  background: var(--on-primary);
+  color: var(--on-accent);
+}
+
+:is(.modal-link, .return-home, .cta-button, input[type="submit"]):is(:hover, :focus-visible) {
   transform: translateY(-2px);
   filter: brightness(1.15);
 }
+
+
+/* =========================
+   HEADER AND NAVIGATION
+========================= */
 
 header {
   background: var(--band);
@@ -214,11 +253,15 @@ nav a.active {
   color: var(--on-primary);
 }
 
+
+/* =========================
+   DIRECTORY (also used by the home page spotlights)
+========================= */
+
 .directory-controls {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 .member-grid {
@@ -231,7 +274,7 @@ nav a.active {
   text-align: center;
 }
 
-.member-heading h2 {
+.member-heading :is(h2, h3) {
   font-size: 1.25rem;
   font-weight: 400;
 }
@@ -296,25 +339,31 @@ nav a.active {
   align-items: center;
 }
 
+.member-list .member-content img {
+  width: 56px;
+  height: 44px;
+}
+
 .member-list .member-description {
   display: none;
 }
 
 .loading,
 .error {
+  grid-column: 1 / -1;
   text-align: center;
   padding: 2rem;
 }
 
 
+/* =========================
+   JOIN PAGE
+========================= */
+
 .join-layout {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-}
-
-.join-form-section {
-  padding: 1.5rem;
 }
 
 #membership-form {
@@ -362,30 +411,18 @@ input[type="submit"] {
 .membership-card {
   margin-bottom: 1rem;
   padding-bottom: 0.9rem;
-  animation: card-rise 0.6s ease-out backwards;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.membership-card:nth-of-type(1) {
-  animation-delay: 0.1s;
 }
 
 .membership-card:nth-of-type(2) {
-  animation-delay: 0.25s;
+  --i: 1;
 }
 
 .membership-card:nth-of-type(3) {
-  animation-delay: 0.4s;
+  --i: 2;
 }
 
 .membership-card:nth-of-type(4) {
-  animation-delay: 0.55s;
-}
-
-.membership-card:hover,
-.membership-card:focus-within {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lift);
+  --i: 3;
 }
 
 .membership-card h3 {
@@ -410,12 +447,8 @@ input[type="submit"] {
   color: var(--on-primary);
 }
 
-@keyframes card-rise {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-}
+
+/* Membership modals */
 
 dialog {
   margin: auto;
@@ -461,11 +494,12 @@ dialog li {
 ========================= */
 
 .thank-you {
-  padding: 1.5rem;
+  width: 100%;
   max-width: 720px;
-  margin: 1rem auto;
+  margin: 0 auto;
 }
 
+.thank-you h1,
 .thank-you>p {
   margin-bottom: 1rem;
 }
@@ -494,6 +528,41 @@ dialog li {
   overflow-wrap: anywhere;
 }
 
+
+/* =========================
+   LOAD ANIMATION AND HOVER
+   Cards fade and rise in one after another (--i sets the order),
+   then lift when hovered or focused.
+========================= */
+
+.member-card,
+.membership-card {
+  animation: card-rise 0.6s ease-out backwards;
+  animation-delay: calc(var(--i, 0) * 0.12s);
+}
+
+.member-card,
+.membership-card,
+.forecast-day {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+:is(.member-card, .membership-card, .forecast-day):is(:hover, :focus-within) {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
   background: var(--footer-color);

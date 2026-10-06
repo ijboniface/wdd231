@@ -1,52 +1,66 @@
-const membersContainer = document.querySelector("#members")
-const gridButton = document.querySelector("#grid-button")
-const listButton = document.querySelector("#list-button")
-const currentYear = document.querySelector("#current-year")
-const lastModified = document.querySelector("#last-modified")
+const membersContainer = document.querySelector("#members");
+const gridButton = document.querySelector("#grid-button");
+const listButton = document.querySelector("#list-button");
+const currentYear = document.querySelector("#current-year");
+const lastModified = document.querySelector("#last-modified");
 
+
+/* Load the members with fetch and async/await */
 
 async function getMembers() {
 
     try {
 
-        const response = await fetch("data/members.json")
+        const response = await fetch("data/members.json");
 
         if (!response.ok) {
-            throw new Error(`HTTP error: ${response.status}`)
+            throw new Error(`HTTP error: ${response.status}`);
         }
 
-        const members = await response.json()
+        const data = await response.json();
 
-        displayMembers(members)
+        // accepts [ ... ] or { "members": [ ... ] }
+        const members = Array.isArray(data) ? data : data.members;
+
+        if (!Array.isArray(members)) {
+            throw new Error("Member data is not in the expected format.");
+        }
+
+        displayMembers(members);
 
     } catch (error) {
 
-        console.error("Error loading members:", error)
+        console.error("Error loading members:", error);
 
         membersContainer.innerHTML = `
             <p class="error">
                 The chamber member directory could not be loaded.
                 Please try again later.
             </p>
-        `
+        `;
     }
 }
 
 
+/* Build one card per member */
+
 function displayMembers(members) {
 
-    membersContainer.innerHTML = ""
+    membersContainer.innerHTML = "";
 
-    members.forEach(member => {
+    members.forEach((member, index) => {
 
-        const card = document.createElement("article")
+        const card = document.createElement("article");
 
-        card.classList.add("member-card")
+        card.classList.add("member-card");
+
+        // --i staggers the load animation (capped so long lists stay quick)
+        card.style.setProperty("--i", Math.min(index, 9));
 
         card.innerHTML = `
             <div class="member-heading">
                 <h2>${member.name}</h2>
-                <p>${member.tagline}</p>
+                <p>${member.tagline ?? ""}</p>
             </div>
 
             <div class="member-content">
@@ -54,9 +68,10 @@ function displayMembers(members) {
                 <img
                     src="images/${member.image}"
                     alt="${member.name} logo"
-                    width="150"
-                    height="100"
+                    width="105"
+                    height="85"
                     loading="lazy"
+                    onerror="this.onerror=null; this.src='images/favicon.svg';"
                 >
 
                 <div class="member-details">
@@ -70,7 +85,7 @@ function displayMembers(members) {
 
                     <p>
                         <strong>PHONE:</strong>
-                        <a href="tel:${member.phone}">
+                        <a href="tel:${String(member.phone).replace(/[^\d+]/g, "")}">
                             ${member.phone}
                         </a>
                     </p>
@@ -100,54 +115,66 @@ function displayMembers(members) {
             </div>
 
             <p class="member-description">
-                ${member.description}
+                ${member.description ?? ""}
             </p>
-        `
+        `;
 
-        membersContainer.appendChild(card)
-    })
+        membersContainer.appendChild(card);
+    });
 }
 
 
+/* 1 = member, 2 = silver, 3 = gold (words are accepted too) */
+
 function getMembershipLevel(level) {
 
-    switch (level) {
+    switch (String(level).toLowerCase()) {
 
-        case 3:
-            return "Gold Member"
+        case "3":
+        case "gold":
+            return "Gold Member";
 
-        case 2:
-            return "Silver Member"
+        case "2":
+        case "silver":
+            return "Silver Member";
 
         default:
-            return "Member"
+            return "Member";
     }
 }
 
 
-gridButton.addEventListener("click", () => {
+/* Grid / list toggle */
 
-    membersContainer.classList.remove("member-list")
-    membersContainer.classList.add("member-grid")
+function setView(view) {
 
-    gridButton.classList.add("active-view")
-    listButton.classList.remove("active-view")
-})
+    const isGrid = view === "grid";
 
+    membersContainer.classList.toggle("member-grid", isGrid);
+    membersContainer.classList.toggle("member-list", !isGrid);
 
-listButton.addEventListener("click", () => {
+    gridButton.classList.toggle("active-view", isGrid);
+    listButton.classList.toggle("active-view", !isGrid);
 
-    membersContainer.classList.remove("member-grid")
-    membersContainer.classList.add("member-list")
+    // lets screen readers announce which view is selected
+    gridButton.setAttribute("aria-pressed", isGrid);
+    listButton.setAttribute("aria-pressed", !isGrid);
+}
 
-    listButton.classList.add("active-view")
-    gridButton.classList.remove("active-view")
-})
-
-
-currentYear.textContent = new Date().getFullYear()
-
-lastModified.textContent = document.lastModified
+gridButton.addEventListener("click", () => setView("grid"));
+listButton.addEventListener("click", () => setView("list"));
 
 
-getMembers()
+/* Footer */
+
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+}
+
+if (lastModified) {
+    lastModified.textContent = document.lastModified;
+}
+
+
+setView("grid");
+getMembers();
