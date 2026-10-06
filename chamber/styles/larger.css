@@ -42,6 +42,13 @@
   }
 
 
+  /* keeps active/hover links readable in dark mode */
+  .dark-mode nav a:hover,
+  .dark-mode nav a.active {
+    color: #fff;
+  }
+
+
   .theme-button {
     margin-left: 0.25rem;
   }
@@ -138,16 +145,58 @@
 
   /* JOIN PAGE - LARGE SCREEN */
 
+  main>h1 {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+
   .join-layout {
     grid-template-columns: 2fr 1fr;
     align-items: start;
+    gap: 2rem;
   }
+
 
   .join-form-section {
     grid-column: 1;
+    padding: 1.75rem;
   }
+
 
   .membership-levels {
     grid-column: 2;
+  }
+
+
+  /* single-column form keeps eye tracking and tab order simple */
+  #membership-form {
+    max-width: 640px;
+  }
+
+
+  #membership-form input[type="submit"] {
+    justify-self: start;
+    width: auto;
+    min-width: 260px;
+  }
+
+
+  /* THANK YOU PAGE - LARGE SCREEN */
+
+  .thank-you {
+    padding: 2rem;
+    margin-top: 1.5rem;
+  }
+
+
+  .thank-you h1 {
+    font-size: 2.25rem;
+  }
+
+
+  .application-details div {
+    grid-template-columns: 220px 1fr;
+    align-items: baseline;
   }
 }

@@ -15,6 +15,18 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   min-height: 100vh;
+  /* keeps the footer at the bottom on short pages */
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Visible keyboard focus everywhere */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 2px;
 }
 
 
@@ -107,6 +119,7 @@ main {
   width: min(1200px, 92%);
   margin: 0 auto;
   padding: 1rem 0 2rem;
+  flex: 1;
 }
 
 
@@ -324,6 +337,349 @@ footer {
 }
 
 
+/* =========================
+   JOIN PAGE - HEADINGS
+========================= */
+
+main > h1 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  color: var(--primary-color);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--secondary-color);
+}
+
+
+.join-form-section h2,
+.membership-levels h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+
+/* =========================
+   JOIN PAGE - LAYOUT (SMALL SCREEN)
+========================= */
+
+.join-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+
+/* =========================
+   JOIN PAGE - FORM
+========================= */
+
+.join-form-section {
+  background-color: var(--card-color);
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  padding: 1.25rem;
+}
+
+
+#membership-form {
+  display: grid;
+  gap: 1rem;
+}
+
+
+#membership-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+
+#membership-form input:not([type="submit"]),
+#membership-form select,
+#membership-form textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--card-color);
+  color: var(--text-color);
+  font-weight: 400;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+#membership-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+
+#membership-form input:focus,
+#membership-form select:focus,
+#membership-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(217, 164, 65, 0.5);
+}
+
+
+#membership-form input:user-invalid,
+#membership-form select:user-invalid {
+  border-color: #b3261e;
+}
+
+
+#membership-form input[type="submit"] {
+  width: 100%;
+  padding: 0.8rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: 700;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+
+#membership-form input[type="submit"]:hover,
+#membership-form input[type="submit"]:focus-visible {
+  background-color: #14263f;
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   JOIN PAGE - MEMBERSHIP CARDS
+   (same pattern as the directory cards)
+========================= */
+
+.membership-card {
+  margin: 0 0 1rem;
+  background-color: var(--card-color);
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  padding-bottom: 0.9rem;
+
+  /* load animation: fade + rise, staggered below */
+  animation: card-rise 0.6s ease-out backwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.membership-card:nth-of-type(1) { animation-delay: 0.10s; }
+.membership-card:nth-of-type(2) { animation-delay: 0.25s; }
+.membership-card:nth-of-type(3) { animation-delay: 0.40s; }
+.membership-card:nth-of-type(4) { animation-delay: 0.55s; }
+
+
+.membership-card:hover,
+.membership-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+
+.membership-card h3 {
+  background-color: #dedede;
+  border-bottom: 1px solid #aaa;
+  padding: 0.55rem 0.8rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+
+.membership-card p {
+  padding: 0.8rem 0.8rem 0.6rem;
+  font-size: 0.9rem;
+  color: var(--muted-color);
+}
+
+
+.modal-link {
+  display: inline-block;
+  margin: 0 0.8rem;
+  padding: 0.45rem 1rem;
+  background-color: var(--secondary-color);
+  color: #222;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+
+.modal-link:hover,
+.modal-link:focus-visible {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================
+   JOIN PAGE - MODALS
+========================= */
+
+dialog {
+  margin: auto; /* reset.css removes the default centering */
+  width: min(90%, 480px);
+  padding: 1.25rem;
+  border: none;
+  border-radius: 9px;
+  background-color: var(--card-color);
+  color: var(--text-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+dialog[open] {
+  animation: card-rise 0.3s ease-out;
+}
+
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+
+dialog h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--secondary-color);
+}
+
+
+dialog ul {
+  padding-left: 1.25rem; /* reset.css zeroes this, which pushes bullets outside */
+}
+
+
+dialog li {
+  margin-bottom: 0.5rem;
+}
+
+
+.close-modal {
+  display: block;
+  margin: 0 0 0.75rem auto;
+  padding: 0.4rem 1rem;
+  border: 1px solid #888;
+  border-radius: 6px;
+  background-color: #ddd;
+  color: #222;
+  transition: background-color 0.2s ease;
+}
+
+
+.close-modal:hover {
+  background-color: #bbb;
+}
+
+
+/* =========================
+   THANK YOU PAGE
+========================= */
+
+.thank-you {
+  background-color: var(--card-color);
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  padding: 1.25rem;
+  max-width: 720px;
+  margin: 1rem auto;
+}
+
+
+.thank-you h1 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--secondary-color);
+}
+
+
+.thank-you > p {
+  margin-bottom: 1rem;
+}
+
+
+#application-information h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+
+.application-details {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+
+.application-details div {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.6rem 0.8rem;
+  background-color: var(--background-color);
+  border-left: 4px solid var(--secondary-color);
+  border-radius: 6px;
+}
+
+
+.application-details dt {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--muted-color);
+}
+
+
+.application-details dd {
+  overflow-wrap: anywhere;
+}
+
+
+.return-home {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+
+.return-home:hover,
+.return-home:focus-visible {
+  background-color: #14263f;
+  transform: translateY(-2px);
+}
+
+
 /* DARK MODE */
 
 .dark-mode {
@@ -365,16 +721,73 @@ footer {
   color: white;
 }
 
-/* =========================
-   JOIN PAGE - SMALL SCREEN (BASE)
-========================= */
 
-.join-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+/* DARK MODE - JOIN AND THANK YOU PAGES */
+
+.dark-mode main > h1,
+.dark-mode .thank-you h1 {
+  color: #fff;
 }
 
-.membership-card {
-  margin: 1rem 0;
+
+.dark-mode .join-form-section,
+.dark-mode .membership-card,
+.dark-mode .thank-you {
+  border-color: #555;
+}
+
+
+.dark-mode .membership-card h3 {
+  background-color: #333;
+  border-bottom-color: #555;
+}
+
+
+.dark-mode #membership-form input[type="submit"],
+.dark-mode .return-home {
+  background-color: var(--secondary-color);
+  color: #222;
+}
+
+
+.dark-mode #membership-form input[type="submit"]:hover,
+.dark-mode #membership-form input[type="submit"]:focus-visible,
+.dark-mode .return-home:hover,
+.dark-mode .return-home:focus-visible {
+  background-color: #f0c065;
+}
+
+
+.dark-mode .close-modal {
+  background-color: #444;
+  border-color: #666;
+  color: #fff;
+}
+
+
+.dark-mode .close-modal:hover {
+  background-color: #555;
+}
+
+
+.dark-mode .application-details div {
+  background-color: #292929;
+}
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .membership-card,
+  dialog[open] {
+    animation: none;
+  }
+
+  .membership-card,
+  .modal-link,
+  .return-home,
+  #membership-form input[type="submit"] {
+    transition: none;
+  }
 }
