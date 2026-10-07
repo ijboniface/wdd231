@@ -12,10 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-/* =========================================
-   CARDS
-   ========================================= */
-
 function displayDiscoverItems() {
 
     const container = document.querySelector("#discover-grid");
@@ -60,8 +56,8 @@ function displayDiscoverItems() {
             <button
                 type="button"
                 class="learn-more"
-                aria-expanded="false"
-                aria-label="Learn more about ${item.name}"
+                data-url="${item.url}"
+                aria-label="Learn more about ${item.name} (opens in a new tab)"
             >
                 Learn More
             </button>
@@ -74,27 +70,18 @@ function displayDiscoverItems() {
 }
 
 
+/* "Learn More" opens the page about the place in a new tab */
+
 function setupLearnMoreButtons() {
 
     document.querySelectorAll(".learn-more").forEach((button) => {
 
         button.addEventListener("click", () => {
 
-            const card = button.closest(".discover-card");
-
-            const isExpanded = card.classList.toggle("expanded");
-
-            button.setAttribute("aria-expanded", isExpanded);
-
-            button.textContent = isExpanded ? "Show Less" : "Learn More";
+            window.open(button.dataset.url, "_blank", "noopener,noreferrer");
         });
     });
 }
-
-
-/* =========================================
-   VISITOR MESSAGE (localStorage)
-   ========================================= */
 
 function displayVisitorMessage() {
 
@@ -143,9 +130,6 @@ function displayVisitorMessage() {
 }
 
 
-/* =========================================
-   FOOTER
-   ========================================= */
 
 function setFooterInformation() {
 

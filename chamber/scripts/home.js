@@ -1,7 +1,3 @@
-/* =========================================
-   CHAMBER HOME PAGE JAVASCRIPT
-   ========================================= */
-
 /* OpenWeatherMap settings (Ikorodu) */
 
 const WEATHER_API_KEY = "8fc0bc2f48ed74e0eba330adb183708f";
@@ -17,10 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadSpotlights();
 });
-
-/* =========================================
-   FOOTER
-   ========================================= */
 
 function setFooterInformation() {
   const currentYear = document.querySelector("#current-year");
@@ -58,10 +50,6 @@ function setEventDates() {
     box.innerHTML = `<span>${day}</span><small>${month}</small>`;
   });
 }
-
-/* =========================================
-   WEATHER
-   ========================================= */
 
 async function loadWeather() {
   const currentWeather = document.querySelector("#current-weather");
@@ -320,8 +308,6 @@ function createSpotlightCard(member, index) {
         </article>
     `;
 }
-
-/* Fisher-Yates shuffle */
 
 function shuffle(array) {
   for (let index = array.length - 1; index > 0; index--) {

@@ -63,7 +63,6 @@ addDetail("Application Submitted", formattedTimestamp);
 submittedInformation.replaceChildren(details);
 
 
-// Footer year
 const currentYear = document.querySelector("#current-year");
 
 if (currentYear) {

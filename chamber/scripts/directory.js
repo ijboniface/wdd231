@@ -42,8 +42,6 @@ async function getMembers() {
 }
 
 
-/* Build one card per member */
-
 function displayMembers(members) {
 
     membersContainer.innerHTML = "";
@@ -143,9 +141,6 @@ function getMembershipLevel(level) {
     }
 }
 
-
-/* Grid / list toggle */
-
 function setView(view) {
 
     const isGrid = view === "grid";
@@ -164,8 +159,6 @@ function setView(view) {
 gridButton.addEventListener("click", () => setView("grid"));
 listButton.addEventListener("click", () => setView("list"));
 
-
-/* Footer */
 
 if (currentYear) {
     currentYear.textContent = new Date().getFullYear();

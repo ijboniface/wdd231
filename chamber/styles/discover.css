@@ -1,11 +1,3 @@
-/* =========================================
-   DISCOVER PAGE
-   Colours, cards, buttons and the load animation come from small.css.
-   This file only adds the named-grid-area layout, the visitor
-   message and the image hover effect.
-   ========================================= */
-
-
 .discover-heading p:last-child {
     max-width: 60ch;
 }
@@ -16,10 +8,7 @@
     border-left: 4px solid var(--secondary-color);
     border-radius: 6px;
     font-weight: 500;
-}
 
-
-/* SMALL SCREENS (320px to 640px): one card per row */
 
 .discover-grid {
     display: grid;
@@ -36,9 +25,6 @@
     gap: 1.25rem;
 }
 
-
-/* CARDS */
-
 .discover-card {
     display: flex;
     flex-direction: column;
@@ -47,43 +33,46 @@
 }
 
 .discover-card h2 {
+    grid-area: title;
     font-size: 1.25rem;
 }
 
+.discover-card figure {
+    grid-area: media;
+    display: flex;
+    flex: 1;
+    min-height: 200px;
+}
+
 .discover-card address {
+    grid-area: address;
     color: var(--muted-color);
 }
 
-/* the description is trimmed to three lines until "Learn More" is pressed */
 .discover-card p {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-}
-
-.discover-card.expanded p {
-    -webkit-line-clamp: unset;
+    grid-area: text;
 }
 
 .learn-more {
-    margin-top: auto;
+    grid-area: action;
     align-self: flex-start;
+    margin-top: auto;
 }
 
 .image-frame {
+    flex: 1;
     overflow: hidden;
     border-radius: 6px;
 }
 
 .image-frame img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
 }
 
 
-/* MEDIUM SCREENS (641px to 1024px): two columns, some cards wider */
+/* MEDIUM SCREENS (641px to 1024px): two columns with full-width feature cards */
 
 @media (min-width: 641px) {
 
@@ -92,9 +81,27 @@
         grid-template-areas:
             "card-1 card-1"
             "card-2 card-3"
-            "card-4 card-5"
-            "card-6 card-6"
-            "card-7 card-8";
+            "card-4 card-4"
+            "card-5 card-6"
+            "card-7 card-7"
+            "card-8 card-8";
+    }
+
+    /* feature cards: picture on the left, text on the right */
+    .discover-card:is(:nth-child(1), :nth-child(4), :nth-child(7), :nth-child(8)) {
+        display: grid;
+        grid-template-columns: 5fr 6fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "media title"
+            "media address"
+            "media text"
+            "media action";
+        column-gap: 1rem;
+    }
+
+    .discover-card:is(:nth-child(1), :nth-child(4), :nth-child(7), :nth-child(8)) .learn-more {
+        justify-self: start;
     }
 
     /* hover effect: not applied on small (mobile) screens */
@@ -109,15 +116,13 @@
 }
 
 
-/* LARGE SCREENS (1025px and above): four columns, tall and wide cards */
-
 @media (min-width: 1025px) {
 
     .discover-grid {
         grid-template-columns: repeat(4, 1fr);
         grid-template-areas:
             "card-1 card-1 card-2 card-3"
-            "card-4 card-5 card-5 card-3"
-            "card-4 card-6 card-7 card-8";
+            "card-4 card-4 card-5 card-6"
+            "card-7 card-7 card-8 card-8";
     }
 }

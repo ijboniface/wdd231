@@ -5,12 +5,6 @@ const themeButton = document.querySelector("#theme-button");
 const THEME_KEY = "chamber-theme";
 
 
-/* =========================================
-   CURRENT PAGE
-   Highlights the tab for the page you are on
-   (the thank-you page counts as "Join").
-   ========================================= */
-
 function markCurrentPage() {
 
     let page = window.location.pathname.split("/").pop() || "index.html";
@@ -38,10 +32,6 @@ function markCurrentPage() {
 }
 
 
-/* =========================================
-   MOBILE MENU
-   ========================================= */
-
 function setMenu(isOpen) {
 
     navigation.classList.toggle("open", isOpen);
@@ -54,10 +44,6 @@ function setMenu(isOpen) {
     );
 }
 
-
-/* =========================================
-   THEME (remembered on every page)
-   ========================================= */
 
 function setTheme(isDark) {
 
@@ -87,10 +73,6 @@ function getSavedTheme() {
     }
 }
 
-
-/* =========================================
-   START
-   ========================================= */
 
 if (navigation) {
 
