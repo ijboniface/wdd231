@@ -1,296 +1,162 @@
-import { discoverItems }
-    from "../data/discover.mjs";
+import { discoverItems } from "../data/discover.mjs";
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
 
-        displayDiscoverItems();
+document.addEventListener("DOMContentLoaded", () => {
 
-        displayVisitorMessage();
+    displayDiscoverItems();
 
-        setFooterInformation();
+    displayVisitorMessage();
 
-    }
-);
+    setFooterInformation();
 
+});
+
+
+/* =========================================
+   CARDS
+   ========================================= */
 
 function displayDiscoverItems() {
 
-    const container =
-        document.querySelector(
-            "#discover-grid"
-        );
-
+    const container = document.querySelector("#discover-grid");
 
     if (!container) {
         return;
     }
 
-
     container.innerHTML = "";
 
+    discoverItems.forEach((item, index) => {
 
-    discoverItems.forEach(
-        (item) => {
+        const card = document.createElement("article");
 
-            const card =
-                document.createElement(
-                    "article"
-                );
+        card.classList.add("discover-card");
 
+        // the named grid area for this card (see discover.css)
+        card.style.gridArea = `card-${item.id}`;
 
-            card.classList.add(
-                "discover-card"
-            );
+        // staggers the load animation
+        card.style.setProperty("--i", index);
 
+        card.innerHTML = `
+            <h2>${item.name}</h2>
 
-            card.dataset.area =
-                `card-${item.id}`;
+            <figure>
+                <div class="image-frame">
+                    <img
+                        src="${item.image}"
+                        alt="${item.alt ?? `Photo of ${item.name}, Ikorodu`}"
+                        width="300"
+                        height="200"
+                        loading="lazy"
+                    >
+                </div>
+            </figure>
 
+            <address>${item.address}</address>
 
-            card.innerHTML = `
+            <p>${item.description}</p>
 
-                <h2>
-                    ${item.name}
-                </h2>
+            <button
+                type="button"
+                class="learn-more"
+                aria-expanded="false"
+                aria-label="Learn more about ${item.name}"
+            >
+                Learn More
+            </button>
+        `;
 
-
-                <figure>
-
-                    <div class="image-frame">
-                        <img
-                            src="${item.image}"
-                            alt="${item.name}"
-                            width="270"
-                            height="180"
-                            loading="lazy">
-                    </div>
-
-                    <figcaption>
-                        ${item.name}
-                    </figcaption>
-
-                </figure>
-
-
-                <address>
-                    ${item.address}
-                </address>
-
-
-                <p>
-                    ${item.description}
-                </p>
-
-
-                <button
-                    type="button"
-                    class="learn-more"
-                    aria-label="Learn more about ${item.name}"
-                    data-id="${item.id}">
-
-                    Learn More
-
-                </button>
-
-            `;
-
-
-            container.appendChild(
-                card
-            );
-
-        }
-    );
-
+        container.appendChild(card);
+    });
 
     setupLearnMoreButtons();
-
 }
 
 
 function setupLearnMoreButtons() {
 
-    const buttons =
-        document.querySelectorAll(
-            ".learn-more"
-        );
+    document.querySelectorAll(".learn-more").forEach((button) => {
 
+        button.addEventListener("click", () => {
 
-    buttons.forEach(
-        (button) => {
+            const card = button.closest(".discover-card");
 
-            button.addEventListener(
-                "click",
-                () => {
+            const isExpanded = card.classList.toggle("expanded");
 
-                    const card =
-                        button.closest(
-                            ".discover-card"
-                        );
+            button.setAttribute("aria-expanded", isExpanded);
 
-
-                    if (!card) {
-                        return;
-                    }
-
-
-                    card.classList.toggle(
-                        "expanded"
-                    );
-
-
-                    if (
-                        card.classList.contains(
-                            "expanded"
-                        )
-                    ) {
-
-                        button.textContent =
-                            "Show Less";
-
-                    } else {
-
-                        button.textContent =
-                            "Learn More";
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
+            button.textContent = isExpanded ? "Show Less" : "Learn More";
+        });
+    });
 }
+
+
+/* =========================================
+   VISITOR MESSAGE (localStorage)
+   ========================================= */
 
 function displayVisitorMessage() {
 
-    const messageElement =
-        document.querySelector(
-            "#visitor-message"
-        );
-
+    const messageElement = document.querySelector("#visitor-message");
 
     if (!messageElement) {
         return;
     }
 
+    const storageKey = "ikorodu-discover-last-visit";
+    const millisecondsInDay = 1000 * 60 * 60 * 24;
+    const currentTime = Date.now();
 
-    const storageKey =
-        "ikorodu-discover-last-visit";
+    // storage can be blocked (private browsing), so every access is guarded
+    let previousTime = null;
 
-
-    const currentTime =
-        Date.now();
-
-
-    const previousVisit =
-        localStorage.getItem(
-            storageKey
-        );
-
-
-    let message;
-
-
-    if (!previousVisit) {
-
-        message =
-            "Welcome! Let us know if you have any questions.";
-
+    try {
+        previousTime = Number(localStorage.getItem(storageKey)) || null;
+    } catch (error) {
+        previousTime = null;
     }
 
+    let message = "Welcome! Let us know if you have any questions.";
 
-    else {
+    if (previousTime) {
 
-        const previousTime =
-            Number(previousVisit);
-
-
-        const difference =
-            currentTime - previousTime;
-
-
-        const millisecondsInDay =
-            1000 *
-            60 *
-            60 *
-            24;
-
-
-        const days =
-            Math.floor(
-                difference /
-                millisecondsInDay
-            );
-
+        const days = Math.floor((currentTime - previousTime) / millisecondsInDay);
 
         if (days < 1) {
-
-            message =
-                "Back so soon! Awesome!";
-
-        } else if (days === 1) {
-
-            message =
-                "You last visited 1 day ago.";
-
+            message = "Back so soon! Awesome!";
         } else {
-
-            message =
-                `You last visited ${days} days ago.`;
-
+            message = `You last visited ${days} ${days === 1 ? "day" : "days"} ago.`;
         }
-
     }
 
+    messageElement.textContent = message;
 
-    messageElement.textContent =
-        message;
+    messageElement.classList.add("show");
 
-
-    /*
-        Save the current visit after
-        calculating the previous visit.
-    */
-
-    localStorage.setItem(
-        storageKey,
-        currentTime.toString()
-    );
-
+    // save this visit only after the previous one has been read
+    try {
+        localStorage.setItem(storageKey, String(currentTime));
+    } catch (error) {
+        // nothing to do: the message above is still correct for this visit
+    }
 }
 
 
+/* =========================================
+   FOOTER
+   ========================================= */
+
 function setFooterInformation() {
 
-    const currentYear =
-        document.querySelector(
-            "#current-year"
-        );
-
-
-    const lastModified =
-        document.querySelector(
-            "#last-modified"
-        );
-
+    const currentYear = document.querySelector("#current-year");
+    const lastModified = document.querySelector("#last-modified");
 
     if (currentYear) {
-
-        currentYear.textContent =
-            new Date().getFullYear();
-
+        currentYear.textContent = new Date().getFullYear();
     }
-
 
     if (lastModified) {
-
-        lastModified.textContent =
-            document.lastModified;
-
+        lastModified.textContent = document.lastModified;
     }
-
 }

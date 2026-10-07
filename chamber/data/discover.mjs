@@ -3,7 +3,7 @@ const discoverItems = [
         id: 1,
         name: "Palace of the Ayangburen",
         address: "Ikorodu Central, Ikorodu, Lagos State, Nigeria",
-        image: "images/ayangburen-palace.jpg",
+        image: "images/ayangburen-palace.webp",
         description:
             "The Palace of the Ayangburen is the traditional seat of the Ayangburen of Ikorodu and an important part of the area's royal and cultural heritage."
     },
@@ -12,7 +12,7 @@ const discoverItems = [
         id: 2,
         name: "Ikorodu Oga Statue",
         address: "Ikorodu Garage Roundabout, Ikorodu, Lagos State, Nigeria",
-        image: "images/ikorodu-oga-statue.jpg",
+        image: "images/ikorodu-oga-statue.webp",
         description:
             "The Ikorodu Oga Statue is a landmark in central Ikorodu that commemorates the history and identity of the community and its founder."
     },
@@ -39,7 +39,7 @@ const discoverItems = [
         id: 5,
         name: "Cradoo Lake Waterfront",
         address: "Ipakodo, Ikorodu, Lagos State, Nigeria",
-        image: "images/cradoo-lake.jpg",
+        image: "images/cradoo-lake.webp",
         description:
             "Cradoo Lake Waterfront is one of the waterfront features associated with the Ikorodu area and provides an opportunity to experience the community's relationship with its waterways."
     },
@@ -66,7 +66,7 @@ const discoverItems = [
         id: 8,
         name: "Ikorodu Ferry Terminal",
         address: "Ipakodo, Ikorodu, Lagos State, Nigeria",
-        image: "images/ikorodu-ferry-terminal.jpg",
+        image: "images/ikorodu-ferry-terminal.webp",
         description:
             "The Ikorodu Ferry Terminal connects the community with other parts of Lagos by water and provides an important transportation link for residents, workers, and visitors."
     }

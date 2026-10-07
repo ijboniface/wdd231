@@ -77,11 +77,18 @@ main {
 
 .page-heading h1,
 main>h1,
-.thank-you h1 {
+.thank-you h1,
+.discover-heading h1 {
   font-size: 1.75rem;
   color: var(--heading);
   padding-bottom: 0.5rem;
   border-bottom: 3px solid var(--secondary-color);
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 /* Section headings */
@@ -109,7 +116,8 @@ dialog h2,
 .thank-you,
 .home-card,
 .spotlights-section,
-.forecast-day {
+.forecast-day,
+.discover-card {
   background: var(--card-color);
   border: 1px solid var(--band-border);
   border-radius: 9px;
@@ -155,6 +163,7 @@ dialog h2,
 .modal-link,
 .return-home,
 .cta-button,
+.learn-more,
 input[type="submit"] {
   display: inline-block;
   padding: 0.7rem 1.4rem;
@@ -166,6 +175,7 @@ input[type="submit"] {
 }
 
 .return-home,
+.learn-more,
 input[type="submit"] {
   background: var(--action);
   color: var(--action-text);
@@ -176,7 +186,7 @@ input[type="submit"] {
   color: var(--on-accent);
 }
 
-:is(.modal-link, .return-home, .cta-button, input[type="submit"]):is(:hover, :focus-visible) {
+:is(.modal-link, .return-home, .cta-button, .learn-more, input[type="submit"]):is(:hover, :focus-visible) {
   transform: translateY(-2px);
   filter: brightness(1.15);
 }
@@ -500,6 +510,7 @@ dialog li {
 }
 
 .thank-you h1,
+.discover-heading h1,
 .thank-you>p {
   margin-bottom: 1rem;
 }
@@ -536,18 +547,20 @@ dialog li {
 ========================= */
 
 .member-card,
-.membership-card {
+.membership-card,
+.discover-card {
   animation: card-rise 0.6s ease-out backwards;
   animation-delay: calc(var(--i, 0) * 0.12s);
 }
 
 .member-card,
 .membership-card,
+.discover-card,
 .forecast-day {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-:is(.member-card, .membership-card, .forecast-day):is(:hover, :focus-within) {
+:is(.member-card, .membership-card, .discover-card, .forecast-day):is(:hover, :focus-within) {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lift);
 }
