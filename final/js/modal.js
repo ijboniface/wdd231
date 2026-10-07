@@ -21,7 +21,7 @@ export function setupModal(films) {
       <p><strong>Format:</strong> ${film.format}${film.runtime ? ` · ${film.runtime}` : ""}</p>
       <p><strong>Language:</strong> ${film.language}</p>
       <div class="film-meta">${film.themes.map(theme => `<span class="tag">${theme}</span>`).join("")}</div>
-      <p class="note">Source: <a href="${film.source}" target="_blank" rel="noopener">verified film/source page</a></p>`;
+      <p class="note">Source: ${film.source ? `<a href="${film.source}" target="_blank" rel="noopener">verified film/source page</a>` : "Source link not established"}</p>`;
     dialog.showModal();
     dialog.querySelector(".modal-close").focus();
   });

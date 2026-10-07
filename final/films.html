@@ -1,92 +1,27 @@
 <!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Films | Gospelwood</title>
-    <meta name="description"
-        content="Search and filter a curated directory of African Christian and faith-inspired films.">
-    <meta name="author" content="I.J. Boniface">
-    <meta property="og:title" content="Films | Gospelwood">
-    <meta property="og:description" content="Explore African Christian cinema by country, year, genre and more.">
-    <meta property="og:type" content="website">
-    <link rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231F2933'/%3E%3Cpath d='M20 17h24v30H20z' fill='%23D99A2B'/%3E%3Cpath d='M26 23h12v18H26z' fill='%231F2933'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="css/style.css">
-    <script type="module" src="js/films.js"></script>
-</head>
-
-<body><a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-        <div class="container nav-wrap"><a class="brand" href="index.html"><span
-                    class="brand-mark">GW</span><span>African Film Directory</span></a><button class="nav-toggle"
-                aria-expanded="false" aria-controls="site-nav">Menu</button>
-            <nav id="site-nav">
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="films.html" aria-current="page">Films</a></li>
-                    <li><a href="industries.html">Industries & Regions</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <main id="main">
-        <section class="page-hero">
-            <div class="container"><span class="kicker">Gospelwood archive</span>
-                <h1>Find your next story.</h1>
-                <p>Search across countries, eras, genres, filmmakers and themes. Save films locally to build your own
-                    “My Gospelwood” list.</p>
-            </div>
-        </section>
-        <section class="section">
-            <div class="container">
-                <div class="filters">
-                    <div class="filter-grid">
-                        <div><label for="search">Search</label><input id="search" type="search"
-                                placeholder="Title, director, production…"></div>
-                        <div><label for="country">Country</label><select id="country">
-                                <option value="">All countries</option>
-                            </select></div>
-                        <div><label for="year">Year</label><select id="year">
-                                <option value="">All years</option>
-                            </select></div>
-                        <div><label for="genre">Genre</label><select id="genre">
-                                <option value="">All genres</option>
-                            </select></div>
-                        <div><label><input id="saved-only" type="checkbox"> Saved only</label></div>
-                    </div>
-                    <p id="results-status" class="note" aria-live="polite"></p>
-                </div>
-                <div id="film-grid" class="film-grid">
-                    <div class="empty">Loading films…</div>
-                </div>
-            </div>
-        </section>
-        <dialog id="film-modal" aria-labelledby="modal-title">
-            <div class="modal-inner"><button class="modal-close" type="button" aria-label="Close film story">×</button>
-                <div id="modal-content"></div>
-            </div>
-        </dialog>
-    </main>
-    <footer>
-        <div class="container footer-grid">
-            <div>
-                <h2>Gospelwood</h2>
-                <p>African Christian cinema, documented.</p>
-            </div>
-            <div>
-                <h3>Explore</h3>
-                <div class="footer-links"><a href="index.html">Home</a><a href="industries.html">Industries</a></div>
-            </div>
-            <div>
-                <h3>Project</h3>
-                <div class="footer-links"><a href="attributions.html">Attributions</a><a
-                        href="https://youtu.be/REPLACE_WITH_YOUR_VIDEO" target="_blank" rel="noopener">Video demo</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
-
-</html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Films | Gospelwood</title>
+<meta name="description" content="Search and filter a curated directory of African Christian and faith-inspired films by country, year, genre and status.">
+<meta name="author" content="I.J. Boniface">
+<meta property="og:title" content="Films | Gospelwood"><meta property="og:description" content="Explore African Christian cinema by country, year, genre and more."><meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css"><script type="module" src="js/films.js"></script>
+</head><body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">GW</span><span>African Film Directory</span></a><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav" aria-label="Primary navigation"><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="films.html" aria-current="page">Films</a></li><li><a href="industries.html">Industries &amp; Regions</a></li><li><a href="form.html">Submit a Film</a></li></ul></nav></div></header>
+<main id="main"><section class="page-hero"><div class="container"><span class="kicker">Gospelwood archive</span><h1>Find your next story.</h1><p>Search and filter the archive by film, filmmaker, country, year and genre. Save films locally to build your own “My Gospelwood” list.</p></div></section>
+<section class="section"><div class="container">
+<div class="filters" aria-label="Film directory filters"><div class="filter-grid">
+<div><label for="search">Search</label><input id="search" type="search" placeholder="Title, director, production…"></div>
+<div><label for="country">Country</label><select id="country"><option value="">All countries</option></select></div>
+<div><label for="year">Year</label><select id="year"><option value="">All years</option></select></div>
+<div><label for="genre">Genre</label><select id="genre"><option value="">All genres</option></select></div>
+<div><label for="status">Availability</label><select id="status"><option value="">All films</option><option value="Released">Released</option><option value="Upcoming">Upcoming</option></select></div>
+<div class="filter-check"><label for="saved-only"><input id="saved-only" type="checkbox"> Saved only</label></div>
+</div><p id="results-status" class="note" aria-live="polite"></p></div>
+<div id="film-grid" class="film-grid"><div class="empty">Loading films…</div></div>
+<div id="empty-state" class="empty hidden" aria-live="polite">No films match those filters. Try clearing one or more filters.</div>
+</div></section>
+<dialog id="film-modal" aria-labelledby="modal-title"><div class="modal-inner"><button class="modal-close" type="button" aria-label="Close film story">×</button><div id="modal-content"></div></div></dialog>
+</main><footer><div class="container footer-grid"><div><h2>Gospelwood</h2><p>African Christian cinema, documented.</p></div><div><h3>Explore</h3><div class="footer-links"><a href="index.html">Home</a><a href="industries.html">Industries</a><a href="form.html">Submit a film</a></div></div><div><h3>Project</h3><div class="footer-links"><a href="attributions.html">Attributions</a><a href="https://youtu.be/REPLACE_WITH_YOUR_VIDEO" target="_blank" rel="noopener">Video demo</a></div></div></div></footer>
+</body></html>
