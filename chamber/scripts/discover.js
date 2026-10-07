@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+/* =========================================
+   CARDS
+   ========================================= */
+
 function displayDiscoverItems() {
 
     const container = document.querySelector("#discover-grid");
@@ -83,6 +87,11 @@ function setupLearnMoreButtons() {
     });
 }
 
+
+/* =========================================
+   VISITOR MESSAGE (localStorage)
+   ========================================= */
+
 function displayVisitorMessage() {
 
     const messageElement = document.querySelector("#visitor-message");
@@ -130,6 +139,9 @@ function displayVisitorMessage() {
 }
 
 
+/* =========================================
+   FOOTER
+   ========================================= */
 
 function setFooterInformation() {
 

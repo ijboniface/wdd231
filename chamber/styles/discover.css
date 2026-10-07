@@ -1,3 +1,11 @@
+/* =========================================
+   DISCOVER PAGE
+   Colours, cards, buttons and the load animation come from small.css.
+   This file adds the named-grid-area layout, the visitor message
+   and the image hover effect.
+   ========================================= */
+
+
 .discover-heading p:last-child {
     max-width: 60ch;
 }
@@ -8,7 +16,10 @@
     border-left: 4px solid var(--secondary-color);
     border-radius: 6px;
     font-weight: 500;
+}
 
+
+/* SMALL SCREENS (320px to 640px): one card per row */
 
 .discover-grid {
     display: grid;
@@ -24,6 +35,10 @@
         "card-8";
     gap: 1.25rem;
 }
+
+
+/* CARD: title, picture, address, text, button.
+   The picture takes any spare height, so cards never show blank gaps. */
 
 .discover-card {
     display: flex;
@@ -115,6 +130,8 @@
     }
 }
 
+
+/* LARGE SCREENS (1025px and above): four columns, feature cards two columns wide */
 
 @media (min-width: 1025px) {
 

@@ -1,3 +1,8 @@
+/* =========================
+   COLOUR VARIABLES
+   (every colour in the site lives here)
+========================= */
+
 :root {
   --primary-color: #1f3a5f;
   --secondary-color: #d9a441;
@@ -35,6 +40,11 @@
   --action: var(--secondary-color);
   --action-text: var(--on-accent);
 }
+
+
+/* =========================
+   BASE
+========================= */
 
 body {
   font-family: "Roboto", Arial, sans-serif;
@@ -92,6 +102,11 @@ dialog h2,
   font-weight: 500;
   margin-bottom: 0.75rem;
 }
+
+
+/* =========================
+   SHARED PATTERNS
+========================= */
 
 /* shared card style */
 
@@ -177,6 +192,10 @@ input[type="submit"] {
 }
 
 
+/* =========================
+   HEADER AND NAVIGATION
+========================= */
+
 header {
   background: var(--band);
   border-bottom: 1px solid var(--band-border);
@@ -244,6 +263,10 @@ nav a.active {
   color: var(--on-primary);
 }
 
+
+/* =========================
+   DIRECTORY (also used by the home page spotlights)
+========================= */
 
 .directory-controls {
   display: flex;
@@ -342,6 +365,10 @@ nav a.active {
   padding: 2rem;
 }
 
+
+/* =========================
+   JOIN PAGE
+========================= */
 
 .join-layout {
   display: grid;
@@ -469,7 +496,12 @@ dialog li {
 .close-modal {
   display: block;
   margin: 0 0 0.75rem auto;
+}
 
+
+/* =========================
+   THANK YOU PAGE
+========================= */
 
 .thank-you {
   width: 100%;
@@ -507,6 +539,13 @@ dialog li {
   overflow-wrap: anywhere;
 }
 
+
+/* =========================
+   LOAD ANIMATION AND HOVER
+   Cards fade and rise in one after another (--i sets the order),
+   then lift when hovered or focused.
+========================= */
+
 .member-card,
 .membership-card,
 .discover-card {
@@ -532,6 +571,11 @@ dialog li {
     transform: translateY(24px);
   }
 }
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
   background: var(--footer-color);
@@ -577,6 +621,10 @@ footer {
   place-items: center;
 }
 
+
+/* =========================
+   REDUCED MOTION
+========================= */
 
 @media (prefers-reduced-motion: reduce) {
   * {
