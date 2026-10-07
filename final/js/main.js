@@ -31,11 +31,19 @@ document.addEventListener("click", (event) => {
 
 export function filmPoster(film) {
   const year = film.year || (film.status === "Upcoming" ? "Upcoming" : "—");
-  return `<div class="poster" style="background-image:url('images/covers/${film.id}.svg')" aria-label="Directory cover for ${film.title}">
-    <div class="poster-overlay"></div>
+  const alt = `${film.title} original film poster`;
+  if (film.posterUrl) {
+    return `<div class="poster poster-original">
+      <img src="${film.posterUrl}" alt="${alt}" loading="lazy" decoding="async">
+      <div class="poster-overlay"></div>
+      <span class="poster-label">${film.country} · ${year}</span>
+      <div class="poster-credit">${film.posterSource && film.posterSource.includes("thumbnail") ? "Official video artwork" : "Original poster"}</div>
+    </div>`;
+  }
+  return `<div class="poster poster-unavailable" role="img" aria-label="Original poster not yet verified for ${film.title}">
     <span class="poster-label">${film.country} · ${year}</span>
-    <div class="poster-title">${film.title}</div>
-    <small>${film.region || "Africa"} · ${film.format || "Film"}</small>
+    <div class="poster-fallback-title">${film.title}</div>
+    <small>Original poster not yet verified</small>
   </div>`;
 }
 
@@ -43,8 +51,26 @@ export function tagList(items = []) {
   return items.slice(0, 3).map(item => `<span class="tag">${item}</span>`).join("");
 }
 
+function isYouTubeUrl(url = "") {
+  try {
+    const hostname = new URL(url).hostname.replace(/^www\./, "");
+    return hostname === "youtube.com" || hostname === "youtu.be" || hostname.endsWith(".youtube.com");
+  } catch {
+    return false;
+  }
+}
+
+function sourceLink(film) {
+  if (!film.source) return "";
+  const youtube = isYouTubeUrl(film.source) || film.sourceType === "official-youtube-channel";
+  return `<a class="text-btn story-link ${youtube ? "story-link-youtube" : "story-link-verified"}" href="${film.source}" target="_blank" rel="noopener noreferrer"><span>${youtube ? "Watch on YouTube ↗" : "Open verified source ↗"}</span><small>${youtube ? "YouTube" : "Verified source"}</small></a>`;
+}
+
 export function filmCard(film) {
   const upcoming = film.status === "Upcoming";
+  const channelLink = film.channelUrl && film.channelUrl !== film.source
+    ? `<a class="text-btn story-link story-link-youtube" href="${film.channelUrl}" target="_blank" rel="noopener noreferrer"><span>Production channel ↗</span><small>YouTube</small></a>`
+    : "";
   return `<article class="film-card reveal ${upcoming ? "film-upcoming" : ""}">
     ${filmPoster(film)}
     <div class="film-body">
@@ -54,6 +80,7 @@ export function filmCard(film) {
       <p>${film.description}</p>
       <div class="card-actions">
         <button class="text-btn details-btn" type="button" data-film="${film.id}">View film story →</button>
+        ${sourceLink(film)}${channelLink}
         <button class="save-btn" type="button" data-save="${film.id}" aria-label="Save ${film.title}">＋ Save</button>
       </div>
     </div>
@@ -61,7 +88,8 @@ export function filmCard(film) {
 }
 
 export async function loadFilms() {
-  const response = await fetch("data/films.json");
+  const dataUrl = new URL("../data/films.json", import.meta.url);
+  const response = await fetch(dataUrl);
   if (!response.ok) throw new Error(`Could not load film data (${response.status})`);
   return response.json();
 }

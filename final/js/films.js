@@ -1,5 +1,5 @@
 import { loadFilms, filmCard, animateNewCards } from "./main.js";
-import { openFilmModal } from "./modal.js";
+import { setupModal } from "./modal.js";
 import { saveFilm, isSaved } from "./storage.js";
 
 const grid = document.querySelector("#film-grid");
@@ -54,11 +54,6 @@ function render() {
   empty?.classList.toggle("hidden", filtered.length !== 0);
   animateNewCards();
 
-  grid?.querySelectorAll("[data-film]").forEach(btn => btn.addEventListener("click", () => {
-    const film = films.find(f => f.id === btn.dataset.film);
-    if (film) openFilmModal(film);
-  }));
-
   grid?.querySelectorAll("[data-save]").forEach(btn => {
     const film = films.find(f => f.id === btn.dataset.save);
     if (!film) return;
@@ -76,6 +71,7 @@ try {
   fillFilters();
   const params = new URLSearchParams(location.search);
   if (params.get("search")) search.value = params.get("search");
+  setupModal(films);
   render();
   [search, country, year, genre, status, savedOnly].forEach(el => el?.addEventListener("input", render));
   [country, year, genre, status].forEach(el => el?.addEventListener("change", render));

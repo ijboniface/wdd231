@@ -49,3 +49,6 @@ The submission form uses `form-action.html` as the required action page and stor
 
 ## Film-source policy
 Each directory record now includes a verified `source` URL. Mount Zion titles point to Mount Zion Film Productions; Felix Bankole titles point to the relevant official Felix Bankole TV film pages; EVOM titles point to the official EVOM Channel when an exact stable film URL was not established in this research pass.
+
+### Source-link verification
+The film-directory source links were reviewed against current web sources. Links are intended to point to a film-specific official film page/video or a source that explicitly documents the film. Where a dedicated film page could not be reliably established, the link points to a reputable article/archive that documents the title rather than to an unrelated or fabricated URL.
