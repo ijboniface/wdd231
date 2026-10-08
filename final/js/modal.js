@@ -71,7 +71,7 @@ export function setupModal(films) {
   });
 
   dialog.addEventListener("cancel", event => {
-    // Keep the browser's native Esc/back close behavior.
+
     if (!event.defaultPrevented) dialog.close("escape");
   });
 
