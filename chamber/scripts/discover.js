@@ -1,23 +1,12 @@
 import { discoverItems } from "../data/discover.mjs";
 
-
 document.addEventListener("DOMContentLoaded", () => {
-
-    displayDiscoverItems();
-
-    displayVisitorMessage();
-
-    setFooterInformation();
-
+    showPlaces();
+    showVisitorMessage();
+    setFooter();
 });
 
-
-/* =========================================
-   CARDS
-   ========================================= */
-
-function displayDiscoverItems() {
-
+function showPlaces() {
     const container = document.querySelector("#discover-grid");
 
     if (!container) {
@@ -27,15 +16,9 @@ function displayDiscoverItems() {
     container.innerHTML = "";
 
     discoverItems.forEach((item, index) => {
-
         const card = document.createElement("article");
-
         card.classList.add("discover-card");
-
-        // the named grid area for this card (see discover.css)
         card.style.gridArea = `card-${item.id}`;
-
-        // staggers the load animation
         card.style.setProperty("--i", index);
 
         card.innerHTML = `
@@ -43,13 +26,8 @@ function displayDiscoverItems() {
 
             <figure>
                 <div class="image-frame">
-                    <img
-                        src="${item.image}"
-                        alt="${item.alt ?? `Photo of ${item.name}, Ikorodu`}"
-                        width="300"
-                        height="200"
-                        loading="lazy"
-                    >
+                    <img src="${item.image}" alt="${item.alt ?? `Photo of ${item.name}, Ikorodu`}"
+                        width="300" height="200" loading="lazy">
                 </div>
             </figure>
 
@@ -57,43 +35,23 @@ function displayDiscoverItems() {
 
             <p>${item.description}</p>
 
-            <button
-                type="button"
-                class="learn-more"
-                data-url="${item.url}"
-                aria-label="Learn more about ${item.name} (opens in a new tab)"
-            >
+            <button type="button" class="learn-more" data-url="${item.url}"
+                aria-label="Learn more about ${item.name} (opens in a new tab)">
                 Learn More
-            </button>
-        `;
+            </button>`;
 
         container.appendChild(card);
     });
 
-    setupLearnMoreButtons();
-}
-
-
-/* "Learn More" opens the page about the place in a new tab */
-
-function setupLearnMoreButtons() {
-
-    document.querySelectorAll(".learn-more").forEach((button) => {
-
+    // each button opens the page about its place
+    container.querySelectorAll(".learn-more").forEach((button) => {
         button.addEventListener("click", () => {
-
             window.open(button.dataset.url, "_blank", "noopener,noreferrer");
         });
     });
 }
 
-
-/* =========================================
-   VISITOR MESSAGE (localStorage)
-   ========================================= */
-
-function displayVisitorMessage() {
-
+function showVisitorMessage() {
     const messageElement = document.querySelector("#visitor-message");
 
     if (!messageElement) {
@@ -101,23 +59,21 @@ function displayVisitorMessage() {
     }
 
     const storageKey = "ikorodu-discover-last-visit";
-    const millisecondsInDay = 1000 * 60 * 60 * 24;
-    const currentTime = Date.now();
+    const oneDay = 1000 * 60 * 60 * 24;
+    const now = Date.now();
 
-    // storage can be blocked (private browsing), so every access is guarded
-    let previousTime = null;
+    let lastVisit = null;
 
     try {
-        previousTime = Number(localStorage.getItem(storageKey)) || null;
+        lastVisit = Number(localStorage.getItem(storageKey)) || null;
     } catch (error) {
-        previousTime = null;
+        lastVisit = null;
     }
 
     let message = "Welcome! Let us know if you have any questions.";
 
-    if (previousTime) {
-
-        const days = Math.floor((currentTime - previousTime) / millisecondsInDay);
+    if (lastVisit) {
+        const days = Math.floor((now - lastVisit) / oneDay);
 
         if (days < 1) {
             message = "Back so soon! Awesome!";
@@ -127,24 +83,17 @@ function displayVisitorMessage() {
     }
 
     messageElement.textContent = message;
-
     messageElement.classList.add("show");
 
-    // save this visit only after the previous one has been read
+    // save this visit after the old one has been read
     try {
-        localStorage.setItem(storageKey, String(currentTime));
+        localStorage.setItem(storageKey, String(now));
     } catch (error) {
-        // nothing to do: the message above is still correct for this visit
+        // nothing to save to, the message above is still right for this visit
     }
 }
 
-
-/* =========================================
-   FOOTER
-   ========================================= */
-
-function setFooterInformation() {
-
+function setFooter() {
     const currentYear = document.querySelector("#current-year");
     const lastModified = document.querySelector("#last-modified");
 

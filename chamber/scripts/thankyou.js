@@ -1,77 +1,42 @@
 const params = new URLSearchParams(window.location.search);
-
-const firstName = params.get("firstName") || "";
-const lastName = params.get("lastName") || "";
-const email = params.get("email") || "";
-const phone = params.get("phone") || "";
-const organization = params.get("organization") || "";
-const timestamp = params.get("timestamp") || "";
-
-const submittedInformation =
-    document.querySelector("#submitted-information");
-
+const submittedInformation = document.querySelector("#submitted-information");
+const currentYear = document.querySelector("#current-year");
+const lastModified = document.querySelector("#last-modified");
 
 const details = document.createElement("dl");
-
 details.className = "application-details";
 
-
 function addDetail(label, value) {
-
-    const container = document.createElement("div");
-
+    const row = document.createElement("div");
     const term = document.createElement("dt");
-    term.textContent = label;
-
     const description = document.createElement("dd");
+
+    term.textContent = label;
     description.textContent = value;
 
-    container.appendChild(term);
-    container.appendChild(description);
-
-    details.appendChild(container);
+    row.append(term, description);
+    details.appendChild(row);
 }
 
+let submitted = params.get("timestamp") || "";
+const date = new Date(submitted);
 
-addDetail("First Name", firstName);
-
-addDetail("Last Name", lastName);
-
-addDetail("Email", email);
-
-addDetail("Mobile Phone", phone);
-
-addDetail("Business/Organization", organization);
-
-
-// Format timestamp
-let formattedTimestamp = timestamp;
-
-if (timestamp) {
-
-    const date = new Date(timestamp);
-
-    if (!Number.isNaN(date.getTime())) {
-        formattedTimestamp = date.toLocaleString();
-    }
-
+if (submitted && !Number.isNaN(date.getTime())) {
+    submitted = date.toLocaleString();
 }
 
-addDetail("Application Submitted", formattedTimestamp);
-
+addDetail("First Name", params.get("firstName") || "");
+addDetail("Last Name", params.get("lastName") || "");
+addDetail("Email", params.get("email") || "");
+addDetail("Mobile Phone", params.get("phone") || "");
+addDetail("Business/Organization", params.get("organization") || "");
+addDetail("Application Submitted", submitted);
 
 submittedInformation.replaceChildren(details);
-
-
-const currentYear = document.querySelector("#current-year");
 
 if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
 }
-
-
-// Last modified date
-const lastModified = document.querySelector("#last-modified");
 
 if (lastModified) {
     lastModified.textContent = document.lastModified;

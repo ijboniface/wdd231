@@ -1,12 +1,4 @@
-/* =========================================
-   CHAMBER HOME PAGE
-   Colours come from the variables in small.css.
-   Card, heading and button styles are shared with the other pages.
-   ========================================= */
-
-
-/* HERO */
-
+/* hero */
 .hero {
     position: relative;
     display: grid;
@@ -52,8 +44,7 @@
     font-size: 1.05rem;
 }
 
-/* EVENTS AND WEATHER */
-
+/* events and weather */
 .home-grid {
     display: grid;
     gap: 1.5rem;
@@ -142,14 +133,11 @@
     animation-delay: calc(0.4s + var(--i, 0) * 0.12s);
 }
 
-
-/* SPOTLIGHTS (cards reuse the directory card style) */
-
+/* spotlights */
 .spotlights {
     display: grid;
     gap: 1rem;
 }
-
 
 @media (min-width: 768px) {
 

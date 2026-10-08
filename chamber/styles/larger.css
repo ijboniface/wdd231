@@ -4,7 +4,6 @@
     padding-top: 0.6rem;
   }
 
-
   .page-heading h1,
   main>h1,
   .thank-you h1,
@@ -12,9 +11,7 @@
     font-size: 2.25rem;
   }
 
-
-  /* NAVIGATION */
-
+  /* navigation */
   .menu-button {
     display: none;
   }
@@ -27,7 +24,6 @@
     margin-left: auto;
   }
 
-  /* tab-style links: gold bar under the hovered or current page */
   nav a {
     padding: 0.5rem 0.9rem;
     border: none;
@@ -42,15 +38,10 @@
     border-bottom-color: var(--secondary-color);
   }
 
-
-  /* DIRECTORY: three columns */
-
+  /* directory */
   .member-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-
-
-  /* DIRECTORY: list view becomes compact one-line rows */
 
   .member-list .member-card {
     display: grid;
@@ -74,9 +65,7 @@
     margin: 0;
   }
 
-
-  /* JOIN: form on the left, membership cards on the right */
-
+  /* join page */
   .join-layout {
     grid-template-columns: 2fr 1fr;
     align-items: start;
@@ -88,19 +77,22 @@
     min-width: 260px;
   }
 
-
-  /* THANK YOU: label and value side by side */
-
+  /* thank you page */
   .application-details div {
     grid-template-columns: 220px 1fr;
     align-items: baseline;
   }
 
-
-  /* FOOTER */
-
+  /* footer */
   .footer-container {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr auto 1fr;
+    justify-items: start;
     align-items: center;
+    text-align: left;
+  }
+
+  .development-information {
+    justify-self: end;
+    text-align: right;
   }
 }
