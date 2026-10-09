@@ -10,14 +10,11 @@ function isYouTubeUrl(url = "") {
 }
 
 function sourceInfo(film) {
+  if (film.watchUrl) return { url: film.watchUrl, label: "Watch film", platform: "YouTube · direct video", className: "source-youtube" };
+  if (film.channelUrl) return { url: film.channelUrl, label: "Find film on channel", platform: film.channelName || "YouTube channel", className: "source-youtube" };
   if (!film.source) return null;
-  if (isYouTubeUrl(film.source)) {
-    return { label: "Watch on YouTube", platform: "YouTube", className: "source-youtube" };
-  }
-  if (film.sourceType === "official-youtube-channel") {
-    return { label: "Open official YouTube channel", platform: "YouTube", className: "source-youtube" };
-  }
-  return { label: "Open verified source", platform: "Verified source", className: "source-verified" };
+  if (isYouTubeUrl(film.source)) return { url: film.source, label: "Watch on YouTube", platform: "YouTube", className: "source-youtube" };
+  return { url: film.source, label: "Open verified source", platform: "Verified source", className: "source-verified" };
 }
 
 function renderFilmStory(film) {
@@ -32,8 +29,8 @@ function renderFilmStory(film) {
     <p><strong>Language:</strong> ${film.language || "Not established"}</p>
     <div class="film-meta">${(film.themes || []).map(theme => `<span class="tag">${theme}</span>`).join("")}</div>
     <div class="modal-actions">
-      ${source ? `<a class="btn btn-primary source-link ${source.className}" href="${film.source}" target="_blank" rel="noopener noreferrer"><span>${source.label} ↗</span><small>${source.platform}</small></a>` : `<p class="note">A specific source link is not currently established for this record.</p>`}
-      ${film.channelUrl && film.channelUrl !== film.source ? `<a class="btn btn-secondary source-link source-youtube" href="${film.channelUrl}" target="_blank" rel="noopener noreferrer"><span>Production channel ↗</span><small>YouTube</small></a>` : ""}
+      ${source ? `<a class="btn btn-primary source-link ${source.className}" href="${source.url}" target="_blank" rel="noopener noreferrer"><span>${source.label} ↗</span><small>${source.platform}</small></a>` : `<p class="note">A specific source link is not currently established for this record.</p>`}
+      ${film.watchUrl && film.channelUrl ? `<a class="btn btn-secondary source-link source-youtube" href="${film.channelUrl}" target="_blank" rel="noopener noreferrer"><span>Production channel ↗</span><small>YouTube</small></a>` : ""}
     </div>
   `;
 }

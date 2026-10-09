@@ -40,7 +40,7 @@ function render() {
   const onlySaved = Boolean(savedOnly?.checked);
 
   const filtered = films.filter(f => {
-    const haystack = [f.title, ...(f.director || []), f.country, f.language, ...(f.genre || []), ...(f.themes || [])].join(" ").toLowerCase();
+    const haystack = [f.title, ...(f.director || []), f.production, f.channelName, f.country, f.language, ...(f.genre || []), ...(f.themes || [])].join(" ").toLowerCase();
     return (!q || haystack.includes(q))
       && (!selectedCountry || f.country === selectedCountry)
       && (!selectedYear || String(f.year) === selectedYear)
@@ -74,6 +74,12 @@ try {
   setupModal(films);
   render();
   [search, country, year, genre, status, savedOnly].forEach(el => el?.addEventListener("input", render));
+  document.querySelector("#search-button")?.addEventListener("click", render);
+  document.querySelector("#clear-search")?.addEventListener("click", () => { search.value = ""; country.value = ""; year.value = ""; genre.value = ""; status.value = ""; savedOnly.checked = false; render(); search.focus(); });
+  search?.addEventListener("keydown", event => { if (event.key === "Enter") render(); });
+  document.querySelector("#search-button")?.addEventListener("click", render);
+  document.querySelector("#clear-search")?.addEventListener("click", () => { search.value = ""; country.value = ""; year.value = ""; genre.value = ""; status.value = ""; savedOnly.checked = false; render(); search.focus(); });
+  search?.addEventListener("keydown", event => { if (event.key === "Enter") render(); });
   [country, year, genre, status].forEach(el => el?.addEventListener("change", render));
 } catch (error) {
   console.error(error);

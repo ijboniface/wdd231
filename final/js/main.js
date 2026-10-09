@@ -31,19 +31,20 @@ document.addEventListener("click", (event) => {
 
 export function filmPoster(film) {
   const year = film.year || (film.status === "Upcoming" ? "Upcoming" : "—");
-  const alt = `${film.title} original film poster`;
+  const alt = `${film.title} film artwork`;
   if (film.posterUrl) {
     return `<div class="poster poster-original">
-      <img src="${film.posterUrl}" alt="${alt}" loading="lazy" decoding="async">
+      <img src="${film.posterUrl}" alt="${alt}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.poster').classList.add('poster-image-error');this.remove()">
       <div class="poster-overlay"></div>
       <span class="poster-label">${film.country} · ${year}</span>
-      <div class="poster-credit">${film.posterSource && film.posterSource.includes("thumbnail") ? "Official video artwork" : "Original poster"}</div>
+      <div class="poster-credit">${film.posterSource && film.posterSource.toLowerCase().includes("thumbnail") ? "Official video artwork" : "Film artwork"}</div>
+      <div class="poster-fallback-title">${film.title}</div>
     </div>`;
   }
-  return `<div class="poster poster-unavailable" role="img" aria-label="Original poster not yet verified for ${film.title}">
+  return `<div class="poster poster-unavailable" role="img" aria-label="Representative artwork for ${film.title}; original cover not verified">
     <span class="poster-label">${film.country} · ${year}</span>
     <div class="poster-fallback-title">${film.title}</div>
-    <small>Original poster not yet verified</small>
+    <small>Representative artwork · original cover not verified</small>
   </div>`;
 }
 
@@ -61,6 +62,10 @@ function isYouTubeUrl(url = "") {
 }
 
 function sourceLink(film) {
+  const direct = film.watchUrl;
+  const channel = film.channelUrl;
+  if (direct) return `<a class="text-btn story-link story-link-youtube" href="${direct}" target="_blank" rel="noopener noreferrer"><span>Watch film ↗</span><small>YouTube · direct link</small></a>`;
+  if (channel) return `<a class="text-btn story-link story-link-youtube" href="${channel}" target="_blank" rel="noopener noreferrer"><span>Find film on channel ↗</span><small>${film.channelName || "YouTube channel"}</small></a>`;
   if (!film.source) return "";
   const youtube = isYouTubeUrl(film.source) || film.sourceType === "official-youtube-channel";
   return `<a class="text-btn story-link ${youtube ? "story-link-youtube" : "story-link-verified"}" href="${film.source}" target="_blank" rel="noopener noreferrer"><span>${youtube ? "Watch on YouTube ↗" : "Open verified source ↗"}</span><small>${youtube ? "YouTube" : "Verified source"}</small></a>`;
@@ -68,7 +73,7 @@ function sourceLink(film) {
 
 export function filmCard(film) {
   const upcoming = film.status === "Upcoming";
-  const channelLink = film.channelUrl && film.channelUrl !== film.source
+  const channelLink = film.watchUrl && film.channelUrl
     ? `<a class="text-btn story-link story-link-youtube" href="${film.channelUrl}" target="_blank" rel="noopener noreferrer"><span>Production channel ↗</span><small>YouTube</small></a>`
     : "";
   return `<article class="film-card reveal ${upcoming ? "film-upcoming" : ""}">
