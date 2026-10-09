@@ -1,4 +1,3 @@
-/* colours */
 :root {
   --primary-color: #1f3a5f;
   --secondary-color: #d9a441;
@@ -161,7 +160,7 @@ input[type="submit"] {
   color: var(--on-accent);
 }
 
-:is(.modal-link, .return-home, .cta-button, .learn-more, input[type="submit"]):is(:hover, :focus-visible) {
+:is(.modal-link, .return-home, .cta-button, .learn-more, input[type="submit"]):is(:hover, :focus-visible, :active) {
   transform: translateY(-2px);
   filter: brightness(1.15);
 }
@@ -497,8 +496,11 @@ dialog li {
 /* card animation and hover */
 .member-card,
 .membership-card,
-.discover-card {
-  animation: card-rise 0.6s ease-out backwards;
+.discover-card,
+.home-card,
+.spotlights-section,
+.forecast-day {
+  animation: card-rise 0.7s ease-out backwards;
   animation-delay: calc(var(--i, 0) * 0.12s);
 }
 
@@ -506,18 +508,32 @@ dialog li {
 .membership-card,
 .discover-card,
 .forecast-day {
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
-:is(.member-card, .membership-card, .discover-card, .forecast-day):is(:hover, :focus-within) {
-  transform: translateY(-4px);
+/* cards wait for effects.js to reveal them as they scroll into view */
+.reveal:not(.visible) {
+  animation: none;
+  opacity: 0;
+}
+
+/* hover on a computer, press or scroll-to-centre on a phone */
+:is(.member-card, .membership-card, .discover-card, .forecast-day):is(:hover, :focus-within, :active, .in-focus) {
+  transform: translateY(-6px);
   box-shadow: var(--shadow-lift);
+  border-color: var(--secondary-color);
 }
 
 @keyframes card-rise {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(32px);
+  }
+}
+
+@keyframes card-fade {
+  from {
+    opacity: 0;
   }
 }
 
@@ -567,10 +583,17 @@ footer {
   place-items: center;
 }
 
-/* reduced motion */
+/* reduced motion: cards only fade, nothing moves */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
+  html :is(.member-card, .membership-card, .discover-card, .forecast-day, .home-card, .spotlights-section, .hero-content, dialog[open]) {
+    animation-name: card-fade;
+  }
+
+  html * {
     transition: none !important;
+  }
+
+  html :is(.member-card, .membership-card, .discover-card, .forecast-day):is(:hover, :focus-within, :active, .in-focus) {
+    transform: none;
   }
 }
