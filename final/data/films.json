@@ -103,7 +103,7 @@
     "source": "https://mountzionmovies.com/movies/details/the-perilous-times/67",
     "sourceUrl": "https://mountzionmovies.com/movies/details/the-perilous-times/67",
     "sourceType": "specific-source",
-    "posterUrl": "https://img.youtube.com/vi/d8MDQoZcIeU/hq720.jpg",
+    "posterUrl": "images/posters/perilous-time.jpg",
     "posterSource": "Official film/video thumbnail (YouTube/Vimeo)",
     "channelUrl": "https://www.youtube.com/@damilolamike-bamiloye",
     "watchUrl": "https://www.youtube.com/watch?v=d8MDQoZcIeU",
@@ -139,7 +139,7 @@
     "source": "https://mountzionmovies.com/movies/details/the-covenant-child/147",
     "sourceUrl": "https://mountzionmovies.com/movies/details/the-covenant-child/147",
     "sourceType": "specific-source",
-    "posterUrl": "https://gosvid.com/mzfilmproductions/upload/mz-uploads/images/movie-thumbs/55086_cove.jpg",
+    "posterUrl": "images/posters/the-covenant-child.jpg",
     "posterSource": "Gosvid / MZ Classics",
     "channelUrl": "https://www.youtube.com/@damilolamike-bamiloye",
     "watchUrl": null,
@@ -176,6 +176,7 @@
     "sourceType": "specific-source",
     "channelUrl": "https://www.youtube.com/@damilolamike-bamiloye",
     "watchUrl": null,
+    "posterUrl": "images/posters/storms-of-life.jpg",
     "channelName": "Mount Zion / Damilola Mike-Bamiloye",
     "posterSource": "Representative artwork fallback"
   },
@@ -245,7 +246,7 @@
     "source": "https://mountzionmovies.com/movies/details/captives-of-the-mighty/135",
     "sourceUrl": "https://mountzionmovies.com/movies/details/captives-of-the-mighty/135",
     "sourceType": "specific-source",
-    "posterUrl": "https://img.youtube.com/vi/vmb8yCktBQY/hq720.jpg",
+   "posterUrl": "images/posters/captives-of-the-mighty.jpg",
     "posterSource": "Official film/video thumbnail (YouTube/Vimeo)",
     "channelUrl": "https://www.youtube.com/@damilolamike-bamiloye",
     "watchUrl": "https://www.youtube.com/watch?v=vmb8yCktBQY",
@@ -281,7 +282,7 @@
     "source": "https://mountzionmovies.com/movies/details/one-careless-night-ep1/121",
     "sourceUrl": "https://mountzionmovies.com/movies/details/one-careless-night-ep1/121",
     "sourceType": "specific-source",
-    "posterUrl": "https://img.youtube.com/vi/nefWsZDi0Ik/hq720.jpg",
+    "posterUrl": "images/posters/one-careless-night.jpg",
     "posterSource": "Official film/video thumbnail (YouTube/Vimeo)",
     "channelUrl": "https://www.youtube.com/@damilolamike-bamiloye",
     "watchUrl": "https://www.youtube.com/watch?v=nefWsZDi0Ik",
@@ -317,7 +318,7 @@
     "source": "https://www.mountzionmovies.com/movies/watch/esin-ajoji/108",
     "sourceUrl": "https://www.mountzionmovies.com/movies/watch/esin-ajoji/108",
     "sourceType": "specific-source",
-    "posterUrl": "https://img.youtube.com/vi/QrQVzDTa5Bc/hq720.jpg",
+    "posterUrl": "images/posters/esin-ajoji.jpg",
     "posterSource": "Official film/video thumbnail (YouTube/Vimeo)",
     "channelUrl": "https://www.youtube.com/@damilolamike-bamiloye",
     "watchUrl": "https://www.youtube.com/watch?v=QrQVzDTa5Bc",
@@ -497,7 +498,7 @@
     "source": "https://www.nta.ng/news/entertainment/where-the-river-divides-wins-best-film-and-six-other-awards-at-first-ever-africa-international-christian-film-festival",
     "sourceUrl": "https://www.nta.ng/news/entertainment/where-the-river-divides-wins-best-film-and-six-other-awards-at-first-ever-africa-international-christian-film-festival",
     "sourceType": "specific-source",
-    "posterUrl": "https://www.theeastafrican.co.ke/resource/image/4362338/landscape_ratio3x2/1620/1080/50723298b0ffbfadbc1a5573256404a/Bx/river.jpg",
+    "posterUrl": "images/posters/where-the-river-divides.jpg",
     "posterSource": "The EastAfrican / Where The River Divides poster",
     "watchUrl": null
   },
@@ -563,41 +564,11 @@
     "sourceType": "specific-source",
     "channelUrl": "https://www.youtube.com/@bykacstudios",
     "watchUrl": null,
+    "posterUrl": "images/posters/mirage.jpg",
     "channelName": "KAC Studios",
     "posterSource": "Representative artwork fallback"
   },
-  {
-    "id": "the-right-to-do-anything",
-    "title": "The Right to Do Anything",
-    "country": "Ghana",
-    "region": "West Africa",
-    "year": 2025,
-    "language": "English",
-    "genre": [
-      "Drama"
-    ],
-    "themes": [
-      "Freedom",
-      "Responsibility",
-      "Choices"
-    ],
-    "format": "Short film",
-    "runtime": null,
-    "director": [
-      "KAC Studios"
-    ],
-    "production": "KAC Studios",
-    "description": "A KAC Studios short featured in a 2026 Accra screening programme focused on culturally relevant, accessible Christian-inspired storytelling.",
-    "featured": false,
-    "era": "Contemporary",
-    "source": "https://gna.org.gh/2026/02/kac-studios-urges-collaboration-to-bridge-gaps-in-christian-film-production-in-africa/",
-    "sourceUrl": "https://gna.org.gh/2026/02/kac-studios-urges-collaboration-to-bridge-gaps-in-christian-film-production-in-africa/",
-    "sourceType": "specific-source",
-    "channelUrl": "https://www.youtube.com/@bykacstudios",
-    "watchUrl": null,
-    "channelName": "KAC Studios",
-    "posterSource": "Representative artwork fallback"
-  },
+  
   {
     "id": "wasted-beauty",
     "title": "Wasted Beauty",
@@ -628,42 +599,11 @@
     "sourceType": "official-youtube-channel",
     "channelUrl": "https://www.youtube.com/@John316FilmSchool",
     "watchUrl": null,
+    "posterUrl": "images/posters/wasted-beauty.jpg",
     "channelName": "John 316 Film School",
     "posterSource": "Representative artwork fallback"
   },
-  {
-    "id": "not-of-this-world",
-    "title": "Not Of This World",
-    "country": "Uganda",
-    "region": "East Africa",
-    "year": 2026,
-    "language": "English",
-    "genre": [
-      "Faith & Discipleship",
-      "Drama"
-    ],
-    "themes": [
-      "Faith",
-      "Identity",
-      "Calling"
-    ],
-    "format": "Short film",
-    "runtime": null,
-    "director": [
-      "John 316 Film School Foundation"
-    ],
-    "production": "John 316 Film School Foundation",
-    "description": "A 2026 Christian short film from John 316 Film School Foundation in Uganda.",
-    "featured": false,
-    "era": "Contemporary",
-    "source": "https://www.youtube.com/@John316FilmSchool",
-    "sourceUrl": "https://john316filmschool.org/projects",
-    "sourceType": "official-youtube-channel",
-    "channelUrl": "https://www.youtube.com/@John316FilmSchool",
-    "watchUrl": null,
-    "channelName": "John 316 Film School",
-    "posterSource": "Representative artwork fallback"
-  },
+ 
   {
     "id": "abattoir",
     "title": "Abattoir",
@@ -698,6 +638,7 @@
     "sourceType": "official-youtube-channel",
     "channelUrl": "https://www.youtube.com/@damilolamike-bamiloye",
     "watchUrl": null,
+    "posterUrl": "images/posters/abattoir.jpg",
     "channelName": "Mount Zion / Damilola Mike-Bamiloye",
     "posterSource": "Representative artwork fallback"
   },
@@ -765,6 +706,7 @@
     "sourceType": "specific-source",
     "channelUrl": "https://www.youtube.com/@evomchanneltv",
     "watchUrl": null,
+    "posterUrl": "images/posters/destiny-for-sale.jpg",
     "channelName": "EVOM Channel TV",
     "posterSource": "Representative artwork fallback"
   },
@@ -785,9 +727,11 @@
     ],
     "format": "Feature",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
-    "description": "Waiting for Time, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
+    "description": "Specially anointed by God for a divine purpose, Gideon withstands every scheme of the devil to destroy him. After years of failed attempts, the enemy resorts to a subtler weapon: pride, hoping to accomplish through Gideon's downfall what every other attack could not.",
     "featured": false,
     "era": "EVOM archive",
     "status": "Documented",
@@ -798,6 +742,7 @@
     "sourceType": "specific-source",
     "channelUrl": "https://www.youtube.com/@evomchanneltv",
     "watchUrl": null,
+    "posterUrl": "images/posters/waiting-for-time.jpg",
     "channelName": "EVOM Channel TV",
     "posterSource": "Representative artwork fallback"
   },
@@ -818,7 +763,9 @@
     ],
     "format": "Feature",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "All for Nothing, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -831,6 +778,7 @@
     "sourceType": "specific-source",
     "channelUrl": "https://www.youtube.com/@evomchanneltv",
     "watchUrl": null,
+    "posterUrl": "images/posters/all-for-nothing.jpg",
     "channelName": "EVOM Channel TV",
     "posterSource": "Representative artwork fallback"
   },
@@ -851,7 +799,9 @@
     ],
     "format": "Feature",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "Omije Kikoro, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -864,6 +814,7 @@
     "sourceType": "specific-source",
     "channelUrl": "https://www.youtube.com/@evomchanneltv",
     "watchUrl": null,
+    "posterUrl": "images/posters/omije-kikoro.jpg",
     "channelName": "EVOM Channel TV",
     "posterSource": "Representative artwork fallback"
   },
@@ -873,7 +824,7 @@
     "country": "Nigeria",
     "region": "West Africa",
     "year": 2015,
-    "language": "Yoruba",
+    "language": "English",
     "genre": [
       "Drama",
       "Faith & Discipleship"
@@ -884,7 +835,9 @@
     ],
     "format": "Feature",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "The Missing Link, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -897,6 +850,7 @@
     "sourceType": "specific-source",
     "channelUrl": "https://www.youtube.com/@evomchanneltv",
     "watchUrl": null,
+    "posterUrl": "images/posters/the-missing-link.jpg",
     "channelName": "EVOM Channel TV",
     "posterSource": "Representative artwork fallback"
   },
@@ -917,7 +871,9 @@
     ],
     "format": "Feature",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "Olori Ota, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -930,6 +886,7 @@
     "sourceType": "specific-source",
     "channelUrl": "https://www.youtube.com/@evomchanneltv",
     "watchUrl": null,
+    "posterUrl": "images/posters/olori-ota.jpg",
     "channelName": "EVOM Channel TV",
     "posterSource": "Representative artwork fallback"
   },
@@ -950,7 +907,9 @@
     ],
     "format": "Feature",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "On Strike, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -984,7 +943,9 @@
     ],
     "format": "Short",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "Corked, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -997,6 +958,7 @@
     "sourceType": "specific-source",
     "channelUrl": "https://www.youtube.com/@evomchanneltv",
     "watchUrl": null,
+    "posterUrl": "images/posters/corked.jpg",
     "channelName": "EVOM Channel TV",
     "posterSource": "Representative artwork fallback"
   },
@@ -1017,7 +979,9 @@
     ],
     "format": "Short",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "Hacked, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -1030,6 +994,7 @@
     "sourceType": "specific-source",
     "channelUrl": "https://www.youtube.com/@evomchanneltv",
     "watchUrl": null,
+    "posterUrl": "images/posters/hacked.jpg",
     "channelName": "EVOM Channel TV",
     "posterSource": "Representative artwork fallback"
   },
@@ -1050,7 +1015,9 @@
     ],
     "format": "Feature",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "Blind But Loved, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -1061,7 +1028,7 @@
     "source": "https://www.youtube.com/watch?v=EvST-DWshgg",
     "sourceUrl": "https://www.youtube.com/@evomchannelng",
     "sourceType": "specific-source",
-    "posterUrl": "https://witnessgospelreviewsmovie.files.wordpress.com/2021/12/1640263505458.jpg?w=739",
+    "posterUrl": "images/posters/blind-but-loved.jpg",
     "posterSource": "Witness Gospel Reviews / EVOM poster",
     "channelUrl": "https://www.youtube.com/@evomchanneltv",
     "watchUrl": "https://www.youtube.com/watch?v=EvST-DWshgg",
@@ -1084,7 +1051,9 @@
     ],
     "format": "Feature",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "Why?, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -1119,7 +1088,9 @@
     ],
     "format": "Feature",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "He Is All That Matters, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -1132,76 +1103,11 @@
     "sourceType": "specific-source",
     "channelUrl": "https://www.youtube.com/@evomchanneltv",
     "watchUrl": null,
+    "posterUrl": "images/posters/he-is-all-that-matter.jpg",
     "channelName": "EVOM Channel TV",
     "posterSource": "Representative artwork fallback"
   },
-  {
-    "id": "he-is-all-that-matters-2",
-    "title": "He Is All That Matters 2",
-    "country": "Nigeria",
-    "region": "West Africa",
-    "year": 2023,
-    "language": "English",
-    "genre": [
-      "Drama",
-      "Faith & Discipleship"
-    ],
-    "themes": [
-      "Grace",
-      "Marriage"
-    ],
-    "format": "Feature",
-    "runtime": null,
-    "director": [],
-    "production": "EVOM World Network",
-    "description": "He Is All That Matters 2, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
-    "featured": false,
-    "era": "EVOM archive",
-    "status": "Released",
-    "releaseDate": "2023",
-    "metadataStatus": "Title verified in the research pass; unverified fields are intentionally left blank.",
-    "source": "https://witnessgospelreviews.movie.blog/2023/07/26/he-is-all-that-matters-2-review/",
-    "sourceUrl": "https://www.youtube.com/@evomchannelng",
-    "sourceType": "specific-source",
-    "channelUrl": "https://www.youtube.com/@evomchanneltv",
-    "watchUrl": null,
-    "channelName": "EVOM Channel TV",
-    "posterSource": "Representative artwork fallback"
-  },
-  {
-    "id": "he-is-all-that-matters-7",
-    "title": "He Is All That Matters 7",
-    "country": "Nigeria",
-    "region": "West Africa",
-    "year": 2025,
-    "language": "English",
-    "genre": [
-      "Drama",
-      "Faith & Discipleship"
-    ],
-    "themes": [
-      "Forgiveness",
-      "Repentance",
-      "Obedience"
-    ],
-    "format": "Feature",
-    "runtime": null,
-    "director": [],
-    "production": "EVOM World Network",
-    "description": "He Is All That Matters 7, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
-    "featured": false,
-    "era": "EVOM archive",
-    "status": "Released",
-    "releaseDate": "2025",
-    "metadataStatus": "Title verified in the research pass; unverified fields are intentionally left blank.",
-    "source": "https://witnessgospelreviews.movie.blog/2025/04/23/he-is-all-that-matters-7-review/",
-    "sourceUrl": "https://www.youtube.com/@evomchannelng",
-    "sourceType": "specific-source",
-    "channelUrl": "https://www.youtube.com/@evomchanneltv",
-    "watchUrl": null,
-    "channelName": "EVOM Channel TV",
-    "posterSource": "Representative artwork fallback"
-  },
+  
   {
     "id": "the-abductor",
     "title": "The Abductor",
@@ -1219,7 +1125,9 @@
     ],
     "format": "Feature",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "The Abductor, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -1232,6 +1140,7 @@
     "sourceType": "official-youtube-channel",
     "channelUrl": "https://www.youtube.com/@evomchanneltv",
     "watchUrl": null,
+    "posterUrl": "images/posters/the-abductor.jpg",
     "channelName": "EVOM Channel TV",
     "posterSource": "Representative artwork fallback"
   },
@@ -1252,7 +1161,9 @@
     ],
     "format": "Feature",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "Not Me, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -1265,6 +1176,7 @@
     "sourceType": "specific-source",
     "channelUrl": "https://www.youtube.com/@evomchanneltv",
     "watchUrl": null,
+    "posterUrl": "images/posters/not-me.jpg",
     "channelName": "EVOM Channel TV",
     "posterSource": "Representative artwork fallback"
   },
@@ -1285,7 +1197,9 @@
     ],
     "format": "Feature",
     "runtime": null,
-    "director": [],
+    "director": [
+      "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "Revealed, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -1319,7 +1233,9 @@
     ],
     "format": "Feature",
     "runtime": null,
-    "director": [],
+    "director": [
+    "Shola Mike Agboola"
+    ],
     "production": "EVOM World Network",
     "description": "Adrift, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
     "featured": false,
@@ -1332,6 +1248,7 @@
     "sourceType": "specific-source",
     "channelUrl": "https://www.youtube.com/@evomchanneltv",
     "watchUrl": null,
+    "posterUrl": "images/posters/adrift.jpg",
     "channelName": "EVOM Channel TV",
     "posterSource": "Representative artwork fallback"
   },
