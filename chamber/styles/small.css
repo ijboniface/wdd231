@@ -1,3 +1,4 @@
+/* colours */
 :root {
   --primary-color: #1f3a5f;
   --secondary-color: #d9a441;
@@ -64,7 +65,7 @@ main {
 
 /* headings */
 .page-heading h1,
-main>h1,
+main > h1,
 .thank-you h1,
 .discover-heading h1 {
   font-size: 1.75rem;
@@ -242,6 +243,7 @@ nav a.active {
 
 .member-grid {
   display: grid;
+  min-height: 60vh;
   grid-template-columns: 1fr;
   gap: 1.25rem;
 }
@@ -385,17 +387,9 @@ input[type="submit"] {
   padding-bottom: 0.9rem;
 }
 
-.membership-card:nth-of-type(2) {
-  --i: 1;
-}
-
-.membership-card:nth-of-type(3) {
-  --i: 2;
-}
-
-.membership-card:nth-of-type(4) {
-  --i: 3;
-}
+.membership-card:nth-of-type(2) { --i: 1; }
+.membership-card:nth-of-type(3) { --i: 2; }
+.membership-card:nth-of-type(4) { --i: 3; }
 
 .membership-card h3 {
   font-size: 1.15rem;
@@ -465,7 +459,7 @@ dialog li {
 
 .thank-you h1,
 .discover-heading h1,
-.thank-you>p {
+.thank-you > p {
   margin-bottom: 1rem;
 }
 

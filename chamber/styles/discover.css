@@ -2,7 +2,14 @@
     max-width: 60ch;
 }
 
+/* room for two lines of text, so the cards do not jump when the message appears */
+.visitor-message {
+    min-height: 4.6rem;
+}
+
 .visitor-message.show {
+    display: flex;
+    align-items: center;
     padding: 0.8rem 1rem;
     background: var(--band);
     border-left: 4px solid var(--secondary-color);
@@ -13,6 +20,7 @@
 /* small screens: one card per row */
 .discover-grid {
     display: grid;
+    min-height: 100vh;
     grid-template-columns: 1fr;
     grid-template-areas:
         "card-1"
@@ -80,6 +88,10 @@
 
 /* medium screens: two columns, feature cards run the full width */
 @media (min-width: 641px) {
+    .visitor-message {
+        min-height: 3.2rem;
+    }
+
     .discover-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
