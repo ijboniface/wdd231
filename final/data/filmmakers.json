@@ -12,104 +12,51 @@
     "match": "damilola mike-bamiloye",
     "productionMatch": "Mount Zion Film Productions",
     "filmIds": [
-      "corpers-lodge-episode-6",
-      "corpers-lodge-episode-5",
-      "corpers-lodge-episode-4",
-      "corpers-lodge-episode-3",
-      "corpers-lodge-episode-2",
-      "corpers-lodge-episode-1",
-      "the-wedding-weekend-part-2",
+      "agbara-nla: the return",
       "stalker",
-      "divorce-ep4",
-      "divorce-ep3",
-      "divorce-ep2",
-      "divorce-ep1",
       "roaring-fears",
       "a-journey-in-circle",
-      "last-man-standing-ep2",
-      "last-man-standing-ep1",
+      "last-man-standing",
       "land-of-fury",
       "the-wedding-weekend",
       "magdalene",
       "valentine-breakfast",
       "unmoved",
-      "stranded-2-the-spider-s-web",
-      "stranded",
       "the-cruise",
-      "shackles-ep2-fetters-of-iron",
-      "shackles-ep1",
-      "my-mother-in-law-part-3",
-      "my-mother-in-law-part-2",
-      "my-mother-in-law-part-1",
       "recitation",
       "burning-coles",
       "jailer",
       "faceless",
       "head-cover",
-      "my-dream-part-2",
-      "my-dream-part-1",
+      "my-dream-part",
       "the-train",
       "legion",
-      "gbemi-part-2-ep2",
-      "gbemi-part-2-ep1",
-      "gbemi-part-1",
       "30-pieces"
     ],
     "filmography": [
-      "Agbara Nla",
-      "The Ultimate Power",
-      "The Perilous Times",
-      "The Covenant Child",
-      "The Storms of Life",
-      "The Gods Are Dead",
-      "Captives of the Mighty",
-      "One Careless Night",
-      "Esin Ajoji",
       "The Train",
       "Legion",
       "30 Pieces",
       "Abejoye",
       "Abattoir",
       "Enoch",
-      "CORPERS' LODGE - Episode 6",
-      "CORPERS' LODGE - Episode 5",
-      "CORPERS' LODGE - Episode 4",
-      "CORPERS' LODGE - Episode 3",
-      "CORPERS' LODGE - Episode 2",
-      "CORPERS' LODGE - Episode 1",
-      "THE WEDDING WEEKEND - PART 2",
+      "THE WEDDING WEEKEND",
       "STALKER",
-      "DIVORCE - ep4",
-      "DIVORCE - ep3",
-      "DIVORCE - ep2",
-      "DIVORCE - ep1",
       "ROARING FEARS",
       "A JOURNEY IN CIRCLE",
-      "LAST MAN STANDING - EP2",
-      "LAST MAN STANDING - EP1",
+      "LAST MAN STANDING",
       "LAND OF FURY",
-      "THE WEDDING WEEKEND",
       "MAGDALENE",
       "Valentine Breakfast",
       "Unmoved",
-      "STRANDED 2 - THE SPIDER'S WEB",
-      "STRANDED",
       "THE CRUISE",
-      "SHACKLES - EP2 (FETTERS OF IRON)",
-      "SHACKLES - EP1",
-      "MY MOTHER-IN-LAW (Part 3)",
-      "MY MOTHER-IN-LAW (Part 2)",
-      "MY MOTHER-IN-LAW (Part 1)",
+      "SHACKLES",
       "RECITATION",
       "BURNING COLES",
       "JAILER",
       "Faceless",
       "Head Cover",
-      "MY DREAM - Part 2",
-      "MY DREAM - Part 1",
-      "GBEMI - Part 2 ep2",
-      "GBEMI - Part 2 ep1",
-      "GBEMI - Part 1"
+      "MY DREAM"
     ],
     "productions": [
       "Mount Zion Film Productions",
@@ -149,7 +96,10 @@
       "2nd Touch Production",
       "2nd Touch Production / Impact Global Ministries",
       "2nd Touch Production / Peculiar Priesthood Production / JITA Studios"
-    ]
+    ],
+    "imageUrl": "images/filmmakers/john-oguntuase.jpg",
+    "imageAlt": "Professional studio portrait of John Oguntuase",
+    "imageSource": "Facebook public profile"
   },
   {
     "id": "mike-ilemobola",
@@ -174,7 +124,10 @@
     "productions": [
       "Mike Ilemobola",
       "Redemptive Frame-Works"
-    ]
+    ],
+    "imageUrl": "images/filmmakers/mike-ilemobola.jpg",
+    "imageAlt": "Professional studio portrait of Mike Ilemobola",
+    "imageSource": "Facebook public profile"
   },
   {
     "id": "felix-bankole",
@@ -200,12 +153,15 @@
       "Mount Zion Institute North Zone / Felix Bankole",
       "Vision Drama Missions Outreach International / NOSPLEJ Media Lagos",
       "Vision Drama Missions Outreach International / Light Ministries International"
-    ]
+    ],
+    "imageUrl": "images/filmmakers/felix-bankole.jpg",
+    "imageAlt": "Professional studio portrait of Felix Bankole",
+    "imageSource": "Facebook public profile"
   },
   {
-    "id": "mike-bamiloye",
-    "name": "Mike and Gloria Bamiloye",
-    "role": "Christian filmmakers · Mount Zion founders",
+    "id": "mount-zion-film-ministry",
+    "name": "Mount Zion Film Ministry",
+    "role": "Founding Christian film Organisation · Mount Zion founders",
     "organization": "Mount Zion Film Productions",
     "country": "Nigeria",
     "history": "The directory's Mount Zion records trace a long-running Nigerian Christian-film tradition from Agbara Nla (1993) and The Perilous Times (1992) through later productions. Mike and Gloria Bamiloye are credited on several foundational titles; Damilola Mike-Bamiloye and other collaborators appear in the later generation of the archive.",
@@ -274,7 +230,10 @@
     "productions": [
       "Mount Zion Film Productions",
       "Mount Zion Films Production"
-    ]
+    ],
+    "imageUrl": "images/filmmakers/mount-zion-founding-family.jpg",
+    "imageAlt": "Professional studio portrait of mount-zion-founding-family",
+    "imageSource": "Facebook public profile"
   },
   {
     "id": "evom",
@@ -302,24 +261,23 @@
       "Hacked",
       "Blind But Loved",
       "Why?",
-      "He Is All That Matters",
-      "He Is All That Matters 2",
-      "He Is All That Matters 7",
       "The Abductor",
       "Not Me",
       "Revealed",
       "Adrift",
       "Gone Back Home",
       "Emi Fun Emi",
-      "Temì yà tó",
       "The Wonderful Name"
     ],
     "productions": [
       "EVOM World Network"
-    ]
+    ],
+    "imageUrl": "images/filmmakers/Shola-mike.jpg",
+    "imageAlt": "Professional studio portrait of Shola Mike",
+    "imageSource": "Facebook public profile"
   },
   {
-    "id": "mike-bamiloye-solo",
+    "id": "mike-bamiloye",
     "name": "Mike Bamiloye",
     "role": "Writer · Director · Actor · Christian-film pioneer",
     "organization": "Mount Zion Film Productions",
@@ -340,15 +298,15 @@
       "The Gods Are Dead",
       "Captives of the Mighty",
       "One Careless Night",
-      "Esin Ajoji",
-      "The Train",
-      "Abejoye",
-      "Abattoir"
+      "Esin Ajoji"
     ],
     "productions": [
       "Mount Zion Film Productions"
-    ]
-  },
+    ],
+    "imageUrl": "images/filmmakers/mike-bamiloye.jpg",
+    "imageAlt": "Professional studio portrait of Mike Bamiloye",
+    "imageSource": "Facebook public profile"
+  },          
   {
     "id": "gloria-bamiloye",
     "name": "Gloria Bamiloye",
@@ -370,28 +328,10 @@
     ],
     "productions": [
       "Mount Zion Film Productions"
-    ]
-  },
-  {
-    "id": "isaac-femi-akintunde",
-    "name": "Isaac Femi-Akintunde",
-    "role": "Filmmaker · Director credit in catalogue",
-    "organization": "Independent / production credits vary",
-    "country": "Nigeria",
-    "history": "Isaac Femi-Akintunde is named in Gospelwood’s current film records. The available catalogue provides limited biographical detail, so this spotlight focuses on his recorded credits and does not add an unverified career history.",
-    "sourceLabel": "Gospelwood film records",
-    "sourceUrl": "films.html",
-    "channelUrl": "https://www.youtube.com/@evomchanneltv",
-    "match": "Isaac Femi-Akintunde",
-    "productionMatch": "",
-    "filmIds": [],
-    "filmography": [
-      "Abejoye",
-      "Abattoir"
     ],
-    "productions": [
-      "Mount Zion Film Productions"
-    ]
+    "imageUrl": "images/filmmakers/gloria-bamiloye.jpg",
+    "imageAlt": "Professional studio portrait of Gloria Bamiloye",
+    "imageSource": "Facebook public profile"
   },
   {
     "id": "john-316-foundation",
@@ -454,26 +394,6 @@
     ],
     "productions": [
       "Christ In Youth"
-    ]
-  },
-  {
-    "id": "damilola-fasesan",
-    "name": "Damilola Fasesan",
-    "role": "Director credit in catalogue",
-    "organization": "Production credit varies by title",
-    "country": "Nigeria",
-    "history": "Damilola Fasesan is named in Gospelwood’s current film records. The available project sources do not provide a verified biography, so this profile presents the existing credit without adding unsupported career claims.",
-    "sourceLabel": "Gospelwood film records",
-    "sourceUrl": "films.html",
-    "channelUrl": "https://www.youtube.com/results?search_query=Damilola+Fasesan+film",
-    "match": "Damilola Fasesan",
-    "productionMatch": "",
-    "filmIds": [],
-    "filmography": [
-      "Praey"
-    ],
-    "productions": [
-      "2nd Touch Production / Impact Global Ministries"
     ]
   },
   {
@@ -634,30 +554,8 @@
     "productions": [
       "PRODRAM Productions"
     ],
-    "imageUrl": ""
-  },
-  {
-    "id": "olabimpe-adegboyega",
-    "name": "Olabimpe Adegboyega",
-    "role": "Co-producer · Gospel filmmaker",
-    "organization": "PRODRAM Productions",
-    "country": "Nigeria",
-    "history": "Olabimpe Adegboyega is a co-producer and creative leader at PRODRAM Productions. The ministry credits her with helping shape stories around marriage, family, Christian womanhood and restoration, including the Husband and Wife Series.",
-    "sourceLabel": "PRODRAM official website",
-    "sourceUrl": "https://prodram.com/about/",
-    "channelUrl": "https://prodram.com/",
-    "match": "olabimpe adegboyega",
-    "productionMatch": "prodram",
-    "filmography": [
-      "Husband and Wife Series",
-      "Nicodemeus",
-      "Forty XL",
-      "Faded Lines"
-    ],
-    "productions": [
-      "PRODRAM Productions"
-    ],
-    "imageUrl": "",
-    "imageAlt": "Portrait available through the linked PRODRAM profile"
+    "imageUrl": "images/filmmakers/ayobami-adegboyega.jpg",
+    "imageAlt": "Professional studio portrait of Ayobami Adegboyega",
+    "imageSource": "Facebook public profile"
   }
 ]
