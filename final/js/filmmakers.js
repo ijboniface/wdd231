@@ -10,16 +10,31 @@ let active = 0;
 let timer = null;
 
 function initials(name) {
-  return name.split(/\s+/).filter(Boolean).slice(0, 2).map(part => part[0]).join("").toUpperCase();
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
 }
 
 function getCredits(profile) {
   const explicit = new Set(profile.filmIds || []);
   const match = (profile.match || "").toLowerCase();
   const production = (profile.productionMatch || "").toLowerCase();
-  return films.filter(film => explicit.has(film.id)
-    || (match && (film.director || []).some(name => String(name).toLowerCase().includes(match)))
-    || (production && String(film.production || "").toLowerCase().includes(production)));
+  return films.filter(
+    (film) =>
+      explicit.has(film.id) ||
+      (match &&
+        (film.director || []).some((name) =>
+          String(name).toLowerCase().includes(match),
+        )) ||
+      (production &&
+        String(film.production || "")
+          .toLowerCase()
+          .includes(production)),
+  );
 }
 
 function buildVisual(profile) {
@@ -42,10 +57,16 @@ function buildVisual(profile) {
     img.alt = profile.imageAlt || `Portrait of ${profile.name}`;
     img.decoding = "async";
     img.referrerPolicy = "no-referrer";
+    let triedFallback = false;
     img.addEventListener("error", () => {
+      if (profile.imageFallbackUrl && !triedFallback) {
+        triedFallback = true;
+        img.src = profile.imageFallbackUrl;
+        return;
+      }
       img.replaceWith(monogram());
       caption.textContent = "Profile image not verified";
-    }, { once: true });
+    });
     img.src = profile.imageUrl;
     caption.textContent = "Filmmaker portrait";
     visual.append(img, caption);
@@ -65,8 +86,8 @@ function renderProfile(animate = true) {
   const matches = Math.max(credits.length, listed);
   const link = profile.channelUrl || profile.sourceUrl;
 
-  host.replaceChildren(buildVisual(profile));
-  host.insertAdjacentHTML("beforeend", `
+  const markup = document.createElement("template");
+  markup.innerHTML = `
     <div class="filmmaker-copy">
       <span class="eyebrow">${esc(profile.country || "Africa")} · ${esc(profile.role || "Film contributor")}</span>
       <h3>${esc(profile.name)}</h3>
@@ -78,10 +99,17 @@ function renderProfile(animate = true) {
         <a class="text-btn" href="${esc(profile.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(profile.sourceLabel || "View source")} ↗</a>
       </div>
     </div>
-    <div class="filmmaker-count"><strong>${active + 1}<span class="count-divider">/</span>${profiles.length}</strong><span>Contributor spotlight</span><small>${matches} matching directory records</small></div>`);
+    <div class="filmmaker-count"><strong>${active + 1}<span class="count-divider">/</span>${profiles.length}</strong><span>Contributor spotlight</span><small>${matches} matching directory records</small></div>`;
+  host.replaceChildren(buildVisual(profile), markup.content);
 
   if (animate && !reducedMotion.matches) {
-    host.animate([{ opacity: 0.4, transform: "translateY(8px)" }, { opacity: 1, transform: "none" }], { duration: 340, easing: "ease-out" });
+    host.animate(
+      [
+        { opacity: 0.4, transform: "translateY(8px)" },
+        { opacity: 1, transform: "none" },
+      ],
+      { duration: 340, easing: "ease-out" },
+    );
   }
 }
 
@@ -111,8 +139,11 @@ function showError() {
 
 async function start() {
   try {
-    const response = await fetch(new URL("../data/filmmakers.json", import.meta.url));
-    if (!response.ok) throw new Error(`Could not load filmmaker profiles (${response.status})`);
+    const response = await fetch(
+      new URL("../data/filmmakers.json", import.meta.url),
+    );
+    if (!response.ok)
+      throw new Error(`Could not load filmmaker profiles (${response.status})`);
     profiles = await response.json();
   } catch (error) {
     console.error(error);
@@ -121,14 +152,26 @@ async function start() {
   }
   renderProfile();
   restart();
-  loadFilms().then(list => { films = list; renderProfile(false); }).catch(error => console.error(error));
+  loadFilms()
+    .then((list) => {
+      films = list;
+      renderProfile(false);
+    })
+    .catch((error) => console.error(error));
 }
 
-previous?.addEventListener("click", () => move(-1));
-next?.addEventListener("click", () => move(1));
-host?.addEventListener("mouseenter", stop);
-host?.addEventListener("mouseleave", restart);
-host?.addEventListener("focusin", stop);
-host?.addEventListener("focusout", event => { if (!host.contains(event.relatedTarget)) restart(); });
-document.addEventListener("visibilitychange", () => (document.hidden ? stop() : restart()));
-start();
+if (!window.gospelwoodFilmmakers) {
+  window.gospelwoodFilmmakers = true;
+  previous?.addEventListener("click", () => move(-1));
+  next?.addEventListener("click", () => move(1));
+  host?.addEventListener("mouseenter", stop);
+  host?.addEventListener("mouseleave", restart);
+  host?.addEventListener("focusin", stop);
+  host?.addEventListener("focusout", (event) => {
+    if (!host.contains(event.relatedTarget)) restart();
+  });
+  document.addEventListener("visibilitychange", () =>
+    document.hidden ? stop() : restart(),
+  );
+  start();
+}

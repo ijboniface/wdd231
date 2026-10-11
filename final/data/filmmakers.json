@@ -62,9 +62,10 @@
       "Mount Zion Film Productions",
       "Mount Zion Films Production"
     ],
-    "imageUrl": "https://www.nollymeter.com/uploads/actor/actor_1749111138.jpg",
+    "imageUrl": "images/filmmakers/damilola-mike-bamiloye.jpg",
     "imageAlt": "Professional studio portrait of Damilola Mike-Bamiloye",
-    "imageSource": "NollyMeter public profile"
+    "imageSource": "NollyMeter public profile",
+    "imageFallbackUrl": "https://www.nollymeter.com/uploads/actor/actor_1749111138.jpg"
   },
   {
     "id": "john-oguntuase",
@@ -306,7 +307,7 @@
     "imageUrl": "images/filmmakers/mike-bamiloye.jpg",
     "imageAlt": "Professional studio portrait of Mike Bamiloye",
     "imageSource": "Facebook public profile"
-  },          
+  },
   {
     "id": "gloria-bamiloye",
     "name": "Gloria Bamiloye",
