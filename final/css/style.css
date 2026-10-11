@@ -2968,3 +2968,70 @@ main>.section:nth-of-type(n+3) {
     padding: .35rem .5rem
   }
 }
+
+/* Films page on mobile: one column, full poster at its natural size */
+@media(max-width:699px) {
+  .film-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem
+  }
+
+  .poster-original {
+    display: block;
+    aspect-ratio: auto !important;
+    max-height: none !important;
+    min-height: 220px
+  }
+
+  .poster-original img {
+    position: static !important;
+    inset: auto;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain
+  }
+
+  .poster-original.poster-image-error {
+    display: grid;
+    aspect-ratio: 3/4 !important
+  }
+
+  .poster-overlay {
+    background: linear-gradient(180deg, rgba(10, 15, 18, .4), transparent 28%)
+  }
+
+  .film-body {
+    padding: 1.3rem 1.2rem 1.4rem
+  }
+
+  .film-body p {
+    overflow-wrap: anywhere
+  }
+
+  .card-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .7rem
+  }
+
+  .card-actions .text-btn,
+  .card-actions .story-link,
+  .card-actions .save-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 46px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fffaf0;
+    text-align: center
+  }
+
+  .card-actions .story-link {
+    flex-wrap: wrap;
+    gap: .2rem .5rem
+  }
+}
