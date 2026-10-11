@@ -1,4 +1,6 @@
 (function () {
+  if (window.gwNav) return;
+  window.gwNav = true;
   var toggle = document.querySelector(".nav-toggle");
   var links = document.querySelector(".nav-links");
   if (!toggle || !links) return;

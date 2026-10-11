@@ -140,3 +140,9 @@ if (window.matchMedia("(hover: hover)").matches) {
     card.style.setProperty("--my", `${event.clientY - box.top}px`);
   }, { passive: true });
 }
+
+if (!window.gwNav) {
+  const navScript = document.createElement("script");
+  navScript.src = new URL("./nav.js", import.meta.url).href;
+  document.head.append(navScript);
+}
