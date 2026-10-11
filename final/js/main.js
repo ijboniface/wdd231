@@ -1,17 +1,3 @@
-const navToggle = document.querySelector(".nav-toggle");
-const navLinks = document.querySelector(".nav-links");
-
-if (navToggle && navLinks) {
-  navToggle.addEventListener("click", () => {
-    const open = navLinks.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", String(open));
-    navToggle.animate(
-      [{ transform: "scale(.94)" }, { transform: "scale(1)" }],
-      { duration: 180, easing: "ease-out" }
-    );
-  });
-}
-
 document.addEventListener("click", (event) => {
   const target = event.target.closest("a, button");
   if (!target || target.classList.contains("modal-close")) return;
@@ -99,7 +85,7 @@ export function filmCard(film) {
 let filmsPromise;
 
 export function loadFilms() {
-  filmsPromise ??= (async () => {
+  if (!filmsPromise) filmsPromise = (async () => {
     const response = await fetch(new URL("../data/films.json", import.meta.url));
     if (!response.ok) throw new Error(`Could not load film data (${response.status})`);
     return response.json();
@@ -144,35 +130,6 @@ if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-mot
     watcher.observe(el);
   });
 }
-
-const tabIcons = {
-  "index.html": '<path d="M3 11l9-8 9 8v10h-6v-6H9v6H3z"/>',
-  "films.html": '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/>',
-  "industries.html": '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
-  "form.html": '<path d="M12 5v14M5 12h14"/>'
-};
-const tabLabels = { "index.html": "Home", "films.html": "Films", "industries.html": "Regions", "form.html": "Submit" };
-const navAnchors = [...document.querySelectorAll(".nav-links a")];
-
-if (navAnchors.length) {
-  const tabBar = document.createElement("nav");
-  tabBar.className = "tab-bar";
-  tabBar.setAttribute("aria-label", "Quick navigation");
-  tabBar.innerHTML = navAnchors.map(a => {
-    const file = a.getAttribute("href");
-    const current = a.getAttribute("aria-current") === "page" ? ' aria-current="page"' : "";
-    return `<a href="${file}"${current}><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${tabIcons[file] || ""}</svg><span>${tabLabels[file] || a.textContent}</span></a>`;
-  }).join("");
-  document.body.append(tabBar);
-}
-
-function closeMenu() {
-  if (!navLinks?.classList.contains("open")) return;
-  navLinks.classList.remove("open");
-  navToggle?.setAttribute("aria-expanded", "false");
-}
-document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
-document.addEventListener("click", event => { if (!event.target.closest(".nav-wrap")) closeMenu(); });
 
 if (window.matchMedia("(hover: hover)").matches) {
   document.addEventListener("pointermove", event => {

@@ -2811,3 +2811,74 @@ main>.section:nth-of-type(n+3) {
 .filmmaker-visual .filmmaker-portrait:not([hidden])~.filmmaker-monogram {
   display: none !important
 }
+
+/* Mobile balance: full-width drawer, centred headings, contained timeline */
+.timeline-section>.section-head,
+.timeline-section>.timeline {
+  width: min(92%, var(--max));
+  margin-left: auto;
+  margin-right: auto
+}
+
+@media(max-width:699px) {
+  #site-nav {
+    flex: 1 0 100%
+  }
+
+  .nav-links.open {
+    width: 100%
+  }
+
+  .section-head,
+  .section-heading,
+  .page-hero .container,
+  .box-office-section .section-head,
+  .filmmaker-section .section-heading {
+    align-items: center;
+    text-align: center
+  }
+
+  .section-head h2::after,
+  .section-heading h2::after {
+    margin-left: auto;
+    margin-right: auto
+  }
+
+  .section-head p,
+  .page-hero p,
+  .section-heading p {
+    margin-left: auto;
+    margin-right: auto
+  }
+
+  .spotlight-controls {
+    justify-content: center
+  }
+
+  .box-office-visual figcaption,
+  .spotlight-note,
+  .note {
+    text-align: center
+  }
+
+  .footer-grid {
+    text-align: center
+  }
+
+  .footer-links {
+    justify-content: center
+  }
+
+  .btns {
+    justify-content: center
+  }
+
+  .intro-grid>div:first-child,
+  .displaced-copy {
+    text-align: center
+  }
+
+  .displaced-copy .btn {
+    margin-inline: auto
+  }
+}

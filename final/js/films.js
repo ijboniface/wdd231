@@ -81,6 +81,7 @@ function render() {
   });
 }
 
+(async function init() {
 try {
   films = await loadFilms();
   fillFilters();
@@ -96,3 +97,4 @@ try {
   console.error(error);
   if (grid) grid.innerHTML = `<div class="error-box"><strong>We couldn't load the directory.</strong><p>Please refresh the page and try again.</p></div>`;
 }
+})();
