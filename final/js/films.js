@@ -12,6 +12,16 @@ const savedOnly = document.querySelector("#saved-only");
 const empty = document.querySelector("#empty-state");
 const count = document.querySelector("#results-status");
 let films = [];
+const PAGE = 12;
+let limit = PAGE;
+let lastKey = "";
+const more = document.createElement("button");
+more.type = "button";
+more.className = "btn btn-secondary more-btn";
+more.textContent = "Show more films";
+more.hidden = true;
+grid?.after(more);
+more.addEventListener("click", () => { limit += PAGE; render(); });
 
 function addOptions(select, values) {
   values.forEach(value => {
@@ -39,6 +49,9 @@ function render() {
   const selectedStatus = status?.value || "";
   const onlySaved = Boolean(savedOnly?.checked);
 
+  const key = [q, selectedCountry, selectedYear, selectedGenre, selectedStatus, onlySaved].join("|");
+  if (key !== lastKey) { limit = PAGE; lastKey = key; }
+
   const filtered = films.filter(f => {
     const haystack = [f.title, ...(f.director || []), f.production, f.channelName, f.country, f.language, ...(f.genre || []), ...(f.themes || [])].join(" ").toLowerCase();
     return (!q || haystack.includes(q))
@@ -49,8 +62,10 @@ function render() {
       && (!onlySaved || isSaved(f.id));
   });
 
-  if (grid) grid.innerHTML = filtered.length ? filtered.map(filmCard).join("") : "";
-  if (count) count.textContent = `${filtered.length} film${filtered.length === 1 ? "" : "s"} found`;
+  const shown = filtered.slice(0, limit);
+  if (grid) grid.innerHTML = shown.map(filmCard).join("");
+  more.hidden = shown.length >= filtered.length;
+  if (count) count.textContent = `${filtered.length} film${filtered.length === 1 ? "" : "s"} found${shown.length < filtered.length ? `, showing ${shown.length}` : ""}`;
   empty?.classList.toggle("hidden", filtered.length !== 0);
   animateNewCards();
 

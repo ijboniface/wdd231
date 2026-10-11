@@ -11,6 +11,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ijboniface.github.io/wdd231/final/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap">
+<link rel="preload" as="image" href="images/hero/gospelwood-hero.webp" fetchpriority="high">
 <link rel="stylesheet" href="css/style.css">
 <script type="module" src="js/home.js"></script>
 <script type="module" src="js/filmmakers.js"></script>
@@ -36,7 +38,7 @@
 <section class="section alt box-office-section" aria-labelledby="agbara-box-office-title"><div class="container">
 <div class="section-head"><div><span class="eyebrow">A moment to watch</span><h2 id="agbara-box-office-title">Agbara Nla returns to the big screen.</h2><p>A landmark Christian-film story has returned to cinemas — and the reported opening has made box-office history.</p></div><span class="box-office-badge">No. 1 · Opening frame</span></div>
 <div class="box-office-feature">
-  <figure class="box-office-visual"><img src="images/box-office/agbara-nla-box-office-oct-2026.jpg" alt="Box-office chart showing Agbara Nla: The Return ranked number one, with a reported ₦170.5 million opening result for 2–4 October." loading="lazy"><figcaption>Box-office chart supplied for the Gospelwood feature. The figures below use published reporting on the opening frame.</figcaption></figure>
+  <figure class="box-office-visual"><img src="images/box-office/agbara-nla-box-office-oct-2026.jpg" alt="Box-office chart showing Agbara Nla: The Return ranked number one, with a reported ₦170.5 million opening result for 2–4 October." loading="lazy" decoding="async"><figcaption>Box-office chart supplied for the Gospelwood feature. The figures below use published reporting on the opening frame.</figcaption></figure>
   <article class="story-card box-office-story"><span class="kicker">1993 → 2026 · Cinema release</span><h3>From a VHS-era classic to a major cinema opening.</h3>
   <p>The original <em>Agbara Nla</em> became a landmark of Nigerian Christian filmmaking. <em>Agbara Nla: The Return</em> brings the story to a new generation, 33 years later.</p>
   <p class="box-office-lede">The latest reported opening-frame total is <strong>₦170.59 million</strong>, including preview screenings and the 2–4 October weekend.</p>
@@ -70,9 +72,26 @@
   </div>
   </div>
 </section>
-
-<section class="section alt displaced-section" aria-labelledby="displaced-title"><div class="container displaced-promo"><div class="displaced-copy"><span class="eyebrow">Coming soon · Release date to be confirmed</span><h2 id="displaced-title"><em>Displaced</em></h2><p>A forthcoming faith-based film exploring displacement, persecution, trauma and institutional failure in Northern Nigeria.</p><p class="note">Gospelwood will update this listing when an official release date and verified viewing details are available.</p><a class="btn btn-primary" href="films.html?search=Displaced">Follow the film record <span aria-hidden="true">↗</span></a></div><div class="displaced-art" role="img" aria-label="Gospelwood upcoming film feature for Displaced"><span>GOSPELWOOD ORIGINALS · UPCOMING</span><strong>DIS<br>PLACED</strong><small>Faith. Survival. Home.</small></div></div></section>
-<section class="section alt filmmaker-section" aria-labelledby="filmmaker-section-title"><div class="container"><div class="section-heading"><div><span class="eyebrow">People behind the stories</span><h2 id="filmmaker-section-title">Featured filmmaker</h2><p>Meet the filmmakers and production communities credited across the directory. The spotlight rotates through the full contributor roster and can also be changed manually.</p></div><div class="spotlight-controls"><button class="btn btn-secondary" type="button" id="filmmaker-prev" aria-label="Previous filmmaker">← Previous</button><button class="btn btn-secondary" type="button" id="filmmaker-next" aria-label="Next filmmaker">Next →</button></div></div><article id="filmmaker-profile" class="filmmaker-profile" aria-live="polite"><div class="empty">Loading filmmaker profiles…</div></article><p class="spotlight-note">Film titles and production credits are retained as catalogue metadata; this spotlight introduces contributors without repeating film cards already shown in the directory.</p></div></section>
+<section class="section alt displaced-section" aria-labelledby="displaced-title">
+  <div class="container displaced-promo">
+    <div class="displaced-copy">
+      <span class="eyebrow">Coming soon · Release date to be confirmed</span>
+      <h2 id="displaced-title"><em>Displaced</em></h2>
+      <p>A forthcoming faith-based film exploring displacement, persecution, trauma and institutional failure in
+        Northern Nigeria.</p>
+      <p class="note">Gospelwood will update this listing when an official release date and verified viewing details are
+        available.</p>
+      <a class="btn btn-primary" href="films.html?search=Displaced">Follow the film record <span
+          aria-hidden="true">↗</span></a>
+    </div>
+    <figure class="displaced-visual">
+      <img src="images/posters/displaced.jpg" alt="Poster artwork for Displaced, an upcoming faith-based film"
+        width="800" height="1000" loading="lazy" decoding="async">
+      <figcaption>Upcoming · Release date to be confirmed</figcaption>
+    </figure>
+  </div>
+</section></small></div></div></section>
+<section class="section alt filmmaker-section" aria-labelledby="filmmaker-section-title"><div class="container"><div class="section-heading"><div><span class="eyebrow">People behind the stories</span><h2 id="filmmaker-section-title">Featured filmmaker</h2><p>Meet the filmmakers and production communities credited across the directory.</p></div><div class="spotlight-controls"><button class="btn btn-secondary" type="button" id="filmmaker-prev" aria-label="Previous filmmaker">← Previous</button><button class="btn btn-secondary" type="button" id="filmmaker-next" aria-label="Next filmmaker">Next →</button></div></div><article id="filmmaker-profile" class="filmmaker-profile" aria-live="polite"><div class="empty">Loading filmmaker profiles…</div></article><p class="spotlight-note">Film titles and production credits are retained as catalogue metadata; this spotlight introduces contributors without repeating film cards already shown in the directory.</p></div></section>
 
 <section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow">Across the continent</span><h2>More than one story of Christian cinema.</h2><p>Different countries are building different pathways: established production ministries, festival recognition, studio experimentation and film training.</p></div></div>
 <div class="industry-grid">
