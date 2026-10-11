@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Submit a Film | Gospelwood</title><meta name="description" content="Submit a film for consideration in the Gospelwood directory."><meta name="author" content="I.J. Boniface">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css"><script type="module" src="js/main.js"></script><script type="module" src="js/form.js"></script></head>
+<link rel="stylesheet" href="css/style.css"><script type="module" src="js/main.js"></script><script type="module" src="js/form.js"></script><script type="module" src="js/cover-upload.js"></script></head>
 <body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">GW</span><span>African Film Directory</span></a><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav" aria-label="Primary navigation"><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="films.html">Films</a></li><li><a href="industries.html">Industries &amp; Regions</a></li><li><a href="form.html" aria-current="page">Submit a Film</a></li></ul></nav></div></header>
 <main id="main"><section class="page-hero"><div class="container"><span class="kicker">Film submission</span><h1>Help us document another story.</h1><p>Share the basic information and a source we can verify.</p></div></section>
 <section class="section"><div class="container">
@@ -11,6 +11,9 @@
 <div class="form-grid two"><div><label for="title">Film title</label><input id="title" name="title" required></div><div><label for="country">Country</label><input id="country" name="country" required></div></div>
 <div class="form-grid two"><div><label for="director">Director / filmmaker</label><input id="director" name="director"></div><div><label for="year">Release year</label><input id="year" name="year" type="number" min="1900" max="2100"></div></div>
 <div><label for="source">Film website or reliable source</label><input id="source" name="source" type="url" placeholder="https://example.com"></div>
+<div class="cover-field"><label for="cover">Film cover image <span class="optional">(optional)</span></label>
+<div class="dropzone" id="dropzone"><input id="cover" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="cover-hint cover-status"><div class="drop-copy"><strong>Drop a cover here, or browse</strong><span id="cover-hint">JPG, PNG or WebP, up to 5 MB</span></div><img id="cover-preview" alt="" hidden></div>
+<p id="cover-status" class="note" aria-live="polite"></p><button type="button" id="cover-remove" class="btn btn-quiet" hidden>Remove image</button></div>
 <div><label for="reason">Why should it be included?</label><textarea id="reason" name="reason" required></textarea></div>
 <button class="btn btn-primary" type="submit">Submit film</button><p class="note submission-note"></p>
 </form></div></section></main>

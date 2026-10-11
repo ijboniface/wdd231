@@ -1,3 +1,5 @@
+import { esc } from "./main.js";
+
 let lastTrigger = null;
 
 function isYouTubeUrl(url = "") {
@@ -20,14 +22,14 @@ function sourceInfo(film) {
 function renderFilmStory(film) {
   const source = sourceInfo(film);
   return `
-    <span class="eyebrow">${film.country} · ${film.year || "TBA"}</span>
-    <h2 id="modal-title">${film.title}</h2>
-    <p>${film.description}</p>
-    <p><strong>Director:</strong> ${(film.director || []).join(", ") || "Not established"}</p>
-    <p><strong>Production:</strong> ${film.production || "Not established"}</p>
-    <p><strong>Format:</strong> ${film.format || "Film"}${film.runtime ? ` · ${film.runtime}` : ""}</p>
-    <p><strong>Language:</strong> ${film.language || "Not established"}</p>
-    <div class="film-meta">${(film.themes || []).map(theme => `<span class="tag">${theme}</span>`).join("")}</div>
+    <span class="eyebrow">${esc(film.country)} · ${film.year || "TBA"}</span>
+    <h2 id="modal-title">${esc(film.title)}</h2>
+    <p>${esc(film.description)}</p>
+    <p><strong>Director:</strong> ${esc((film.director || []).join(", ") || "Not established")}</p>
+    <p><strong>Production:</strong> ${esc(film.production || "Not established")}</p>
+    <p><strong>Format:</strong> ${esc(film.format || "Film")}${film.runtime ? ` · ${esc(film.runtime)}` : ""}</p>
+    <p><strong>Language:</strong> ${esc(film.language || "Not established")}</p>
+    <div class="film-meta">${(film.themes || []).map(theme => `<span class="tag">${esc(theme)}</span>`).join("")}</div>
     <div class="modal-actions">
       ${source ? `<a class="btn btn-primary source-link ${source.className}" href="${source.url}" target="_blank" rel="noopener noreferrer"><span>${source.label} ↗</span><small>${source.platform}</small></a>` : `<p class="note">A specific source link is not currently established for this record.</p>`}
       ${film.watchUrl && film.channelUrl ? `<a class="btn btn-secondary source-link source-youtube" href="${film.channelUrl}" target="_blank" rel="noopener noreferrer"><span>Production channel ↗</span><small>YouTube</small></a>` : ""}

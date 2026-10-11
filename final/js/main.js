@@ -29,27 +29,31 @@ document.addEventListener("click", (event) => {
   window.setTimeout(() => ripple.remove(), 500);
 });
 
+export function esc(value = "") {
+  return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", "\"": "&quot;" }[char]));
+}
+
 export function filmPoster(film) {
   const year = film.year || (film.status === "Upcoming" ? "Upcoming" : "—");
-  const alt = `${film.title} film artwork`;
+  const alt = `${esc(film.title)} film artwork`;
   if (film.posterUrl) {
     return `<div class="poster poster-original">
-      <img src="${film.posterUrl}" alt="${alt}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.poster').classList.add('poster-image-error');this.remove()">
+      <img src="${esc(film.posterUrl)}" alt="${alt}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.poster').classList.add('poster-image-error');this.remove()">
       <div class="poster-overlay"></div>
-      <span class="poster-label">${film.country} · ${year}</span>
+      <span class="poster-label">${esc(film.country)} · ${year}</span>
       <div class="poster-credit">${film.posterSource && film.posterSource.toLowerCase().includes("thumbnail") ? "Official video artwork" : "Film artwork"}</div>
-      <div class="poster-fallback-title">${film.title}</div>
+      <div class="poster-fallback-title">${esc(film.title)}</div>
     </div>`;
   }
-  return `<div class="poster poster-unavailable" role="img" aria-label="Representative artwork for ${film.title}; original cover not verified">
-    <span class="poster-label">${film.country} · ${year}</span>
-    <div class="poster-fallback-title">${film.title}</div>
+  return `<div class="poster poster-unavailable" role="img" aria-label="Representative artwork for ${esc(film.title)}; original cover not verified">
+    <span class="poster-label">${esc(film.country)} · ${year}</span>
+    <div class="poster-fallback-title">${esc(film.title)}</div>
     <small>Representative artwork · original cover not verified</small>
   </div>`;
 }
 
 export function tagList(items = []) {
-  return items.slice(0, 3).map(item => `<span class="tag">${item}</span>`).join("");
+  return items.slice(0, 3).map(item => `<span class="tag">${esc(item)}</span>`).join("");
 }
 
 function isYouTubeUrl(url = "") {
@@ -68,25 +72,25 @@ function sourceLink(film) {
   if (channel) return `<a class="text-btn story-link story-link-youtube" href="${channel}" target="_blank" rel="noopener noreferrer"><span>Find film on channel ↗</span><small>${film.channelName || "YouTube channel"}</small></a>`;
   if (!film.source) return "";
   const youtube = isYouTubeUrl(film.source) || film.sourceType === "official-youtube-channel";
-  return `<a class="text-btn story-link ${youtube ? "story-link-youtube" : "story-link-verified"}" href="${film.source}" target="_blank" rel="noopener noreferrer"><span>${youtube ? "Watch on YouTube ↗" : "Open verified source ↗"}</span><small>${youtube ? "YouTube" : "Verified source"}</small></a>`;
+  return `<a class="text-btn story-link ${youtube ? "story-link-youtube" : "story-link-verified"}" href="${esc(film.source)}" target="_blank" rel="noopener noreferrer"><span>${youtube ? "Watch on YouTube ↗" : "Open verified source ↗"}</span><small>${youtube ? "YouTube" : "Verified source"}</small></a>`;
 }
 
 export function filmCard(film) {
   const upcoming = film.status === "Upcoming";
   const channelLink = film.watchUrl && film.channelUrl
-    ? `<a class="text-btn story-link story-link-youtube" href="${film.channelUrl}" target="_blank" rel="noopener noreferrer"><span>Production channel ↗</span><small>YouTube</small></a>`
+    ? `<a class="text-btn story-link story-link-youtube" href="${esc(film.channelUrl)}" target="_blank" rel="noopener noreferrer"><span>Production channel ↗</span><small>YouTube</small></a>`
     : "";
   return `<article class="film-card reveal ${upcoming ? "film-upcoming" : ""}">
     ${filmPoster(film)}
     <div class="film-body">
       <span class="eyebrow">${upcoming ? "Coming soon" : (film.era || "Directory")}</span>
-      <h3>${film.title}</h3>
+      <h3>${esc(film.title)}</h3>
       <div class="film-meta">${tagList([film.country, film.year || "TBA", film.language || ""])}</div>
-      <p>${film.description}</p>
+      <p>${esc(film.description)}</p>
       <div class="card-actions">
-        <button class="text-btn details-btn" type="button" data-film="${film.id}">View film story →</button>
+        <button class="text-btn details-btn" type="button" data-film="${esc(film.id)}">View film story →</button>
         ${sourceLink(film)}${channelLink}
-        <button class="save-btn" type="button" data-save="${film.id}" aria-label="Save ${film.title}">＋ Save</button>
+        <button class="save-btn" type="button" data-save="${esc(film.id)}" aria-label="Save ${esc(film.title)}">＋ Save</button>
       </div>
     </div>
   </article>`;
@@ -106,5 +110,33 @@ export function animateNewCards() {
        { opacity: 1, transform: "translateY(0) scale(1)" }],
       { duration: 420, delay: Math.min(index * 45, 300), easing: "cubic-bezier(.2,.8,.2,1)", fill: "both" }
     );
+  });
+}
+
+const progress = document.createElement("div");
+progress.className = "scroll-progress";
+progress.setAttribute("aria-hidden", "true");
+document.body.append(progress);
+
+function updateProgress() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.transform = `scaleX(${max > 0 ? Math.min(window.scrollY / max, 1) : 0})`;
+}
+window.addEventListener("scroll", updateProgress, { passive: true });
+updateProgress();
+
+const revealTargets = ".intro-card, .industry-card, .timeline-item, .story-card, .box-office-metric, .displaced-promo, .filmmaker-profile, .submit-card";
+if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const watcher = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      watcher.unobserve(entry.target);
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(revealTargets).forEach((el, index) => {
+    el.classList.add("js-reveal");
+    el.style.setProperty("--i", index % 4);
+    watcher.observe(el);
   });
 }

@@ -246,7 +246,7 @@
     "source": "https://mountzionmovies.com/movies/details/captives-of-the-mighty/135",
     "sourceUrl": "https://mountzionmovies.com/movies/details/captives-of-the-mighty/135",
     "sourceType": "specific-source",
-   "posterUrl": "images/posters/captives-of-the-mighty.jpg",
+    "posterUrl": "images/posters/captives-of-the-mighty.jpg",
     "posterSource": "Official film/video thumbnail (YouTube/Vimeo)",
     "channelUrl": "https://www.youtube.com/@damilolamike-bamiloye",
     "watchUrl": "https://www.youtube.com/watch?v=vmb8yCktBQY",
@@ -568,7 +568,6 @@
     "channelName": "KAC Studios",
     "posterSource": "Representative artwork fallback"
   },
-  
   {
     "id": "wasted-beauty",
     "title": "Wasted Beauty",
@@ -603,7 +602,6 @@
     "channelName": "John 316 Film School",
     "posterSource": "Representative artwork fallback"
   },
- 
   {
     "id": "abattoir",
     "title": "Abattoir",
@@ -1107,7 +1105,6 @@
     "channelName": "EVOM Channel TV",
     "posterSource": "Representative artwork fallback"
   },
-  
   {
     "id": "the-abductor",
     "title": "The Abductor",
@@ -1234,7 +1231,7 @@
     "format": "Feature",
     "runtime": null,
     "director": [
-    "Shola Mike Agboola"
+      "Shola Mike Agboola"
     ],
     "production": "EVOM World Network",
     "description": "Adrift, a research-sourced title associated with EVOM World Network, is included in Gospelwood as part of the directory's documentation of African Christian cinema.",
@@ -2184,68 +2181,6 @@
     "channelUrl": "https://acvmn.com/",
     "watchUrl": null,
     "channelName": "CAP Studios"
-  },
-  {
-    "id": "the-cleaner-kac",
-    "title": "The Cleaner",
-    "country": "Ghana",
-    "region": "West Africa",
-    "year": 2024,
-    "language": "English",
-    "genre": [
-      "Faith-Inspired Drama"
-    ],
-    "themes": [
-      "Family reconciliation",
-      "Mental health",
-      "Isolation"
-    ],
-    "format": "Short film",
-    "runtime": "Not confirmed",
-    "director": [],
-    "production": "KAC Studios",
-    "description": "KAC Studios’ short film screened at an Accra industry event in 2026. Ghana News Agency reports that it attracted close to one million YouTube views and received international festival selections; direct video details should be confirmed from the studio channel.",
-    "featured": false,
-    "era": "Excellence",
-    "source": "https://gna.org.gh/2026/02/kac-studios-urges-collaboration-to-bridge-gaps-in-christian-film-production-in-africa/",
-    "sourceUrl": "https://gna.org.gh/2026/02/kac-studios-urges-collaboration-to-bridge-gaps-in-christian-film-production-in-africa/",
-    "sourceType": "press-source",
-    "posterUrl": "images/posters/the-cleaner.jpg",
-    "posterSource": "Gospelwood catalogue artwork; not an original film poster",
-    "channelUrl": "https://www.youtube.com/results?search_query=KAC+Studios+The+Cleaner+official",
-    "watchUrl": null,
-    "channelName": "KAC Studios"
-  },
-  {
-    "id": "mirage-kac",
-    "title": "Mirage",
-    "country": "Ghana",
-    "region": "West Africa",
-    "year": 2024,
-    "language": "English",
-    "genre": [
-      "Faith-Inspired Drama"
-    ],
-    "themes": [
-      "Love",
-      "Mental health",
-      "Choices"
-    ],
-    "format": "Short film",
-    "runtime": "Not confirmed",
-    "director": [],
-    "production": "KAC Studios",
-    "description": "A KAC Studios short film named in Ghana News Agency’s report about the studio’s Accra screening and collaboration work in Christian-inspired film production.",
-    "featured": false,
-    "era": "Excellence",
-    "source": "https://gna.org.gh/2026/02/kac-studios-urges-collaboration-to-bridge-gaps-in-christian-film-production-in-africa/",
-    "sourceUrl": "https://gna.org.gh/2026/02/kac-studios-urges-collaboration-to-bridge-gaps-in-christian-film-production-in-africa/",
-    "sourceType": "press-source",
-    "posterUrl": "images/posters/continental-catalogue/mirage-kac.svg",
-    "posterSource": "Gospelwood catalogue artwork; not an original film poster",
-    "channelUrl": "https://www.youtube.com/results?search_query=KAC+Studios+Mirage+official",
-    "watchUrl": null,
-    "channelName": "KAC Studios"
   },
   {
     "id": "right-to-do-anything",

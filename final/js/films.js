@@ -1,6 +1,6 @@
 import { loadFilms, filmCard, animateNewCards } from "./main.js";
 import { setupModal } from "./modal.js";
-import { saveFilm, isSaved } from "./storage.js";
+import { toggleSaved, isSaved } from "./storage.js";
 
 const grid = document.querySelector("#film-grid");
 const search = document.querySelector("#search");
@@ -59,7 +59,7 @@ function render() {
     if (!film) return;
     btn.textContent = isSaved(film.id) ? "✓ Saved" : "＋ Save";
     btn.addEventListener("click", () => {
-      saveFilm(film.id);
+      toggleSaved(film.id);
       btn.textContent = isSaved(film.id) ? "✓ Saved" : "＋ Save";
       if (savedOnly?.checked) render();
     });
@@ -70,17 +70,13 @@ try {
   films = await loadFilms();
   fillFilters();
   const params = new URLSearchParams(location.search);
-  if (params.get("search")) search.value = params.get("search");
+  if (params.get("search") && search) search.value = params.get("search");
   setupModal(films);
   render();
   [search, country, year, genre, status, savedOnly].forEach(el => el?.addEventListener("input", render));
   document.querySelector("#search-button")?.addEventListener("click", render);
   document.querySelector("#clear-search")?.addEventListener("click", () => { search.value = ""; country.value = ""; year.value = ""; genre.value = ""; status.value = ""; savedOnly.checked = false; render(); search.focus(); });
   search?.addEventListener("keydown", event => { if (event.key === "Enter") render(); });
-  document.querySelector("#search-button")?.addEventListener("click", render);
-  document.querySelector("#clear-search")?.addEventListener("click", () => { search.value = ""; country.value = ""; year.value = ""; genre.value = ""; status.value = ""; savedOnly.checked = false; render(); search.focus(); });
-  search?.addEventListener("keydown", event => { if (event.key === "Enter") render(); });
-  [country, year, genre, status].forEach(el => el?.addEventListener("change", render));
 } catch (error) {
   console.error(error);
   if (grid) grid.innerHTML = `<div class="error-box"><strong>We couldn't load the directory.</strong><p>Please refresh the page and try again.</p></div>`;

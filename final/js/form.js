@@ -1,10 +1,15 @@
-import { getSubmissions, saveSubmission, clearSubmissions } from "./storage.js";
+import { getSubmissions, saveSubmission, clearSubmissions, takePendingCover } from "./storage.js";
 
 const content = document.querySelector("#submission-content");
 const params = new URLSearchParams(location.search);
 
 function escapeHTML(value = "") {
   return String(value).replace(/[&<>'"]/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"}[char]));
+}
+
+function coverImg(item) {
+  if (!item.cover || !item.cover.startsWith("data:image/")) return "";
+  return `<img class="submission-cover" src="${item.cover}" alt="Cover image for ${escapeHTML(item.title)}">`;
 }
 
 function renderInbox() {
@@ -14,6 +19,7 @@ function renderInbox() {
     <div class="submission-list">
       ${submissions.length ? submissions.map((item, index) => `
         <article class="story-card submission-item">
+          ${coverImg(item)}
           <div><span class="eyebrow">${escapeHTML(item.country || "Country not supplied")} · ${escapeHTML(item.year || "Year TBA")}</span><h3>${escapeHTML(item.title)}</h3></div>
           <p><strong>Director:</strong> ${escapeHTML(item.director || "Not supplied")}<br><strong>Submitted by:</strong> ${escapeHTML(item.name || "Not supplied")} (${escapeHTML(item.email || "No email")})</p>
           <p><strong>Source:</strong> ${item.source ? `<a href="${escapeHTML(item.source)}" target="_blank" rel="noopener">${escapeHTML(item.source)}</a>` : "Not supplied"}</p>
@@ -32,7 +38,9 @@ function renderInbox() {
   });
 }
 
-if (params.get("view") === "submissions") {
+if (!content) {
+  // the submission form page loads this module too and has nothing to render
+} else if (params.get("view") === "submissions") {
   renderInbox();
 } else if (params.has("title")) {
   const submission = {
@@ -44,10 +52,11 @@ if (params.get("view") === "submissions") {
     year: params.get("year") || "",
     source: params.get("source") || "",
     reason: params.get("reason") || "",
+    cover: takePendingCover(),
     submittedAt: new Date().toLocaleString()
   };
   saveSubmission(submission);
-  content.innerHTML = `<div class="submit-card submission-success"><span class="eyebrow">Submission received</span><h2>${escapeHTML(submission.title)}</h2><p>Thanks, ${escapeHTML(submission.name || "there")}. Your submission has been recorded in this browser for review.</p><p><strong>Country:</strong> ${escapeHTML(submission.country || "Not supplied")}<br><strong>Director:</strong> ${escapeHTML(submission.director || "Not supplied")}<br><strong>Year:</strong> ${escapeHTML(submission.year || "Not supplied")}<br><strong>Source:</strong> ${submission.source ? `<a href="${escapeHTML(submission.source)}" target="_blank" rel="noopener">${escapeHTML(submission.source)}</a>` : "Not supplied"}</p><p><strong>Reason:</strong> ${escapeHTML(submission.reason || "Not supplied")}</p><div class="btns"><a class="btn btn-primary" href="form-action.html?view=submissions">View saved submissions</a><a class="btn btn-secondary light-btn" href="films.html">Browse films</a></div></div>`;
+  content.innerHTML = `<div class="submit-card submission-success">${coverImg(submission)}<span class="eyebrow">Submission received</span><h2>${escapeHTML(submission.title)}</h2><p>Thanks, ${escapeHTML(submission.name || "there")}. Your submission has been recorded in this browser for review.</p><p><strong>Country:</strong> ${escapeHTML(submission.country || "Not supplied")}<br><strong>Director:</strong> ${escapeHTML(submission.director || "Not supplied")}<br><strong>Year:</strong> ${escapeHTML(submission.year || "Not supplied")}<br><strong>Source:</strong> ${submission.source ? `<a href="${escapeHTML(submission.source)}" target="_blank" rel="noopener">${escapeHTML(submission.source)}</a>` : "Not supplied"}</p><p><strong>Reason:</strong> ${escapeHTML(submission.reason || "Not supplied")}</p><div class="btns"><a class="btn btn-primary" href="form-action.html?view=submissions">View saved submissions</a><a class="btn btn-secondary light-btn" href="films.html">Browse films</a></div></div>`;
 } else {
   renderInbox();
 }
