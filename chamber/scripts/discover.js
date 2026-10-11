@@ -18,28 +18,30 @@ function showPlaces() {
   discoverItems.forEach((item, index) => {
     const card = document.createElement("article");
     card.classList.add("discover-card");
-    card.style.gridArea = `card-${item.id}`;
+    card.classList.add(`area-${item.area}`);
     card.style.setProperty("--i", index);
 
     card.innerHTML = `
-            <h2>${item.name}</h2>
+            <div class="card-body">
+                <h2>${item.name}</h2>
 
-            <figure>
-                <div class="image-frame">
-                    <img src="${item.image}" alt="${item.alt ?? `Photo of ${item.name}, Ikorodu`}"
-                        width="300" height="200"
-                        loading="${index === 0 ? "eager" : "lazy"}" ${index === 0 ? 'fetchpriority="high"' : ""}>
-                </div>
-            </figure>
+                <figure>
+                    <div class="image-frame">
+                        <img src="${item.image}" alt="${item.alt ?? `Photo of ${item.name}, Ikorodu`}"
+                            width="300" height="200"
+                            loading="${index === 0 ? "eager" : "lazy"}" ${index === 0 ? 'fetchpriority="high"' : ""}>
+                    </div>
+                </figure>
 
-            <address>${item.address}</address>
+                <address>${item.address}</address>
 
-            <p>${item.description}</p>
+                <p>${item.description}</p>
 
-            <button type="button" class="learn-more" data-url="${item.url}"
-                aria-label="Learn more about ${item.name} (opens in a new tab)">
-                Learn More
-            </button>`;
+                <button type="button" class="learn-more" data-url="${item.url}"
+                    aria-label="Learn more about ${item.name} (opens in a new tab)">
+                    Learn More
+                </button>
+            </div>`;
 
     container.appendChild(card);
   });

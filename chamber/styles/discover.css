@@ -1,143 +1,167 @@
 .discover-heading p:last-child {
-    max-width: 60ch;
+  max-width: 60ch;
 }
 
 /* room for two lines of text, so the cards do not jump when the message appears */
 .visitor-message {
-    min-height: 4.6rem;
+  min-height: 4.6rem;
 }
 
 .visitor-message.show {
-    display: flex;
-    align-items: center;
-    padding: 0.8rem 1rem;
-    background: var(--band);
-    border-left: 4px solid var(--secondary-color);
-    border-radius: 6px;
-    font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  background: var(--band);
+  border-left: 4px solid var(--secondary-color);
+  border-radius: 6px;
+  font-weight: 500;
 }
 
-/* small screens: one card per row */
+/* every card has its own named grid area */
+.area-palace { grid-area: palace; }
+.area-statue { grid-area: statue; }
+.area-mosque { grid-area: mosque; }
+.area-iledi { grid-area: iledi; }
+.area-lake { grid-area: lake; }
+.area-beach { grid-area: beach; }
+.area-spring { grid-area: spring; }
+.area-ferry { grid-area: ferry; }
+
+/* layout 1, small screens (up to 640px): one card per row */
 .discover-grid {
-    display: grid;
-    min-height: 100vh;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-        "card-1"
-        "card-2"
-        "card-3"
-        "card-4"
-        "card-5"
-        "card-6"
-        "card-7"
-        "card-8";
-    gap: 1.25rem;
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "palace"
+    "statue"
+    "mosque"
+    "iledi"
+    "lake"
+    "beach"
+    "spring"
+    "ferry";
+  gap: 1.25rem;
 }
 
+/* the card measures its own width, so a wide card switches to a side-by-side design */
 .discover-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    padding: 1rem;
+  display: flex;
+  container-type: inline-size;
+  padding: 1rem;
 }
 
-.discover-card h2 {
-    grid-area: title;
-    font-size: 1.25rem;
+.card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.discover-card figure {
-    grid-area: media;
-    position: relative;
-    flex: 1;
-    min-height: 200px;
-    overflow: hidden;
-    border-radius: 6px;
+.card-body h2 {
+  grid-area: title;
+  font-size: 1.25rem;
 }
 
-.discover-card address {
-    grid-area: address;
-    color: var(--muted-color);
+.card-body figure {
+  grid-area: media;
+  position: relative;
+  flex: none;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 6px;
 }
 
-.discover-card p {
-    grid-area: text;
+.card-body address {
+  grid-area: address;
+  color: var(--muted-color);
+}
+
+.card-body p {
+  grid-area: text;
 }
 
 .learn-more {
-    grid-area: action;
-    align-self: flex-start;
-    margin-top: auto;
+  grid-area: action;
+  align-self: flex-start;
+  margin-top: auto;
 }
 
 .image-frame,
 .image-frame img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .image-frame {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .image-frame img {
-    object-fit: cover;
+  object-fit: cover;
 }
 
-/* medium screens: two columns, feature cards run the full width */
+/* wide cards: picture on the left, text on the right */
+@container (min-width: 640px) {
+  .card-body {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+      "media title"
+      "media address"
+      "media text"
+      "media action";
+    gap: 0.75rem 1rem;
+  }
+
+  .card-body figure {
+    height: auto;
+    min-height: 200px;
+  }
+
+  .learn-more {
+    justify-self: start;
+  }
+}
+
+/* layout 2, medium screens (641px to 1024px): two columns, two wide cards */
 @media (min-width: 641px) {
-    .visitor-message {
-        min-height: 3.2rem;
-    }
+  .visitor-message {
+    min-height: 3.2rem;
+  }
 
-    .discover-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas:
-            "card-1 card-1"
-            "card-2 card-3"
-            "card-5 card-5"
-            "card-4 card-6"
-            "card-7 card-8";
-    }
+  .discover-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "palace palace"
+      "statue mosque"
+      "iledi  iledi"
+      "lake   beach"
+      "spring ferry";
+  }
 
-    /* feature cards: picture on the left, text on the right */
-    .discover-card:is(:nth-child(1), :nth-child(5)) {
-        display: grid;
-        grid-template-columns: 5fr 6fr;
-        grid-template-rows: auto auto 1fr auto;
-        grid-template-areas:
-            "media title"
-            "media address"
-            "media text"
-            "media action";
-        column-gap: 1rem;
-    }
+  /* hover effect on the pictures, not used on mobile */
+  .image-frame img {
+    transition: transform 0.4s, filter 0.4s;
+  }
 
-    .discover-card:is(:nth-child(1), :nth-child(5)) .learn-more {
-        justify-self: start;
-    }
-
-    /* hover effect on the pictures, not used on mobile */
-    .image-frame img {
-        transition: transform 0.4s, filter 0.4s;
-    }
-
-    .image-frame img:hover {
-        transform: scale(1.08);
-        filter: brightness(1.1) saturate(1.25);
-    }
+  .image-frame img:hover {
+    transform: scale(1.08);
+    filter: brightness(1.1) saturate(1.25);
+  }
 }
 
-/* large screens: three columns, a different arrangement */
+/* layout 3, large screens (1025px and above): six columns, rows of one, three and two cards */
 @media (min-width: 1025px) {
-    .discover-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-            "card-1 card-1 card-1"
-            "card-2 card-3 card-4"
-            "card-5 card-5 card-5"
-            "card-6 card-7 card-8";
-    }
+  .discover-grid {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+      "palace palace palace palace palace palace"
+      "statue statue mosque mosque iledi  iledi"
+      "lake   lake   lake   beach  beach  beach"
+      "spring spring spring ferry  ferry  ferry";
+  }
 }

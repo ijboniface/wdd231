@@ -1,6 +1,7 @@
 const discoverItems = [
     {
         id: 1,
+        area: "palace",
         name: "Palace of the Ayangburen",
         address: "50 Ayangburen Road, Ikorodu, Lagos State, Nigeria",
         image: "images/ayangburen-palace.webp",
@@ -11,6 +12,7 @@ const discoverItems = [
 
     {
         id: 2,
+        area: "statue",
         name: "Ikorodu Oga Statue",
         address: "Ikorodu Garage Roundabout, Ikorodu, Lagos State, Nigeria",
         image: "images/ikorodu-oga-statue.webp",
@@ -21,6 +23,7 @@ const discoverItems = [
 
     {
         id: 3,
+        area: "mosque",
         name: "Ikorodu Central Mosque",
         address: "Itun-Nla Street, Ikorodu Central, Ikorodu, Lagos State, Nigeria",
         image: "images/ikorodu-central-mosque.webp",
@@ -31,6 +34,7 @@ const discoverItems = [
 
     {
         id: 4,
+        area: "iledi",
         name: "Iledi Osugbo Abalaye",
         address: "Ajina Square, Ikorodu, Lagos State, Nigeria",
         image: "images/iledi-oshugbo.webp",
@@ -41,6 +45,7 @@ const discoverItems = [
 
     {
         id: 5,
+        area: "lake",
         name: "Cradoo Lake Waterfront",
         address: "Ipakodo, Ikorodu, Lagos State, Nigeria",
         image: "images/cradoo-lake.webp",
@@ -51,6 +56,7 @@ const discoverItems = [
 
     {
         id: 6,
+        area: "beach",
         name: "Odoro Beach",
         address: "Ijede, Ikorodu, Lagos State, Nigeria",
         image: "images/odoro-beach.webp",
@@ -61,6 +67,7 @@ const discoverItems = [
 
     {
         id: 7,
+        area: "spring",
         name: "Ijede Warm Spring",
         address: "Ijede, Ikorodu, Lagos State, Nigeria",
         image: "images/ijede-warm-spring.webp",
@@ -71,6 +78,7 @@ const discoverItems = [
 
     {
         id: 8,
+        area: "ferry",
         name: "Ikorodu Ferry Terminal",
         address: "Ipakodo, Ikorodu, Lagos State, Nigeria",
         image: "images/ikorodu-ferry-terminal.webp",
