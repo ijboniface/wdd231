@@ -52,6 +52,8 @@
       var retried = false;
       img.className = "filmmaker-portrait";
       img.alt = profile.imageAlt || "Portrait of " + profile.name;
+      img.width = 220;
+      img.height = 250;
       img.decoding = "async";
       img.referrerPolicy = "no-referrer";
       img.onerror = function () {

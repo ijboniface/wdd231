@@ -1,29 +1,155 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Films | Gospelwood</title>
-<meta name="description" content="Search and filter a curated directory of African Christian and faith-inspired films by country, year, genre and status.">
-<meta name="author" content="I.J. Boniface">
-<meta property="og:title" content="Films | Gospelwood"><meta property="og:description" content="Explore African Christian cinema by country, year, genre and more."><meta property="og:type" content="website">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap">
-<link rel="preconnect" href="https://i.ytimg.com"><link rel="preconnect" href="https://img.youtube.com">
-<link rel="stylesheet" href="css/style.css"><script type="module" src="js/films.js"></script>
-</head><body><a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">GW</span><span>African Film Directory</span></a><button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav" aria-label="Primary navigation"><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="films.html" aria-current="page">Films</a></li><li><a href="industries.html">Industries &amp; Regions</a></li><li><a href="form.html">Submit a Film</a></li></ul></nav></div></header>
-<main id="main"><section class="page-hero"><div class="container"><span class="kicker">Gospelwood archive</span><h1>Find your next story.</h1><p>Search and filter the archive by film, filmmaker, country, year and genre. Save films locally to build your own “My Gospelwood” list.</p></div></section>
-<section class="section"><div class="container">
-<div class="filters" aria-label="Film directory filters"><div class="filter-grid">
-<div class="search-control"><label for="search">Search films, filmmakers, genres or productions</label><div class="search-row"><input id="search" type="search" placeholder="Try a title, director, genre…" autocomplete="off"><button id="search-button" class="btn btn-primary" type="button">Search</button><button id="clear-search" class="btn btn-quiet" type="button">Clear</button></div></div>
-<div><label for="country">Country</label><select id="country"><option value="">All countries</option></select></div>
-<div><label for="year">Year</label><select id="year"><option value="">All years</option></select></div>
-<div><label for="genre">Genre</label><select id="genre"><option value="">All genres</option></select></div>
-<div><label for="status">Availability</label><select id="status"><option value="">All films</option><option value="Released">Released</option><option value="Upcoming">Upcoming</option></select></div>
-<div class="filter-check"><label for="saved-only"><input id="saved-only" type="checkbox"> Saved only</label></div>
-</div><p id="results-status" class="note" aria-live="polite"></p></div>
-<div id="film-grid" class="film-grid"><div class="empty">Loading films…</div></div>
-<div id="empty-state" class="empty hidden" aria-live="polite">No films match those filters. Try clearing one or more filters.</div>
-</div></section>
-<dialog id="film-modal" aria-labelledby="modal-title"><div class="modal-inner"><button class="modal-close" type="button" aria-label="Close film story" title="Close film story">× <span class="sr-only">Close</span></button><div id="modal-content"></div></div></dialog>
-</main><footer><div class="container footer-grid"><div><h2>Gospelwood</h2><p>African Christian cinema, documented.</p></div><div><h3>Explore</h3><div class="footer-links"><a href="index.html">Home</a><a href="industries.html">Industries</a><a href="form.html">Submit a film</a></div></div><div><h3>Project</h3><div class="footer-links"><a href="attributions.html">Attributions</a><a href="https://youtu.be/REPLACE_WITH_YOUR_VIDEO" target="_blank" rel="noopener">Video demo</a></div></div></div></footer>
-</body></html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Films | Gospelwood</title>
+    <meta name="description"
+        content="Search and filter a curated directory of African Christian and faith-inspired films by country, year, genre and status.">
+    <meta name="author" content="I.J. Boniface">
+    <meta property="og:title" content="Films | Gospelwood">
+    <meta property="og:description"
+        content="Search and filter a curated directory of African Christian and faith-inspired films by country, year, genre and status.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ijboniface.github.io/wdd231/final/films.html">
+    <meta property="og:image" content="https://ijboniface.github.io/wdd231/final/images/hero/gospelwood-hero.webp">
+    <meta property="og:image:alt" content="Gospelwood, the African Film Directory">
+    <meta property="og:site_name" content="Gospelwood">
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap">
+    <link rel="preconnect" href="https://i.ytimg.com">
+    <link rel="preconnect" href="https://img.youtube.com">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <script type="module" src="scripts/films.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" href="index.html">
+                <span class="brand-mark">GW</span>
+                <span>African Film Directory</span>
+            </a>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+            <nav id="site-nav" aria-label="Primary navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="films.html" aria-current="page">Films</a></li>
+                    <li><a href="industries.html">Industries &amp; Regions</a></li>
+                    <li><a href="form.html">Submit a Film</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <span class="kicker">Gospelwood archive</span>
+                <h1>Find your next story.</h1>
+                <p>Search and filter the archive by film, filmmaker, country, year and genre. Save films locally to
+                    build your own “My Gospelwood” list.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="filters" aria-label="Film directory filters">
+                    <div class="filter-grid">
+                        <div class="search-control">
+                            <label for="search">Search films, filmmakers, genres or productions</label>
+                            <div class="search-row">
+                                <input id="search" type="search" placeholder="Try a title, director, genre…"
+                                    autocomplete="off">
+                                <button id="search-button" class="btn btn-primary" type="button">Search</button>
+                                <button id="clear-search" class="btn btn-quiet" type="button">Clear</button>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="country">Country</label>
+                            <select id="country">
+                                <option value="">All countries</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="year">Year</label>
+                            <select id="year">
+                                <option value="">All years</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="genre">Genre</label>
+                            <select id="genre">
+                                <option value="">All genres</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="status">Availability</label>
+                            <select id="status">
+                                <option value="">All films</option>
+                                <option value="Released">Released</option>
+                                <option value="Upcoming">Upcoming</option>
+                            </select>
+                        </div>
+                        <div class="filter-check">
+                            <label for="saved-only">
+                                <input id="saved-only" type="checkbox">
+                                Saved only
+                            </label>
+                        </div>
+                    </div>
+                    <p id="results-status" class="note" aria-live="polite"></p>
+                </div>
+
+                <div id="film-grid" class="film-grid">
+                    <div class="empty">Loading films…</div>
+                </div>
+
+                <div id="empty-state" class="empty hidden" aria-live="polite">No films match those filters. Try clearing
+                    one or more filters.</div>
+            </div>
+        </section>
+
+        <dialog id="film-modal" aria-labelledby="modal-title">
+            <div class="modal-inner">
+                <button class="modal-close" type="button" aria-label="Close film story" title="Close film story">× <span
+                        class="sr-only">Close</span></button>
+                <div id="modal-content"></div>
+            </div>
+        </dialog>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h2>Gospelwood</h2>
+                <p>African Christian cinema, documented.</p>
+            </div>
+            <div>
+                <h3>Explore</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="industries.html">Industries</a>
+                    <a href="form.html">Submit a film</a>
+                </div>
+            </div>
+            <div>
+                <h3>Project</h3>
+                <div class="footer-links">
+                    <a href="attributions.html">Attributions</a>
+                    <a href="https://youtu.be/REPLACE_WITH_YOUR_VIDEO" target="_blank" rel="noopener">Video demo</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

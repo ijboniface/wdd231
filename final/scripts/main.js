@@ -24,7 +24,7 @@ export function filmPoster(film) {
   const alt = `${esc(film.title)} film artwork`;
   if (film.posterUrl) {
     return `<div class="poster poster-original">
-      <img src="${esc(film.posterUrl)}" alt="${alt}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.poster').classList.add('poster-image-error');this.remove()">
+      <img src="${esc(film.posterUrl)}" alt="${alt}" width="400" height="600" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.poster').classList.add('poster-image-error');this.remove()">
       <div class="poster-overlay"></div>
       <span class="poster-label">${esc(film.country)} · ${year}</span>
       <div class="poster-credit">${film.posterSource && film.posterSource.toLowerCase().includes("thumbnail") ? "Official video artwork" : "Film artwork"}</div>
