@@ -17,7 +17,7 @@ let limit = PAGE;
 let lastKey = "";
 const more = document.createElement("button");
 more.type = "button";
-more.className = "btn btn-secondary more-btn";
+more.className = "action action-alt more-films";
 more.textContent = "Show more films";
 more.hidden = true;
 grid?.after(more);
@@ -66,16 +66,16 @@ function render() {
   if (grid) grid.innerHTML = shown.map(filmCard).join("");
   more.hidden = shown.length >= filtered.length;
   if (count) count.textContent = `${filtered.length} film${filtered.length === 1 ? "" : "s"} found${shown.length < filtered.length ? `, showing ${shown.length}` : ""}`;
-  empty?.classList.toggle("hidden", filtered.length !== 0);
+  empty?.classList.toggle("is-hidden", filtered.length !== 0);
   animateNewCards();
 
-  grid?.querySelectorAll("[data-save]").forEach(btn => {
-    const film = films.find(f => f.id === btn.dataset.save);
+  grid?.querySelectorAll("[data-save]").forEach(saveButton => {
+    const film = films.find(f => f.id === saveButton.dataset.save);
     if (!film) return;
-    btn.textContent = isSaved(film.id) ? "✓ Saved" : "＋ Save";
-    btn.addEventListener("click", () => {
+    saveButton.textContent = isSaved(film.id) ? "✓ Saved" : "＋ Save";
+    saveButton.addEventListener("click", () => {
       toggleSaved(film.id);
-      btn.textContent = isSaved(film.id) ? "✓ Saved" : "＋ Save";
+      saveButton.textContent = isSaved(film.id) ? "✓ Saved" : "＋ Save";
       if (savedOnly?.checked) render();
     });
   });

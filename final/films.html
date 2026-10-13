@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Films | Gospelwood</title>
     <meta name="description"
         content="Search and filter a curated directory of African Christian and faith-inspired films by country, year, genre and status.">
@@ -33,7 +33,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
-        <div class="container nav-wrap">
+        <div class="page-width nav-wrap">
             <a class="brand" href="index.html">
                 <span class="brand-mark">GW</span>
                 <span>African Film Directory</span>
@@ -52,7 +52,7 @@
 
     <main id="main">
         <section class="page-hero">
-            <div class="container">
+            <div class="page-width">
                 <span class="kicker">Gospelwood archive</span>
                 <h1>Find your next story.</h1>
                 <p>Search and filter the archive by film, filmmaker, country, year and genre. Save films locally to
@@ -60,17 +60,17 @@
             </div>
         </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="filters" aria-label="Film directory filters">
+        <div class="section">
+            <div class="page-width">
+                <div class="filters" role="search" aria-label="Film directory filters">
                     <div class="filter-grid">
                         <div class="search-control">
                             <label for="search">Search films, filmmakers, genres or productions</label>
                             <div class="search-row">
                                 <input id="search" type="search" placeholder="Try a title, director, genre…"
                                     autocomplete="off">
-                                <button id="search-button" class="btn btn-primary" type="button">Search</button>
-                                <button id="clear-search" class="btn btn-quiet" type="button">Clear</button>
+                                <button id="search-button" class="action action-main" type="button">Search</button>
+                                <button id="clear-search" class="action action-quiet" type="button">Clear</button>
                             </div>
                         </div>
                         <div>
@@ -113,22 +113,23 @@
                     <div class="empty">Loading films…</div>
                 </div>
 
-                <div id="empty-state" class="empty hidden" aria-live="polite">No films match those filters. Try clearing
+                <div id="empty-state" class="empty is-hidden" aria-live="polite">No films match those filters. Try
+                    clearing
                     one or more filters.</div>
             </div>
-        </section>
+        </div>
 
         <dialog id="film-modal" aria-labelledby="modal-title">
             <div class="modal-inner">
                 <button class="modal-close" type="button" aria-label="Close film story" title="Close film story">× <span
-                        class="sr-only">Close</span></button>
+                        class="screen-reader-only">Close</span></button>
                 <div id="modal-content"></div>
             </div>
         </dialog>
     </main>
 
     <footer>
-        <div class="container footer-grid">
+        <div class="page-width footer-grid">
             <div>
                 <h2>Gospelwood</h2>
                 <p>African Christian cinema, documented.</p>
@@ -145,7 +146,7 @@
                 <h3>Project</h3>
                 <div class="footer-links">
                     <a href="attributions.html">Attributions</a>
-                    <a href="https://youtu.be/REPLACE_WITH_YOUR_VIDEO" target="_blank" rel="noopener">Video demo</a>
+                    <a href="https://canva.link/1ukoea5i7osvo6l" target="_blank" rel="noopener">Video demo</a>
                 </div>
             </div>
         </div>

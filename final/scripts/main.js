@@ -54,17 +54,17 @@ function isYouTubeUrl(url = "") {
 function sourceLink(film) {
   const direct = film.watchUrl;
   const channel = film.channelUrl;
-  if (direct) return `<a class="text-btn story-link story-link-youtube" href="${direct}" target="_blank" rel="noopener noreferrer"><span>Watch film ↗</span><small>YouTube · direct link</small></a>`;
-  if (channel) return `<a class="text-btn story-link story-link-youtube" href="${channel}" target="_blank" rel="noopener noreferrer"><span>Find film on channel ↗</span><small>${film.channelName || "YouTube channel"}</small></a>`;
+  if (direct) return `<a class="text-link story-link story-link-youtube" href="${direct}" target="_blank" rel="noopener noreferrer"><span>Watch film ↗</span><small>YouTube · direct link</small></a>`;
+  if (channel) return `<a class="text-link story-link story-link-youtube" href="${channel}" target="_blank" rel="noopener noreferrer"><span>Find film on channel ↗</span><small>${film.channelName || "YouTube channel"}</small></a>`;
   if (!film.source) return "";
   const youtube = isYouTubeUrl(film.source) || film.sourceType === "official-youtube-channel";
-  return `<a class="text-btn story-link ${youtube ? "story-link-youtube" : "story-link-verified"}" href="${esc(film.source)}" target="_blank" rel="noopener noreferrer"><span>${youtube ? "Watch on YouTube ↗" : "Open verified source ↗"}</span><small>${youtube ? "YouTube" : "Verified source"}</small></a>`;
+  return `<a class="text-link story-link ${youtube ? "story-link-youtube" : "story-link-verified"}" href="${esc(film.source)}" target="_blank" rel="noopener noreferrer"><span>${youtube ? "Watch on YouTube ↗" : "Open verified source ↗"}</span><small>${youtube ? "YouTube" : "Verified source"}</small></a>`;
 }
 
 export function filmCard(film) {
   const upcoming = film.status === "Upcoming";
   const channelLink = film.watchUrl && film.channelUrl
-    ? `<a class="text-btn story-link story-link-youtube" href="${esc(film.channelUrl)}" target="_blank" rel="noopener noreferrer"><span>Production channel ↗</span><small>YouTube</small></a>`
+    ? `<a class="text-link story-link story-link-youtube" href="${esc(film.channelUrl)}" target="_blank" rel="noopener noreferrer"><span>Production channel ↗</span><small>YouTube</small></a>`
     : "";
   return `<article class="film-card reveal ${upcoming ? "film-upcoming" : ""}">
     ${filmPoster(film)}
@@ -74,9 +74,9 @@ export function filmCard(film) {
       <div class="film-meta">${tagList([film.country, film.year || "TBA", film.language || ""])}</div>
       <p>${esc(film.description)}</p>
       <div class="card-actions">
-        <button class="text-btn details-btn" type="button" data-film="${esc(film.id)}">View film story →</button>
+        <button class="text-link details-trigger" type="button" data-film="${esc(film.id)}">View film story →</button>
         ${sourceLink(film)}${channelLink}
-        <button class="save-btn" type="button" data-save="${esc(film.id)}" aria-label="Save ${esc(film.title)}">＋ Save</button>
+        <button class="save-toggle" type="button" data-save="${esc(film.id)}" aria-label="Save ${esc(film.title)}">＋ Save</button>
       </div>
     </div>
   </article>`;

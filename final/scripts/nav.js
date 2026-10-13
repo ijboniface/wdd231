@@ -6,12 +6,12 @@
   if (!toggle || !links) return;
 
   function setOpen(open) {
-    if (open) links.classList.add("open"); else links.classList.remove("open");
+    if (open) links.classList.add("is-open"); else links.classList.remove("is-open");
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
   }
 
   toggle.addEventListener("click", function () {
-    setOpen(!links.classList.contains("open"));
+    setOpen(!links.classList.contains("is-open"));
   });
   links.addEventListener("click", function (event) {
     if (event.target.closest("a")) setOpen(false);

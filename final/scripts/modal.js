@@ -31,8 +31,8 @@ function renderFilmStory(film) {
     <p><strong>Language:</strong> ${esc(film.language || "Not established")}</p>
     <div class="film-meta">${(film.themes || []).map(theme => `<span class="tag">${esc(theme)}</span>`).join("")}</div>
     <div class="modal-actions">
-      ${source ? `<a class="btn btn-primary source-link ${source.className}" href="${source.url}" target="_blank" rel="noopener noreferrer"><span>${source.label} ↗</span><small>${source.platform}</small></a>` : `<p class="note">A specific source link is not currently established for this record.</p>`}
-      ${film.watchUrl && film.channelUrl ? `<a class="btn btn-secondary source-link source-youtube" href="${film.channelUrl}" target="_blank" rel="noopener noreferrer"><span>Production channel ↗</span><small>YouTube</small></a>` : ""}
+      ${source ? `<a class="action action-main source-link ${source.className}" href="${source.url}" target="_blank" rel="noopener noreferrer"><span>${source.label} ↗</span><small>${source.platform}</small></a>` : `<p class="note">A specific source link is not currently established for this record.</p>`}
+      ${film.watchUrl && film.channelUrl ? `<a class="action action-alt source-link source-youtube" href="${film.channelUrl}" target="_blank" rel="noopener noreferrer"><span>Production channel ↗</span><small>YouTube</small></a>` : ""}
     </div>
   `;
 }
@@ -53,7 +53,7 @@ export function setupModal(films) {
   if (!dialog) return;
 
   document.addEventListener("click", event => {
-    const button = event.target.closest(".details-btn");
+    const button = event.target.closest(".details-trigger");
     if (!button) return;
     const film = films.find(item => item.id === button.dataset.film);
     if (film) openFilmModal(film, button);

@@ -54,7 +54,7 @@ button {
   left: 8px;
 }
 
-.container {
+.page-width {
   width: 92%;
   max-width: var(--max);
   margin-inline: auto;
@@ -100,7 +100,7 @@ h4 {
   color: var(--charcoal);
 }
 
-.btns {
+.action-row {
   display: flex;
   flex-wrap: wrap;
   gap: .8rem;
@@ -191,7 +191,7 @@ h4 {
   background: #fffaf0;
 }
 
-.text-btn {
+.text-link {
   border: 0;
   background: #0000;
   color: #805c1b;
@@ -331,7 +331,7 @@ footer h3 {
 }
 
 @media (max-width:699px) {
-  .nav-links.open {
+  .nav-links.is-open {
     display: grid;
     padding: 0 0 1rem;
   }
@@ -372,9 +372,9 @@ footer h3 {
   transform: scale(.97) !important;
 }
 
-.btn,
-.save-btn,
-.text-btn,
+.action,
+.save-toggle,
+.text-link,
 .nav-toggle,
 .nav-links a,
 .film-card {
@@ -382,7 +382,7 @@ footer h3 {
   overflow: hidden;
 }
 
-.btn {
+.action {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -397,12 +397,12 @@ footer h3 {
   overflow: hidden;
 }
 
-.btn:hover {
+.action:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 22px #1f29332e;
 }
 
-.btn:active {
+.action:active {
   transform: scale(.96);
 }
 
@@ -424,7 +424,7 @@ dialog[open] {
     display: none !important;
   }
 
-  .btn,
+  .action,
   .film-card,
   .poster,
   .industry-card,
@@ -485,7 +485,7 @@ dialog[open] {
   }
 }
 
-.hidden {
+.is-hidden {
   display: none !important;
 }
 
@@ -564,7 +564,7 @@ code {
   color: #a52f24;
 }
 
-.sr-only {
+.screen-reader-only {
   position: absolute !important;
   width: 1px !important;
   height: 1px !important;
@@ -677,18 +677,18 @@ code {
   letter-spacing: -.035em;
 }
 
-.btn-primary {
+.action-main {
   color: var(--charcoal);
   background: linear-gradient(135deg, #edbd59, #d99a2b);
   border-color: #c88a1c;
   box-shadow: 0 5px 14px #a66b0a1f;
 }
 
-.btn-primary:hover {
+.action-main:hover {
   background: linear-gradient(135deg, #f5ca70, #dfa033);
 }
 
-.btn-quiet {
+.action-quiet {
   background: #0000;
   border: 1px solid var(--line);
   color: var(--charcoal);
@@ -898,7 +898,7 @@ body {
   background-size: calc(100% - 1.7rem) 2px;
 }
 
-.btn::after {
+.action::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -908,7 +908,7 @@ body {
   pointer-events: none;
 }
 
-.btn:hover::after {
+.action:hover::after {
   transform: translateX(120%);
 }
 
@@ -968,7 +968,7 @@ body {
 }
 
 @media (max-width:699px) {
-  .nav-links.open {
+  .nav-links.is-open {
     animation: menuDrop .3s ease both;
   }
 
@@ -980,7 +980,7 @@ body {
 @media (prefers-reduced-motion:reduce) {
 
   .scroll-progress,
-  .btn::after,
+  .action::after,
   .dropzone img {
     animation: none !important;
     transition: none !important;
@@ -1098,24 +1098,24 @@ body {
     display: none;
   }
 
-  .nav-links.open {
+  .nav-links.is-open {
     border-top: 1px solid #ffffff1f;
     padding-top: .5rem;
   }
 
-  .nav-links.open li {
+  .nav-links.is-open li {
     animation: menuDrop .3s ease backwards;
   }
 
-  .nav-links.open li:nth-child(2) {
+  .nav-links.is-open li:nth-child(2) {
     animation-delay: .05s;
   }
 
-  .nav-links.open li:nth-child(3) {
+  .nav-links.is-open li:nth-child(3) {
     animation-delay: .1s;
   }
 
-  .nav-links.open li:nth-child(4) {
+  .nav-links.is-open li:nth-child(4) {
     animation-delay: .15s;
   }
 }
@@ -1125,7 +1125,7 @@ body {
     animation: none !important;
   }
 
-  .nav-links.open li {
+  .nav-links.is-open li {
     animation: none !important;
   }
 }
@@ -1135,7 +1135,7 @@ body {
     flex: 1 0 100%;
   }
 
-  .nav-links.open {
+  .nav-links.is-open {
     width: 100%;
   }
 
@@ -1166,7 +1166,7 @@ body {
     justify-content: center;
   }
 
-  .btns {
+  .action-row {
     justify-content: center;
   }
 
@@ -1174,7 +1174,7 @@ body {
     padding-bottom: 0;
   }
 
-  .container {
+  .page-width {
     width: 90%;
     max-width: var(--max);
   }
@@ -1193,7 +1193,7 @@ body {
     gap: 2.2rem;
   }
 
-  .btns {
+  .action-row {
     gap: 1rem;
   }
 
@@ -1234,7 +1234,7 @@ body {
     line-height: 2.2;
   }
 
-  footer>.container>p a {
+  footer>.page-width>p a {
     display: inline-block;
     padding: .35rem .5rem;
   }

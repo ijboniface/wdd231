@@ -88,8 +88,8 @@
         "<p>" + esc(profile.history) + "</p>" +
         '<div class="profile-credit-line"><strong>Filmography:</strong> ' + listed + " listed title" + (listed === 1 ? "" : "s") + (productions ? " · " + productions + " production credit" + (productions === 1 ? "" : "s") : "") + "</div>" +
         '<div class="filmmaker-links">' +
-          '<a class="btn btn-primary" href="' + esc(link) + '" target="_blank" rel="noopener noreferrer">Visit channel or source ↗</a>' +
-          '<a class="text-btn" href="' + esc(profile.sourceUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(profile.sourceLabel || "View source") + " ↗</a>" +
+          '<a class="action action-main" href="' + esc(link) + '" target="_blank" rel="noopener noreferrer">Visit channel or source ↗</a>' +
+          '<a class="text-link" href="' + esc(profile.sourceUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(profile.sourceLabel || "View source") + " ↗</a>" +
         "</div>" +
       "</div>" +
       '<div class="filmmaker-count"><strong>' + (active + 1) + '<span class="count-divider">/</span>' + profiles.length + "</strong><span>Contributor spotlight</span><small>" + matches + " matching directory records</small></div>";
@@ -115,7 +115,7 @@
   }
 
   function showError() {
-    host.innerHTML = '<div class="error-box"><p>Filmmaker profiles could not be loaded.</p><button class="btn btn-primary" type="button" id="filmmaker-retry">Try again</button></div>';
+    host.innerHTML = '<div class="error-box"><p>Filmmaker profiles could not be loaded.</p><button class="action action-main" type="button" id="filmmaker-retry">Try again</button></div>';
     document.querySelector("#filmmaker-retry").addEventListener("click", start);
   }
 

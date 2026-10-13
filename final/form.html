@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Submit a Film | Gospelwood</title>
     <meta name="description" content="Submit a film for consideration in the Gospelwood directory.">
@@ -37,7 +37,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
-        <div class="container nav-wrap">
+        <div class="page-width nav-wrap">
             <a class="brand" href="index.html">
                 <span class="brand-mark">GW</span>
                 <span>African Film Directory</span>
@@ -68,7 +68,7 @@
 
     <main id="main">
         <section class="page-hero">
-            <div class="container">
+            <div class="page-width">
                 <span class="kicker">Film submission</span>
 
                 <h1>Help us document another story.</h1>
@@ -77,8 +77,8 @@
             </div>
         </section>
 
-        <section class="section">
-            <div class="container">
+        <div class="section">
+            <div class="page-width">
                 <form class="submit-card" action="form-action.html" method="get">
                     <div class="form-grid two">
                         <div>
@@ -138,33 +138,36 @@
                                 </span>
                             </div>
 
-                            <img id="cover-preview" alt="" hidden>
+                            <img id="cover-preview"
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                alt="" hidden>
                         </div>
 
                         <p id="cover-status" class="note" aria-live="polite"></p>
 
-                        <button type="button" id="cover-remove" class="btn btn-quiet" hidden>
+                        <button type="button" id="cover-remove" class="action action-quiet" hidden>
                             Remove image
                         </button>
                     </div>
 
                     <div>
-                        <label for="reason">Briefly describe your film, stating the plot, setting, themes and any other vital details</label>
+                        <label for="reason">Briefly describe your film, stating the plot, setting, themes and any other
+                            vital details</label>
                         <textarea id="reason" name="reason" required></textarea>
                     </div>
 
-                    <button class="btn btn-primary" type="submit">
+                    <button class="action action-main" type="submit">
                         Submit film
                     </button>
 
                     <p class="note submission-note"></p>
                 </form>
             </div>
-        </section>
+        </div>
     </main>
 
     <footer>
-        <div class="container">
+        <div class="page-width">
             <p>
                 <a href="index.html">← Back to Gospelwood</a>
                 ·
